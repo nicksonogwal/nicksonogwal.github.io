@@ -2,85 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title></title>
 
 <style>
 
-/* ------------------------------
-   READABILITY CORE STANDARDS
-   ------------------------------ */
+/* ===========================
+   UNIVERSAL READABILITY ENGINE
+   =========================== */
 
+/* Base Typography */
 body {
-    background: #fdf8f2; /* warm background */
-    color: #2b2b2b;      /* deep charcoal text */
-    font-family: "Georgia", "Times New Roman", serif;
-    font-size: 19px;     /* SMS standard: 18–20px */
-    line-height: 1.7;    /* SMS standard: 1.6–1.8 */
-    max-width: 75ch;     /* SMS standard: 60–75 characters */
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
     margin: auto;
     padding: 2rem;
+    color: #222;
+    background: #fafafa;
 }
 
-/* ------------------------------
-   HEADINGS
-   ------------------------------ */
+/* Elder-friendly scaling */
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
 
-h1 {
-    font-size: 32px;
+/* Headings */
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
     margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
 }
 
-h2 {
-    font-size: 26px;
-    margin-bottom: 1rem;
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+/* Paragraphs */
+p {
+    margin-bottom: 1.4rem;
 }
 
-h3 {
-    font-size: 22px;
-    margin-bottom: 1rem;
-}
-
-/* ------------------------------
-   ACCESSIBILITY MODES
-   ------------------------------ */
-
-body.high-contrast {
-    background: #000;
-    color: #fff;
-}
-
-body.warm-mode {
-    background: #fdf3e7;
-    color: #2b2b2b;
-}
-
-/* ------------------------------
-   ADAPTIVE TEXT SIZING
-   ------------------------------ */
-
-.text-small { font-size: 18px; }
-.text-medium { font-size: 20px; }
-.text-large { font-size: 22px; }
-
-/* ------------------------------
-   FOOTER
-   ------------------------------ */
-
-footer {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid #ccc;
-    font-size: 16px;
-}
-
-footer a {
-    color: #2b2b2b;
-    text-decoration: none;
-    margin-right: 1rem;
-}
-
-footer a:hover {
+/* Links */
+a {
+    color: #0050a0;
     text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+/* Lists */
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+/* Code Blocks */
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Horizontal Rule */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+/* ===========================
+   DARK MODE
+   =========================== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+
+/* ===========================
+   TEXT-TO-SPEECH FRIENDLY
+   =========================== */
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
 }
 
 </style>
@@ -88,6 +149,7 @@ footer a:hover {
 
 <body>
 
+<!-- Pandoc will insert your content here -->
 <p><strong>SMS — Story. Memory. Sovereignty.</strong></p>
 <p><em><strong>The Living Archive and Sovereign Editorial Identity of
 Henry Nickson Ogwal (HnO)</strong></em></p>
@@ -142,16 +204,8 @@ Welcome to the archive that refused to die.<br />
 narratives, centers ancestral knowledge, and practices decolonial
 authorship. Content is published with provenance, consent, and
 accessibility at its core.</em></p>
-
-
-<footer>
-    <p>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="licensing.html">Commercial Licensing Schedule</a>
-    </p>
-    <p>© 2026 Henry Nickson Ogwal — Sovereign Digital Architecture</p>
-</footer>
+<p>(The footer with links to Terms of Service| Licensing | Privacy
+placeholder)</p>
 
 </body>
 </html>
