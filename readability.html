@@ -1,183 +1,149 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Readability and Inclusive Access Policy V2.0</title>
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      white-space: pre-wrap;
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title></title>
+
+<style>
+
+/* ---------------------------------------------------------
+   SOVEREIGN READABILITY ENGINE V3.0
+   Pure Minimalism • Elder Friendly • Medium-grade
+   --------------------------------------------------------- */
+
+/* Core variables */
+:root{
+  --bg: #fdf8f2;          /* Classic Sepia */
+  --text: #2b2b2b;        /* Charcoal */
+  --link: #2b6cb0;        /* Calm blue */
+  --measure: 75ch;        /* Desktop line length */
+  --font-size: 19px;      /* Elder-friendly base */
+  --line-height: 1.7;     /* Comfortable rhythm */
+  --padding: 2rem;        /* Desktop spacing */
+}
+
+/* Dark mode variables */
+.dark{
+  --bg: #0b0b0b;
+  --text: #e6e6e6;
+  --link: #7fb4ff;
+}
+
+/* Base layout */
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  max-width: var(--measure);
+  margin: auto;
+  padding: var(--padding);
+}
+
+/* Headings */
+h1{ font-size: 32px; margin-bottom: 1rem; }
+h2{ font-size: 26px; margin-bottom: 1rem; }
+h3{ font-size: 22px; margin-bottom: 1rem; }
+
+/* Links */
+a{
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+/* Images */
+img{
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+/* Tables */
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+th, td{
+  padding: 0.6rem;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Footer */
+footer{
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* ---------------------------------------------------------
+   MOBILE READABILITY (Medium-grade)
+   --------------------------------------------------------- */
+@media (max-width: 720px){
+  :root{
+    --font-size: 20px;       /* Slightly larger */
+    --line-height: 1.85;     /* More breathing room */
+    --measure: 48ch;         /* Medium-style narrow measure */
+    --padding: 1.2rem;       /* Comfortable mobile spacing */
+  }
+
+  h1{ font-size: 28px; }
+  h2{ font-size: 22px; }
+  h3{ font-size: 20px; }
+}
+
+/* ---------------------------------------------------------
+   TEXT-TO-SPEECH CONTROLS
+   --------------------------------------------------------- */
+#tts-controls{
+  margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+#tts-controls button,
+#tts-controls select{
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+}
+
+/* ---------------------------------------------------------
+   DARK MODE TOGGLE
+   --------------------------------------------------------- */
+#theme-toggle{
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+}
+
+</style>
 </head>
+
 <body>
-<p>===============================================================</p>
+
+<!-- DARK MODE TOGGLE -->
+<button id="theme-toggle">Toggle theme</button>
+
+<!-- TEXT-TO-SPEECH CONTROLS -->
+<div id="tts-controls">
+  <button id="tts-play">Read</button>
+  <button id="tts-pause">Pause</button>
+  <button id="tts-stop">Stop</button>
+  <select id="tts-voices"></select>
+  <label>Rate <input id="tts-rate" type="range" min="0.5" max="2" step="0.1" value="1"></label>
+</div>
+
+<!-- MAIN CONTENT -->
+<p>======================================================================</p>
 <p>SOVEREIGN PLATFORM POLICY REGISTRY COMPLIANCE FILE</p>
-<p>===============================================================</p>
+<p>======================================================================</p>
 <p>PLATFORM DOMAIN NODE: Sovereign Digital Estate — nicksonogwal.org</p>
 <p>AUTHOR: Henry Nickson Ogwal (HnO)</p>
 <p>PLATFORM CUSTODIAN: Henry Nickson Ogwal (HnO)</p>
@@ -187,7 +153,7 @@
 <p>COMPLIANCE OFFICE: Digital Sovereignty Governance Desk, Kampala</p>
 <p>POLICY CLASS: Accessibility, Inclusion, Sovereign Design</p>
 <p>ENFORCEMENT STATUS: Active</p>
-<p>===============================================================</p>
+<p>======================================================================</p>
 <p><strong><br />
 READABILITY AND INCLUSIVE ACCESS POLICY</strong></p>
 <p><strong><br />
@@ -325,10 +291,76 @@ Henry Nickson Ogwal (HnO)<br />
 Primary Registrant and Sovereign Archivist<br />
 nicksonogwal.org</p>
 <p>──────────────────────────────────────────────</p>
-<p>© 2026 Henry Nickson Ogwal — <em>Sovereign Digital Architecture and
-Repository</em></p>
-<p>All Rights Reserved — Readability and Inclusive Access Policy Version
-2.0</p>
+<p>© 2026 Henry Nickson Ogwal — Sovereign Digital Architecture</p>
+<p>All Rights Reserved — Privacy and Data Protection Protocols Version
+2.2</p>
 <p>──────────────────────────────────────────────</p>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="licensing.html">Commercial Licensing Schedule</a>
+  </p>
+  <p>© 2026 Henry Nickson Ogwal — Sovereign Digital Architecture</p>
+</footer>
+
+<!-- DARK MODE SCRIPT -->
+<script>
+const btn = document.getElementById('theme-toggle');
+const root = document.documentElement;
+const saved = localStorage.getItem('site-theme');
+if(saved === 'dark') root.classList.add('dark');
+
+btn.addEventListener('click', ()=>{
+  const isDark = root.classList.toggle('dark');
+  localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+});
+</script>
+
+<!-- TEXT-TO-SPEECH SCRIPT -->
+<script>
+if('speechSynthesis' in window){
+  const synth = window.speechSynthesis;
+  const playBtn = document.getElementById('tts-play');
+  const pauseBtn = document.getElementById('tts-pause');
+  const stopBtn = document.getElementById('tts-stop');
+  const voicesSelect = document.getElementById('tts-voices');
+  const rateInput = document.getElementById('tts-rate');
+
+  function populateVoices(){
+    voicesSelect.innerHTML = '';
+    synth.getVoices().forEach(v=>{
+      const opt = document.createElement('option');
+      opt.value = v.name;
+      opt.textContent = ` ()`;
+      voicesSelect.appendChild(opt);
+    });
+  }
+  populateVoices();
+  if(speechSynthesis.onvoiceschanged !== undefined){
+    speechSynthesis.onvoiceschanged = populateVoices;
+  }
+
+  let utter;
+  playBtn.addEventListener('click', ()=>{
+    if(synth.speaking) return;
+    const text = document.body.innerText;
+    utter = new SpeechSynthesisUtterance(text);
+    const selected = voicesSelect.value;
+    const voice = synth.getVoices().find(v=>v.name === selected);
+    if(voice) utter.voice = voice;
+    utter.rate = parseFloat(rateInput.value);
+    synth.speak(utter);
+  });
+
+  pauseBtn.addEventListener('click', ()=> synth.pause());
+  stopBtn.addEventListener('click', ()=> synth.cancel());
+} else {
+  document.getElementById('tts-controls').style.display = 'none';
+}
+</script>
+
 </body>
 </html>
