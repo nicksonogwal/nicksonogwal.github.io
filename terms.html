@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sovereign Repository Archive</title>
     <style>
-        /* Sovereign Framework Baseline Sizing */
+        /* Exact Medium-Identity Responsive Typography System Framework */
         :root {
-            --base-font-size: 20px; 
-            --base-line-height: 1.75; 
+            --base-font-size: 21px; 
+            --base-line-height: 1.82; 
             --bg-color: #ffffff;
             --text-color: #292929; 
             --header-color: #1a1a1a;
             --border-color: #efefef;
         }
 
-        /* Warm Sepia Reading Mode (Anti-Glare Policy Standard) */
+        /* Policy-Compliant Warm Sepia Mode Theme Override */
         body.warm-mode {
             --bg-color: #f7f2e8; 
             --text-color: #2b261f;
@@ -30,13 +30,12 @@
             line-height: var(--base-line-height);
             color: var(--text-color) !important;
             background-color: var(--bg-color) !important;
-            letter-spacing: -0.003em;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            letter-spacing: -0.003em; 
+            transition: background-color 0.15s ease, color 0.15s ease;
             -webkit-text-size-adjust: 100%;
         }
 
-        /* Standard Reading Column Limit */
-        .sovereign-container {
+        main {
             display: block; 
             width: 100%; 
             max-width: 680px; 
@@ -44,10 +43,18 @@
             padding: 56px 24px; 
             box-sizing: border-box;
         }
+        
+        /* Direct LibreOffice Paragraph Layout Baseline Rules */
+        #sovereign-text p, #sovereign-text span, #sovereign-text div {
+            text-align: left !important;
+            max-width: 100% !important;
+        }
+        #sovereign-text p { margin: 0 0 2rem 0 !important; word-wrap: break-word; }
+        #sovereign-text li { margin-bottom: 1rem; text-align: left; }
 
-        /* Clean Sans-Serif Contrast Headers */
+        /* Clean Contrast Headers */
         h1, h2, h3, h4 { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: var(--header-color) !important;
             font-weight: 700;
             letter-spacing: -0.015em;
@@ -56,67 +63,68 @@
         h2 { font-size: 1.55em; line-height: 1.22; margin: 1.8em 0 0.6em; }
         h3 { font-size: 1.25em; line-height: 1.28; margin: 1.8em 0 0.6em; }
 
-        /* 
-           CRITICAL LIBREOFFICE OVERRIDE SYSTEM:
-           Forces nested converted paragraph text, headers, and spans to submit to the CSS variables
-           governed by your interactive text scale and theme control panel buttons.
-        */
-        #sovereign-text, 
-        #sovereign-text *, 
-        #sovereign-text p, 
-        #sovereign-text span, 
-        #sovereign-text div, 
-        #sovereign-text font {
-            font-size: var(--base-font-size) !important;
-            line-height: var(--base-line-height) !important;
-            color: var(--text-color) !important;
-            background: transparent !important; /* Prevents embedded document backgrounds from breaking theme modes */
-            background-color: transparent !important;
-            text-align: left !important;
-            max-width: 100% !important;
+        /* Standalone Button Grouping Controls (No Outer Containment Boxes) */
+        .control-row {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin-bottom: 1.5rem;
+            display: block;
+            width: 100%;
+            clear: both;
         }
-        
-        #sovereign-text p { margin: 0 0 2rem 0 !important; word-wrap: break-word; }
-        #sovereign-text li { margin-bottom: 1rem; text-align: left; }
+        .control-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-color);
+            display: inline-block;
+            min-width: 120px;
+            opacity: 0.7;
+        }
 
-        /* Unified Control UI Block */
-        .accessibility-panel {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-            background-color: var(--bg-color) !important;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 3.5rem;
-            border: 1px solid var(--border-color) !important;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        /* Universal Action Button System matching your preferred layout profile */
+        .action-btn {
+            background-color: var(--text-color) !important; 
+            color: var(--bg-color) !important; 
+            border: 1px solid var(--text-color) !important;
+            padding: 8px 16px; 
+            font-size: 15px; 
+            font-weight: 500; 
+            border-radius: 20px; 
+            cursor: pointer;
+            margin-right: 8px;
+            display: inline-block;
         }
-        .accessibility-panel * { font-size: initial !important; line-height: initial !important; color: initial !important; background: transparent !important; }
-        .panel-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-        .panel-label { font-size: 0.8em !important; font-weight: 600 !important; text-transform: uppercase; color: var(--text-color) !important; opacity: 0.7; min-width: 115px; }
-        
-        .reader-btn {
-            background-color: var(--text-color) !important; color: var(--bg-color) !important; border: 1px solid var(--text-color) !important;
-            padding: 8px 16px !important; font-size: 0.85rem !important; font-weight: 500 !important; border-radius: 20px !important; cursor: pointer;
-            display: inline-flex !important; align-items: center !important; gap: 6px !important;
+        .action-btn:disabled { 
+            background-color: #cccccc !important; 
+            border-color: #cccccc !important; 
+            color: #666666 !important; 
+            cursor: not-allowed; 
         }
-        .reader-btn:disabled { background-color: #cccccc !important; border-color: #cccccc !important; color: #666666 !important; cursor: not-allowed !important; }
 
-        .toggle-btn {
-            background-color: transparent !important; color: var(--text-color) !important; border: 1px solid var(--text-color) !important;
-            padding: 6px 14px !important; font-size: 0.85rem !important; font-weight: 500 !important; border-radius: 6px !important; cursor: pointer;
-            display: inline-block !important;
+        .option-btn {
+            background-color: transparent !important; 
+            color: var(--text-color) !important; 
+            border: 1px solid var(--text-color) !important;
+            padding: 6px 14px; 
+            font-size: 14px; 
+            font-weight: 500; 
+            border-radius: 6px; 
+            cursor: pointer;
+            margin-right: 8px;
+            display: inline-block;
         }
-        .toggle-btn.active { background-color: var(--text-color) !important; color: var(--bg-color) !important; }
+        .option-btn.active { 
+            background-color: var(--text-color) !important; 
+            color: var(--bg-color) !important; 
+        }
         
-        /* Fixed, Static Closing Statement Style */
+        /* Closing Statement Styling */
         .closing-statement {
             font-style: italic !important; margin-top: 4.5em; margin-bottom: 2.5em; padding-top: 2.5em;
             border-top: 1px solid var(--border-color) !important; color: var(--text-color) !important; opacity: 0.8; text-align: left !important; font-size: 0.95em !important;
         }
 
-        /* Restored Layout Footer Component */
+        /* Layout Footer Component Layout Configuration */
         .sovereign-footer {
             margin-top: 5em; padding-top: 2.5em; border-top: 1px solid var(--text-color) !important;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
@@ -125,47 +133,65 @@
         }
         .sovereign-footer * { color: var(--text-color) !important; font-size: inherit !important; line-height: inherit !important; }
         .footer-links { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 32px; }
-        .footer-links a { text-decoration: none; display: inline-block; }
-        .footer-links a:hover { text-decoration: underline !important; }
-        .copyright { display: block; margin-top: 1em; }
+        
+        /* RESTORED ACTIVE LINK PRESENTATION FOR THE FOOTER */
+        .footer-links a { 
+            color: var(--text-color) !important;
+            text-decoration: underline !important; 
+            display: inline-block; 
+            cursor: pointer !important;
+        }
+        .footer-links a:hover { color: var(--header-color) !important; opacity: 1; }
+        
+        /* Spacing divider separating tools from text content */
+        .divider-spacer {
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            width: 100%;
+        }
 
-        /* Handheld Adaptive Breakpoints */
         @media screen and (max-width: 600px) {
-            :root { --base-font-size: 18px; }
-            .sovereign-container { padding: 36px 20px; }
+            main { padding: 36px 20px; }
             h1 { font-size: 1.85em; }
             h2 { font-size: 1.35em; }
             .footer-links { flex-direction: column; gap: 12px; }
-            .accessibility-panel { padding: 16px; margin-bottom: 2rem; }
+            .control-row { margin-bottom: 1.2rem; }
+            .control-label { display: block; margin-bottom: 6px; }
         }
     </style>
 </head>
 <body>
 
     <!-- Main Container Column -->
-    <main class="sovereign-container">
+    <main>
         
-        <!-- Sovereign Accessibility Control Panel -->
-        <div class="accessibility-panel">
-            <div class="panel-row">
-                <span class="panel-label">Audio Reader</span>
-                <button id="playBtn" class="reader-btn" onclick="toggleSpeech()">▶ Read Page</button>
-                <button id="stopBtn" class="reader-btn" onclick="stopSpeech()" style="background-color: #666666 !important; border-color: #666666 !important;" disabled>Stop</button>
-            </div>
-            <div class="panel-row">
-                <span class="panel-label">Text Scale</span>
-                <button id="sizeA" class="toggle-btn active" onclick="setTextSize('standard', 'sizeA')">A (Standard)</button>
-                <button id="sizeAriaPlus" class="toggle-btn" onclick="setTextSize('large', 'sizeAriaPlus')">A+ (Large)</button>
-                <button id="sizeAriaPlusPlus" class="toggle-btn" onclick="setTextSize('extra', 'sizeAriaPlusPlus')">A++ (Elder)</button>
-            </div>
-            <div class="panel-row">
-                <span class="panel-label">Visual Theme</span>
-                <button id="themeDefault" class="toggle-btn active" onclick="setTheme('default')">Crisp Light</button>
-                <button id="themeWarm" class="toggle-btn" onclick="setTheme('warm')">Warm Sepia</button>
-            </div>
+        <!-- Standalone Audio Reader Line -->
+        <div class="control-row">
+            <span class="control-label">Audio Reader</span>
+            <button id="playBtn" class="action-btn">▶ Read Page</button>
+            <button id="stopBtn" class="action-btn" style="background-color: #666666 !important; border-color: #666666 !important;" disabled>Stop</button>
         </div>
 
-        <!-- Clean Text Area Container (Targeted by Controls) -->
+        <!-- Standalone Text Scaler Line -->
+        <div class="control-row">
+            <span class="control-label">Text Scale</span>
+            <button id="sizeA" class="option-btn active">A (Standard)</button>
+            <button id="sizePlus" class="option-btn">A+ (Large)</button>
+            <button id="sizePlusPlus" class="option-btn">A++ (Elder)</button>
+        </div>
+
+        <!-- Standalone Visual Theme Line -->
+        <div class="control-row">
+            <span class="control-label">Visual Theme</span>
+            <button id="themeDefault" class="option-btn active">Crisp Light</button>
+            <button id="themeWarm" class="option-btn">Warm Sepia</button>
+        </div>
+
+        <!-- Bottom Spacer Divider Line -->
+        <div class="divider-spacer"></div>
+
+        <!-- Converted LibreOffice Text Content Container Box -->
         <div id="sovereign-text">
             
             <!DOCTYPE html>
@@ -783,12 +809,12 @@ nicksonogwal.org</p>
             SMS — Story. Memory. Sovereignty. This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.
         </p>
 
-        <!-- Restored Footer Component Structure -->
+        <!-- Restored Footer Layout Structure with production estate endpoints -->
         <footer class="sovereign-footer">
             <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a>
-                <a href="#terms">Terms of Service</a>
-                <a href="#licensing">Commercial Licensing Schedule</a>
+                <a href="https://nicksonogwal.org/privacy">Privacy Policy</a>
+                <a href="https://nicksonogwal.org/terms">Terms of Service</a>
+                <a href="https://nicksonogwal.org/licensing">Commercial Licensing Schedule</a>
             </div>
             <div class="copyright">
                 &copy; 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository
@@ -797,21 +823,33 @@ nicksonogwal.org</p>
 
     </main>
 
-    <!-- Native JavaScript Engine -->
+    <!-- Native JavaScript Control Engine (Root-Level DOM Event Binding) -->
     <script>
+        // System Audio Controller
         let synth = window.speechSynthesis;
         let utterance = null;
 
-        function toggleSpeech() {
-            const playBtn = document.getElementById('playBtn');
-            const stopBtn = document.getElementById('stopBtn');
+        const playBtn = document.getElementById('playBtn');
+        const stopBtn = document.getElementById('stopBtn');
 
-            if (!synth) {
-                alert("Audio text-to-speech reading is not supported by your browser engine.");
-                return;
-            }
-            if (synth.speaking && synth.paused) {
-                synth.resume();
-                playBtn.innerHTML = "⏸ Pause Reader";
-                return;
-            }
+        if (playBtn) {
+            playBtn.addEventListener('click', function() {
+                if (!synth) {
+                    alert("Audio text-to-speech reading is not supported by your browser engine.");
+                    return;
+                }
+                if (synth.speaking && synth.paused) {
+                    synth.resume();
+                    playBtn.innerHTML = "⏸ Pause Reader";
+                    return;
+                }
+                if (synth.speaking && !synth.paused) {
+                    synth.pause();
+                    playBtn.innerHTML = "▶ Resume Reader";
+                    return;
+                }
+
+                const plainText = document.getElementById('sovereign-text').innerText;
+                utterance = new SpeechSynthesisUtterance(plainText);
+                
+                utterance.onend = function() {
