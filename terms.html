@@ -1,185 +1,205 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>SOVEREIGN REPOSITORY TERMS OF USE VERSION 2.2</title>
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      white-space: pre-wrap;
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Repository Archive</title>
+    <style>
+        /* Sovereign Framework Baseline Sizing */
+        :root {
+            --base-font-size: 20px; 
+            --base-line-height: 1.75; 
+            --bg-color: #ffffff;
+            --text-color: #292929; 
+            --header-color: #1a1a1a;
+            --border-color: #efefef;
+        }
+
+        /* Warm Sepia Reading Mode (Anti-Glare Policy Standard) */
+        body.warm-mode {
+            --bg-color: #f7f2e8; 
+            --text-color: #2b261f;
+            --header-color: #1a1510;
+            --border-color: #e3dac9;
+        }
+
+        html, body {
+            margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+            font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+            font-size: var(--base-font-size);
+            line-height: var(--base-line-height);
+            color: var(--text-color) !important;
+            background-color: var(--bg-color) !important;
+            letter-spacing: -0.003em;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Standard Reading Column Limit */
+        .sovereign-container {
+            display: block; 
+            width: 100%; 
+            max-width: 680px; 
+            margin: 0 auto; 
+            padding: 56px 24px; 
+            box-sizing: border-box;
+        }
+
+        /* Clean Sans-Serif Contrast Headers */
+        h1, h2, h3, h4 { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--header-color) !important;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+        h1 { font-size: 2.2em; line-height: 1.18; margin: 1.8em 0 0.6em; }
+        h2 { font-size: 1.55em; line-height: 1.22; margin: 1.8em 0 0.6em; }
+        h3 { font-size: 1.25em; line-height: 1.28; margin: 1.8em 0 0.6em; }
+
+        /* 
+           CRITICAL LIBREOFFICE OVERRIDE SYSTEM:
+           Forces nested converted paragraph text, headers, and spans to submit to the CSS variables
+           governed by your interactive text scale and theme control panel buttons.
+        */
+        #sovereign-text, 
+        #sovereign-text *, 
+        #sovereign-text p, 
+        #sovereign-text span, 
+        #sovereign-text div, 
+        #sovereign-text font {
+            font-size: var(--base-font-size) !important;
+            line-height: var(--base-line-height) !important;
+            color: var(--text-color) !important;
+            background: transparent !important; /* Prevents embedded document backgrounds from breaking theme modes */
+            background-color: transparent !important;
+            text-align: left !important;
+            max-width: 100% !important;
+        }
+        
+        #sovereign-text p { margin: 0 0 2rem 0 !important; word-wrap: break-word; }
+        #sovereign-text li { margin-bottom: 1rem; text-align: left; }
+
+        /* Unified Control UI Block */
+        .accessibility-panel {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            background-color: var(--bg-color) !important;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 3.5rem;
+            border: 1px solid var(--border-color) !important;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .accessibility-panel * { font-size: initial !important; line-height: initial !important; color: initial !important; background: transparent !important; }
+        .panel-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        .panel-label { font-size: 0.8em !important; font-weight: 600 !important; text-transform: uppercase; color: var(--text-color) !important; opacity: 0.7; min-width: 115px; }
+        
+        .reader-btn {
+            background-color: var(--text-color) !important; color: var(--bg-color) !important; border: 1px solid var(--text-color) !important;
+            padding: 8px 16px !important; font-size: 0.85rem !important; font-weight: 500 !important; border-radius: 20px !important; cursor: pointer;
+            display: inline-flex !important; align-items: center !important; gap: 6px !important;
+        }
+        .reader-btn:disabled { background-color: #cccccc !important; border-color: #cccccc !important; color: #666666 !important; cursor: not-allowed !important; }
+
+        .toggle-btn {
+            background-color: transparent !important; color: var(--text-color) !important; border: 1px solid var(--text-color) !important;
+            padding: 6px 14px !important; font-size: 0.85rem !important; font-weight: 500 !important; border-radius: 6px !important; cursor: pointer;
+            display: inline-block !important;
+        }
+        .toggle-btn.active { background-color: var(--text-color) !important; color: var(--bg-color) !important; }
+        
+        /* Fixed, Static Closing Statement Style */
+        .closing-statement {
+            font-style: italic !important; margin-top: 4.5em; margin-bottom: 2.5em; padding-top: 2.5em;
+            border-top: 1px solid var(--border-color) !important; color: var(--text-color) !important; opacity: 0.8; text-align: left !important; font-size: 0.95em !important;
+        }
+
+        /* Restored Layout Footer Component */
+        .sovereign-footer {
+            margin-top: 5em; padding-top: 2.5em; border-top: 1px solid var(--text-color) !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            font-size: 0.85em !important; color: var(--text-color) !important; opacity: 0.8; line-height: 1.8 !important;
+            clear: both; display: block; width: 100%;
+        }
+        .sovereign-footer * { color: var(--text-color) !important; font-size: inherit !important; line-height: inherit !important; }
+        .footer-links { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 32px; }
+        .footer-links a { text-decoration: none; display: inline-block; }
+        .footer-links a:hover { text-decoration: underline !important; }
+        .copyright { display: block; margin-top: 1em; }
+
+        /* Handheld Adaptive Breakpoints */
+        @media screen and (max-width: 600px) {
+            :root { --base-font-size: 18px; }
+            .sovereign-container { padding: 36px 20px; }
+            h1 { font-size: 1.85em; }
+            h2 { font-size: 1.35em; }
+            .footer-links { flex-direction: column; gap: 12px; }
+            .accessibility-panel { padding: 16px; margin-bottom: 2rem; }
+        }
+    </style>
 </head>
 <body>
-<p>==============================================================<br />
-<br />
-SOVEREIGN PLATFORM LEGAL REGISTRY COMPLIANCE FILE<br />
-==============================================================<br />
-<br />
+
+    <!-- Main Container Column -->
+    <main class="sovereign-container">
+        
+        <!-- Sovereign Accessibility Control Panel -->
+        <div class="accessibility-panel">
+            <div class="panel-row">
+                <span class="panel-label">Audio Reader</span>
+                <button id="playBtn" class="reader-btn" onclick="toggleSpeech()">▶ Read Page</button>
+                <button id="stopBtn" class="reader-btn" onclick="stopSpeech()" style="background-color: #666666 !important; border-color: #666666 !important;" disabled>Stop</button>
+            </div>
+            <div class="panel-row">
+                <span class="panel-label">Text Scale</span>
+                <button id="sizeA" class="toggle-btn active" onclick="setTextSize('standard', 'sizeA')">A (Standard)</button>
+                <button id="sizeAriaPlus" class="toggle-btn" onclick="setTextSize('large', 'sizeAriaPlus')">A+ (Large)</button>
+                <button id="sizeAriaPlusPlus" class="toggle-btn" onclick="setTextSize('extra', 'sizeAriaPlusPlus')">A++ (Elder)</button>
+            </div>
+            <div class="panel-row">
+                <span class="panel-label">Visual Theme</span>
+                <button id="themeDefault" class="toggle-btn active" onclick="setTheme('default')">Crisp Light</button>
+                <button id="themeWarm" class="toggle-btn" onclick="setTheme('warm')">Warm Sepia</button>
+            </div>
+        </div>
+
+        <!-- Clean Text Area Container (Targeted by Controls) -->
+        <div id="sovereign-text">
+            
+            <!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>TERMS OF SERVICE</title>
+	<meta name="generator" content="LibreOffice 26.2.5.2 (Windows)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2026-08-12T18:00:11.641667200"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		h2 { margin-top: 0.14in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Sans", sans-serif; font-weight: bold; font-size: 16pt }
+		h2.cjk { font-size: 16pt; font-family: "Microsoft YaHei"; font-weight: bold }
+		h2.ctl { font-family: "Lucida Sans"; font-size: 16pt; font-weight: bold }
+		h1 { margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-weight: bold; font-size: 18pt }
+		h1.cjk { font-size: 18pt; font-family: "Microsoft YaHei"; font-weight: bold }
+		h1.ctl { font-family: "Lucida Sans"; font-size: 18pt; font-weight: bold }
+		h3 { margin-top: 0.1in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Sans", sans-serif; font-weight: bold; font-size: 14pt }
+		h3.cjk { font-size: 14pt; font-family: "Microsoft YaHei"; font-weight: bold }
+		h3.ctl { font-family: "Lucida Sans"; font-size: 14pt; font-weight: bold }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p><span id="Frame1" dir="ltr" style="width: 0.02in; border: none; padding: 0in; background: #ffffff"><h1 class="western" style="display:inline;" style="margin-top: 0in; margin-bottom: 0in">
+	SOVEREIGN PLATFORM LEGAL REGISTRY COMPLIANCE FILE<br/>
+<br/>
+
+	</h1>
+</span><br/>
 PLATFORM DOMAIN NODE: nicksonogwal.org</p>
 <p>PLATFORM CUSTODIAN: Henry Nickson Ogwal (HnO)</p>
 <p>DOCUMENT VERSION: v2.2 (Hardened Master Version)</p>
@@ -187,517 +207,611 @@ PLATFORM DOMAIN NODE: nicksonogwal.org</p>
 <p>SUBSTANTIVE LAW: Republic of Uganda</p>
 <p>ARBITRATION SEAT: Kampala, Uganda</p>
 <p>ENFORCEMENT STATUS: Active Monograph</p>
-<p>==============================================================<strong><br />
-<br />
-<br />
-SOVEREIGN REPOSITORY TERMS OF USE (VERSION 2.2)</strong></p>
-<p><strong><br />
-INTRODUCTION</strong></p>
+<h2 class="western"><b>SOVEREIGN REPOSITORY TERMS OF USE (VERSION
+2.2)</b></h2>
+<h2 class="western"><b>INTRODUCTION</b></h2>
+<p><br/>
+<br/>
+
+</p>
 <p>Welcome to the Sovereign Repository of nicksonogwal.org.</p>
-<p>This space is a living archive of Story, Memory, and Sovereignty — a
-protected digital hearth where research assets, ancestral knowledge,
-strategic portfolios, and phonographic masters are preserved with care
-and custodial discipline. These Terms of Use form the formal covenant
-that governs entry into this sanctuary. They define the boundaries
-through which readers, patrons, collaborators, and institutions may
-engage with the Platform and its four intellectual property
-quadrants.</p>
-<p>By stepping into this domain, you honour the custodial protocols that
-safeguard its integrity. You acknowledge the cultural labour invested in
-its creation, and you accept the responsibilities that accompany access
-to its decolonial histories, structured metadata, advisory frameworks,
-and audio ethnographic recordings.</p>
+<p>This space is a living archive of Story, Memory, and Sovereignty —
+a&nbsp;protected digital hearth where research assets, ancestral
+knowledge,&nbsp;strategic portfolios, and phonographic masters are
+preserved with care&nbsp;and custodial discipline. These Terms of Use
+form the formal covenant&nbsp;that governs entry into this sanctuary.
+They define the boundaries&nbsp;through which readers, patrons,
+collaborators, and institutions may&nbsp;engage with the Platform and
+its four intellectual property quadrants.</p>
+<p>By stepping into this domain, you honour the custodial protocols
+that&nbsp;safeguard its integrity. You acknowledge the cultural
+labour invested in&nbsp;its creation, and you accept the
+responsibilities that accompany access&nbsp;to its decolonial
+histories, structured metadata, advisory frameworks,&nbsp;and audio
+ethnographic recordings.</p>
 <p>Through these shared commitments, we uphold a dignified,
-uncompromised environment — one that protects the work, honours the
-ancestors, and sustains a global community dedicated to intellectual
-liberation and the restoration of African knowledge sovereignty.</p>
-<p><strong>PREAMBLE: INTRODUCTORY DECLARATION AND EPISTEMIC
-MISSION</strong></p>
-<p>This document establishes the sovereign contractual governance
-framework for nicksonogwal.org. The Platform operates as a secure,
-decentralized digital repository, clearinghouse, and advisory suite
-dedicated to the advancement of African intellectual sovereignty. Its
-core epistemic mission is to advance absolute intellectual liberation,
-execute systemic epistemic restitution, and dismantle colonial
-structural pathologization.</p>
+uncompromised&nbsp;environment — one that protects the work,
+honours the ancestors, and&nbsp;sustains a global community dedicated
+to intellectual liberation and the&nbsp;restoration of African
+knowledge sovereignty.</p>
+<h2 class="western">PREAMBLE: INTRODUCTORY DECLARATION AND EPISTEMIC
+MISSION</h2>
+<p><br/>
+This document establishes the sovereign contractual
+governance framework&nbsp;for nicksonogwal.org. The Platform operates
+as a secure, decentralized&nbsp;digital repository, clearinghouse,
+and advisory suite dedicated to the&nbsp;advancement of African
+intellectual sovereignty. Its core epistemic&nbsp;mission is to
+advance absolute intellectual liberation, execute systemic&nbsp;epistemic
+restitution, and dismantle colonial structural&nbsp;pathologization.</p>
 <p>The Platform provides direct access to the multidisciplinary
-initiatives of Henry Nickson Ogwal (HnO), encompassing decolonial
-humanities research, audio ethnographic performance, and applied
-strategic consultancy. By entering, parsing, or interacting with any
-file pathway on this Platform, the User explicitly enters into a binding
-legal covenant with the Platform Custodian and agrees to be governed by
-the terms, conditions, and statutory mandates detailed herein.</p>
-<p><strong>SECTION 1: SYSTEMIC PARADIGM AND LEGAL
-DEFINITIONS</strong></p>
-<p><strong>1.1 Definitions and Interpretive Boundaries</strong></p>
+initiatives&nbsp;of Henry Nickson Ogwal (HnO), encompassing
+decolonial humanities&nbsp;research, audio ethnographic performance,
+and applied strategic&nbsp;consultancy. By entering, parsing, or
+interacting with any file pathway&nbsp;on this Platform, the User
+explicitly enters into a binding legal&nbsp;covenant with the
+Platform Custodian and agrees to be governed by the&nbsp;terms,
+conditions, and statutory mandates detailed herein.</p>
+<h2 class="western">SECTION 1: SYSTEMIC PARADIGM AND LEGAL
+DEFINITIONS</h2>
+<h3 class="western">1.1 Definitions and Interpretive Boundaries</h3>
 <ul>
-<li><p><strong>Platform:</strong> Refers to the entirely static website
-architecture, raw file directories, sub-directories, and cryptographic
-asset paths associated with nicksonogwal.org. This includes all
-public-facing elements mirrored across decentralized, read-only hosting
-environments like GitHub Pages and Codeberg Pages, and shielded by
-Layer-7 Cloudflare edge firewalls.</p></li>
-<li><p><strong>Platform Custodian:</strong> Refers strictly to Henry
-Nickson Ogwal (HnO), his legal representatives, and designated cultural
-successions. The title of formal institutional authority remains silent
-across all sections to embed the active value of personal and
-professional humility directly into the platform’s governing
-mechanics.</p></li>
-<li><p><strong>User:</strong> Refers to any human researcher, academic
-viewer, digital consumer, or verified entity accessing the Platform from
-any global network location. This definition explicitly excludes
-un-vetted, automated bots, scrapers, and large language model (LLM)
-training crawlers, whose access is governed under Section 5.</p></li>
-<li><p><strong>Research Assets:</strong> Refers to all text files,
-structured metadata, code repositories, audio recordings, spoken-word
-captures, genealogical registries, and digital designs contained within
-the boundaries of the Platform.</p></li>
-<li><p><strong>Epistemocide:</strong> Refers to the systematic,
-historical, and ongoing destruction, marginalisation, and external
-commercial extraction of indigenous African knowledge structures by
-Eurocentric colonial and neo-colonial state apparatuses.</p></li>
+	<li><p><span style="font-weight: normal">Platform </span><span style="font-weight: normal">r</span>efers
+	to the entirely static website architecture, raw&nbsp;file
+	directories, sub-directories, and cryptographic asset
+	paths&nbsp;associated with nicksonogwal.org. This includes all
+	public-facing&nbsp;elements mirrored across decentralized, read-only
+	hosting environments&nbsp;like GitHub Pages and Codeberg Pages, and
+	shielded by Layer-7&nbsp;Cloudflare edge firewalls.</p></li>
+	<li><p><b>Platform Custodian</b> refers strictly to Henry Nickson
+	Ogwal (HnO),&nbsp;his legal representatives, and designated cultural
+	successions. The&nbsp;title of formal institutional authority
+	remains silent across all&nbsp;sections to embed the active value of
+	personal and professional&nbsp;humility directly into the platform’s
+	governing mechanics.</p></li>
+	<li><p><b>User</b> refers to any human researcher, academic viewer,
+	digital&nbsp;consumer, or verified entity accessing the Platform
+	from any global&nbsp;network location. This definition explicitly
+	excludes un-vetted,&nbsp;automated bots, scrapers, and large
+	language model (LLM) training&nbsp;crawlers, whose access is
+	governed under Section 5.</p></li>
+	<li><p><b>Research Assets</b> refers to all text files, structured
+	metadata,&nbsp;code repositories, audio recordings, spoken-word
+	captures,&nbsp;genealogical registries, and digital designs
+	contained within the&nbsp;boundaries of the Platform.</p></li>
+	<li><p><b>Epistemocide</b> refers to the systematic, historical, and
+	ongoing&nbsp;destruction, marginalisation, and external commercial
+	extraction of&nbsp;indigenous African knowledge structures by
+	Eurocentric colonial and&nbsp;neo-colonial state apparatuses.</p></li>
 </ul>
-<p><strong>1.2 Interrelation of the Four-Quadrant Intellectual Property
-Matrix</strong></p>
+<h3 class="western">1.2 Interrelation of the Four-Quadrant
+Intellectual Property Matrix</h3>
 <p>The Platform integrates four structural legal quadrants into a
-single, cohesive user experience to demonstrate the indivisibility of
-African public intellect, creative expression, and strategic wisdom.</p>
+single,&nbsp;cohesive user experience to demonstrate the
+indivisibility of African&nbsp;public intellect, creative expression,
+and strategic wisdom.</p>
 <ul>
-<li><p><strong>Infrastructural Integrity:</strong> The technical
-operation of the Platform mandates that Quadrants 1 through 4 share a
-fast, un-hackable, static file architecture.</p></li>
-<li><p><strong>Legal Disconnection:</strong> Notwithstanding this
-structural integration, each Quadrant operates under a separate
-intellectual property tier. A user's right to download or share an asset
-from Quadrant 1 does not grant any implicit or explicit right to modify,
-copy, or redistribute assets contained within Quadrants 2, 3, or
-4.</p></li>
+	<li><p><b>Infrastructural Integrity:</b> The technical operation of
+	the Platform&nbsp;mandates that Quadrants 1 through 4 share a fast,
+	un-hackable, static&nbsp;file architecture.</p></li>
+	<li><p><b>Legal Disconnection:</b> Notwithstanding this structural
+	integration,&nbsp;each Quadrant operates under a separate
+	intellectual property tier. A&nbsp;user's right to download or share
+	an asset from Quadrant 1 does not&nbsp;grant any implicit or
+	explicit right to modify, copy, or redistribute&nbsp;assets
+	contained within Quadrants 2, 3, or 4.</p>
+	<p></p></li>
 </ul>
-<p><strong>SECTION 2: STATUTORY GOVERNANCE OF THE FOUR-QUADRANT
-MATRIX</strong></p>
-<p><strong>2.1 Quadrant 1: Indigenous Sciences and Oral Literature (The
-Open-Access Hub)</strong></p>
+<h2 class="western">SECTION 2: STATUTORY GOVERNANCE OF THE
+FOUR-QUADRANT MATRIX</h2>
+<h3 class="western"></h3>
+<h3 class="western"><b>2.1 Quadrant 1: Indigenous Sciences and Oral
+Literature (The</b>&nbsp;<b>Open-Access Hub)</b></h3>
 <ul>
-<li><p><strong>Scope:</strong> Contains all open-access decolonial
-humanities texts, historical critiques, translations of oral poetry, and
-community-facing ethnographic documentation.</p></li>
-<li><p><strong>Licensing and Permissions:</strong> All assets within
-this quadrant are licensed under the <strong>Creative Commons
-Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND
-4.0)</strong> license.</p></li>
-<li><p><strong>User Obligations:</strong></p>
-<ul>
-<li><p><em>Attribution (BY):</em> The user must provide a prominent,
-explicit citation back to the original URL link on nicksonogwal.org. The
-user must attribute authorship directly to Henry Nickson Ogwal
-(HnO).</p></li>
-<li><p><em>Non-Commercial (NC):</em> The user cannot use any material
-from this quadrant for commercial purposes, corporate monetization,
-university paywalled coursepacks, or promotional revenues without a
-separate, written commercial contract.</p></li>
-<li><p><em>No Derivatives (ND):</em> If the user remixes, transforms, or
-builds upon the material, they may not distribute the modified material
-publicly.</p></li>
-</ul></li>
-<li><p><strong>Statutory Backing:</strong> This quadrant is protected by
-the <strong>Copyright and Neighbouring Rights Act, 2006 (Act No. 19 of
-2006)</strong> of Uganda, and the international <strong>Berne Convention
-for the Protection of Literary and Artistic Works</strong>.</p></li>
+	<li><p><b>Scope:</b> Contains all open-access decolonial humanities
+	texts,&nbsp;historical critiques, translations of oral poetry,
+	and&nbsp;community-facing ethnographic documentation.</p></li>
+	<li><p><b>Licensing and Permissions:</b> All assets within this
+	quadrant are&nbsp;licensed under the <b>Creative
+	Commons</b>&nbsp;<b>Attribution-NonCommercial-NoDerivatives 4.0
+	International (CC BY-NC-ND</b>&nbsp;<b>4.0)</b> license.</p></li>
+	<li><p><b>User Obligations:</b></p>
+	<ul>
+		<li><p><i>Attribution (BY):</i> The user must provide a prominent,
+		explicit&nbsp;citation back to the original URL link on
+		nicksonogwal.org. The user&nbsp;must attribute authorship directly
+		to Henry Nickson Ogwal (HnO).</p></li>
+		<li><p><i>Non-Commercial (NC):</i> The user cannot use any material
+		from this&nbsp;quadrant for commercial purposes, corporate
+		monetization, university&nbsp;paywalled coursepacks, or promotional
+		revenues without a separate,&nbsp;written commercial contract.</p></li>
+		<li><p><i>No Derivatives (ND):</i> If the user remixes, transforms,
+		or builds&nbsp;upon the material, they may not distribute the
+		modified material&nbsp;publicly.</p></li>
+	</ul>
+	<li><p><b>Statutory Backing:</b> This quadrant is protected by the
+	<b>Copyright</b>&nbsp;<b>and Neighbouring Rights Act, 2006 (Act No.
+	19 of 2006)</b> of Uganda,&nbsp;and the international <b>Berne
+	Convention for the Protection of</b>&nbsp;<b>Literary and Artistic
+	Works</b>.</p></li>
 </ul>
-<p><strong>2.2 Quadrant 2: Endogenous Metadata and Lineage Registries
-(The Defensive Vault)</strong></p>
+<h3 class="western"><b>2.2 Quadrant 2: Endogenous Metadata and
+Lineage Registries (The</b>&nbsp;<b>Defensive Vault)</b></h3>
 <ul>
-<li><p><strong>Scope:</strong> Comprises highly structured cultural
-databases, ancestral lineage mappings, royal Lango praise-song
-registries, family genealogical charts, and historical
-meta-records.</p></li>
-<li><p><strong>Licensing and Permissions:</strong> This quadrant is
-locked under an absolute <strong>Sui Generis Database Right</strong>
-combined with customary African protection protocols.</p></li>
-<li><p><strong>Territorial Database Scope &amp; Notice:</strong> The
-Platform Custodian asserts international database protection over these
-historical registries. In accordance with the provisions of the
-<strong>Data Protection and Privacy Act, 2019 (Act No. 2 of
-2019)</strong> of Uganda [4] and the territorial frameworks of the
-international <strong>European Union Directive 96/9/EC on the Legal
-Protection of Databases</strong> [5]—enforced via global edge-network
-server nodes—any systematic extraction, downloading, or compilation of
-this data constitutes a breach of cross-border data protection
-rules.</p></li>
-<li><p><strong>User Obligations:</strong> Users are granted a limited,
-personal, non-transferable license to view these registries for
-individual historical research. Any systematic extraction, mass
-downloading, scraping, mirroring, or creation of derivative databases is
-strictly prohibited. Unauthorized extraction will trigger immediate
-infrastructure-level IP dropping and legal claims under Section 5 and
-Section 8.</p></li>
+	<li><p><b>Scope:</b> Comprises highly structured cultural databases,
+	ancestral&nbsp;lineage mappings, royal Lango praise-song registries,
+	family&nbsp;genealogical charts, and historical meta-records.</p></li>
+	<li><p><b>Licensing and Permissions:</b> This quadrant is locked
+	under an&nbsp;absolute <b>Sui Generis Database Right</b> combined
+	with customary&nbsp;African protection protocols.</p></li>
+	<li><p><b>Territorial Database Scope &amp; Notice:</b> The Platform
+	Custodian&nbsp;asserts international database protection over these
+	historical&nbsp;registries. In accordance with the provisions of the
+	<b>Data Protection</b>&nbsp;<b>and Privacy Act, 2019 (Act No. 2 of
+	2019)</b> of Uganda [4] and the&nbsp;territorial frameworks of the
+	international <b>European Union Directive</b>&nbsp;<b>96/9/EC on the
+	Legal Protection of Databases</b> [5]—enforced via&nbsp;global
+	edge-network server nodes—any systematic extraction,&nbsp;downloading,
+	or compilation of this data constitutes a breach of&nbsp;cross-border
+	data protection rules.</p></li>
+	<li><p><b>User Obligations:</b> Users are granted a limited,
+	personal,&nbsp;non-transferable license to view these registries for
+	individual&nbsp;historical research. Any systematic extraction, mass
+	downloading,&nbsp;scraping, mirroring, or creation of derivative
+	databases is strictly&nbsp;prohibited. Unauthorized extraction will
+	trigger immediate&nbsp;infrastructure-level IP dropping and legal
+	claims under Section 5 and&nbsp;Section 8.</p></li>
 </ul>
-<p><strong>2.3 Quadrant 3: Applied Strategy and Advisory Portfolios (The
-Commercial Engine)</strong></p>
+<h3 class="western"><b>2.3 Quadrant 3: Applied Strategy and Advisory
+Portfolios (The</b>&nbsp;<b>Commercial Engine)</b></h3>
 <ul>
-<li><p><strong>Scope:</strong> Contains all proprietary business
-consulting models, organizational case studies, advisory white papers,
-policy frameworks, and full-length published books.</p></li>
-<li><p><strong>Licensing and Permissions:</strong> All materials are
-protected by <strong>Strict Traditional Copyright (All Rights
-Reserved)</strong>.</p></li>
-<li><p><strong>User Obligations:</strong> Access to assets within this
-quadrant is subject to single-user digital transactions, subscription
-authentication, or formal client retainers. No part of these books or
-strategic frameworks may be duplicated, screenshot, uploaded to shared
-server clouds, or transmitted in any form without prior written
-authorization from the Platform Custodian.</p></li>
-<li><p><strong>Client Obligations:</strong> Consulting clients who
-receive specialized advisory materials are bound by perpetual
-non-disclosure agreements embedded into their service
-contracts.</p></li>
-<li><p><strong>Statutory Backing:</strong> This quadrant is backed by
-the international <strong>World Intellectual Property Organization
-(WIPO) Copyright Treaty</strong> [6] and the <strong>United States
-Digital Millennium Copyright Act (DMCA)</strong>.</p></li>
+	<li><p><b>Scope:</b> Contains all proprietary business consulting
+	models,&nbsp;organizational case studies, advisory white papers,
+	policy frameworks,&nbsp;and full-length published books.</p></li>
+	<li><p><b>Licensing and Permissions:</b> All materials are protected
+	by <b>Strict</b>&nbsp;<b>Traditional Copyright (All Rights
+	Reserved)</b>.</p></li>
+	<li><p><b>User Obligations:</b> Access to assets within this
+	quadrant is subject&nbsp;to single-user digital transactions,
+	subscription authentication, or&nbsp;formal client retainers. No
+	part of these books or strategic&nbsp;frameworks may be duplicated,
+	screenshot, uploaded to shared server&nbsp;clouds, or transmitted in
+	any form without prior written authorization&nbsp;from the Platform
+	Custodian.</p></li>
+	<li><p><b>Client Obligations:</b> Consulting clients who receive
+	specialized&nbsp;advisory materials are bound by perpetual
+	non-disclosure agreements&nbsp;embedded into their service
+	contracts.</p></li>
+	<li><p><b>Statutory Backing:</b> This quadrant is backed by the
+	international&nbsp;<b>World Intellectual Property Organization
+	(WIPO) Copyright Treaty</b>&nbsp;[6] and the <b>United States
+	Digital Millennium Copyright Act</b>&nbsp;<b>(DMCA)</b>.</p></li>
 </ul>
-<p><strong>2.4 Quadrant 4: Audio-Ethnography and Phonographic Masters
-(The Studio Node)</strong></p>
+<h3 class="western"><b>2.4 Quadrant 4: Audio-Ethnography and
+Phonographic Masters (The Studio</b>&nbsp;<b>Node)</b></h3>
 <ul>
-<li><p><strong>Scope:</strong> Houses all studio master sound
-recordings, vocal captures, musical arrangements, and spoken-word
-digital media assets.</p></li>
-<li><p><strong>Licensing and Permissions:</strong> Governed by
-<strong>Phonographic Copyright (℗)</strong> and <strong>Performance
-Rights (©)</strong>. The Platform Custodian retains absolute ownership
-over the masters and underlying compositions.</p></li>
-<li><p><strong>The ISRC Structural Mandate:</strong> Every audio asset
-is watermarked and registered globally under the Platform Custodian’s
-official <strong>International Standard Recording Code (ISRC)</strong>
-registrant prefix: <strong>UG-A6A</strong>.</p></li>
-<li><p><strong>User Obligations:</strong></p>
-<ul>
-<li><p>Streaming low-resolution previews on the website is permitted for
-personal, non-commercial education.</p></li>
-<li><p>Purchasing full-quality tracks constitutes a retail license for
-personal, private playback only.</p></li>
-<li><p>Any public broadcasting, radio play, background sync in video or
-digital media, commercial sampling, or digital distribution requires a
-formal synchronization and mechanical license issued directly by the
-ISRC registrant clearinghouse at payments@nicksonogwal.org.</p></li>
-</ul></li>
-<li><p><strong>Statutory Backing:</strong> Protected by the <strong>Rome
-Convention for the Protection of Performers, Producers of Phonograms and
-Broadcasting Organisations</strong>, and the international <strong>WIPO
-Performances and Phonograms Treaty</strong>.</p></li>
+	<li><p><b>Scope:</b> Houses all studio master sound recordings,
+	vocal captures,&nbsp;musical arrangements, and spoken-word digital
+	media assets.</p></li>
+	<li><p><b>Licensing and Permissions:</b> Governed by <b>Phonographic
+	Copyright</b>&nbsp;<b>(℗)</b> and <b>Performance Rights (©)</b>.
+	The Platform Custodian retains&nbsp;absolute ownership over the
+	masters and underlying compositions.</p></li>
+	<li><p><b>The ISRC Structural Mandate:</b> Every audio asset is
+	watermarked and&nbsp;registered globally under the Platform
+	Custodian’s official&nbsp;<b>International Standard Recording Code
+	(ISRC)</b> registrant prefix:&nbsp;<b>UG-A6A</b>.</p></li>
+	<li><p><b>User Obligations:</b></p>
+	<ul>
+		<li><p>Streaming low-resolution previews on the website is
+		permitted for&nbsp;personal, non-commercial education.</p></li>
+		<li><p>Purchasing full-quality tracks constitutes a retail license
+		for&nbsp;personal, private playback only.</p></li>
+		<li><p>Any public broadcasting, radio play, background sync in
+		video or&nbsp;digital media, commercial sampling, or digital
+		distribution requires&nbsp;a formal synchronization and mechanical
+		license issued directly by&nbsp;the ISRC registrant clearinghouse
+		at <a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a>.</p></li>
+	</ul>
+	<li><p><b>Statutory Backing:</b> Protected by the <b>Rome Convention
+	for the</b>&nbsp;<b>Protection of Performers, Producers of
+	Phonograms and Broadcasting</b>&nbsp;<b>Organisations</b>, and the
+	international <b>WIPO Performances and</b>&nbsp;<b>Phonograms
+	Treaty</b>.</p></li>
 </ul>
-<p><strong>SECTION 3: FINTECH OPERATIONS, SUSTAINABILITY, AND RISK
-MANAGEMENT</strong></p>
-<p><strong>3.1 Monetization Principles</strong></p>
-<p>The Platform operates as a self-sustaining intellectual ecosystem. In
-accordance with the principles of decolonial economic justice, the
-income generated from premium books, downloads, subscriptions, and
-consulting contracts serves as a modest payback for the long-term,
-multi-decade upfront personal capital, intellectual labor, and field
-risk invested by the Platform Custodian.</p>
-<p><strong>3.2 Payments, Refunds, and Chargeback Allocation</strong></p>
+<h2 class="western">SECTION 3: FINTECH OPERATIONS, SUSTAINABILITY,
+AND RISK MANAGEMENT</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">3.1 Monetization Principles</h3>
+<p>The Platform operates as a self-sustaining intellectual ecosystem.
+In&nbsp;accordance with the principles of decolonial economic
+justice, the&nbsp;income generated from premium books, downloads,
+subscriptions, and&nbsp;consulting contracts serves as a modest
+payback for the long-term,&nbsp;multi-decade upfront personal
+capital, intellectual labor, and field&nbsp;risk invested by the
+Platform Custodian.</p>
+<h3 class="western">3.2 Payments, Refunds, and Chargeback Allocation</h3>
 <ul>
-<li><p><strong>Electronic Payment Processing Framework:</strong>
-Payments are processed entirely by certified third-party processors
-(including <a
-href="https://flutterwave.com/ug/terms"><strong>Flutterwave</strong></a>
-and <strong>DPO Group</strong>) acting as authorized financial
-aggregators in strict compliance with the merchant frameworks documented
-by the Bank of Uganda. All payments are subject to the processor’s
-terms, fees, and settlement schedules. Refunds are issued only under the
-Platform’s Refund Policy. Where a chargeback is upheld by the card
-network, the Platform Custodian may recover funds from the user and may
-suspend services. The Platform Custodian may withhold funds pending
-investigation of suspected fraud. Users are responsible for all
-associated taxes and currency conversion fees.</p></li>
-<li><p><strong>Zero-Retention Financial Data Policy:</strong> To
-maintain an absolute zero-trust financial environment, this Platform
-implements compliance standards based on <strong>PCI-DSS Level 1
-Cryptographic Tokenization Frameworks</strong>. At no point does this
-Platform’s code, host server, file repository, or operational staff see,
-capture, process, parse, or retain any raw financial credentials, card
-numbers, CVV codes, or mobile money personal identification numbers
-(PINs). All cryptographic payment processing is executed via isolated
-tokenization on the PCI-DSS Level 1 certified servers of our gateway
-partners.</p></li>
-<li><p><strong>Refund Eligibility and Process:</strong> Digital assets
-are delivered instantly upon purchase. Therefore, all sales are
-structurally final. Refunds are issued only under exceptional
-circumstances, such as a proven duplicate transaction error. All refund
-requests must be submitted within 14 days to
-payments@nicksonogwal.org.</p></li>
-<li><p><strong>Chargeback Management &amp; Liability:</strong> The user
-agrees that initiating a false or bad-faith chargeback dispute with
-their bank constitutes a breach of this contract. The Platform Custodian
-reserves the absolute right to withhold or reverse payment allocations
-to satisfy gateway chargeback investigations. The user bears ultimate
-responsibility for any associated processing fees, currency conversion
-variances, or regional tax liabilities arising from their
-purchase.</p></li>
+	<li><p><b>Electronic Payment Processing Framework:</b> Payments are
+	processed&nbsp;entirely by certified third-party processors
+	(including&nbsp;<a href="https://flutterwave.com/ug/terms"><b>Flutterwave</b></a>
+	and <b>DPO Group</b>)&nbsp;acting as authorized financial
+	aggregators in strict compliance with&nbsp;the merchant frameworks
+	documented by the Bank of Uganda. All payments&nbsp;are subject to
+	the processor’s terms, fees, and settlement schedules.&nbsp;Refunds
+	are issued only under the Platform’s Refund Policy. Where
+	a&nbsp;chargeback is upheld by the card network, the Platform
+	Custodian may&nbsp;recover funds from the user and may suspend
+	services. The Platform&nbsp;Custodian may withhold funds pending
+	investigation of suspected fraud.&nbsp;Users are responsible for all
+	associated taxes and currency conversion&nbsp;fees.</p></li>
+	<li><p><b>Zero-Retention Financial Data Policy:</b> To maintain an
+	absolute&nbsp;zero-trust financial environment, this Platform
+	implements compliance&nbsp;standards based on <b>PCI-DSS Level 1
+	Cryptographic Tokenization</b>&nbsp;<b>Frameworks</b>. At no point
+	does this Platform’s code, host server, file&nbsp;repository, or
+	operational staff see, capture, process, parse, or&nbsp;retain any
+	raw financial credentials, card numbers, CVV codes, or&nbsp;mobile
+	money personal identification numbers (PINs). All
+	cryptographic&nbsp;payment processing is executed via isolated
+	tokenization on the&nbsp;PCI-DSS Level 1 certified servers of our
+	gateway partners.</p></li>
+	<li><p><b>Refund Eligibility and Process:</b> Digital assets are
+	delivered&nbsp;instantly upon purchase. Therefore, all sales are
+	structurally final.&nbsp;Refunds are issued only under exceptional
+	circumstances, such as a&nbsp;proven duplicate transaction error.
+	All refund requests must be&nbsp;submitted within 14 days to
+	<a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a>.</p></li>
+	<li><p><b>Chargeback Management &amp; Liability:</b> The user agrees
+	that initiating&nbsp;a false or bad-faith chargeback dispute with
+	their bank constitutes a&nbsp;breach of this contract. The Platform
+	Custodian reserves the absolute&nbsp;right to withhold or reverse
+	payment allocations to satisfy gateway&nbsp;chargeback
+	investigations. The user bears ultimate responsibility for&nbsp;any
+	associated processing fees, currency conversion variances,
+	or&nbsp;regional tax liabilities arising from their purchase.</p></li>
 </ul>
-<p><strong>3.3 Account Verification, KYC, and AML
-Compliance</strong></p>
+<h3 class="western">3.3 Account Verification, KYC, and AML Compliance</h3>
 <ul>
-<li><p><strong>Account Verification and KYC:</strong> To comply with
-anti-money laundering (AML) and payment processor requirements, the
-Platform Custodian may require identity, business, or ownership
-documentation. Failure to provide requested documentation within 72
-hours of an institutional request may result in immediate suspension of
-services, withholding of funds, or account termination.</p></li>
+	<li><p><b>Account Verification and KYC:</b> To comply with
+	anti-money laundering&nbsp;(AML) and payment processor requirements,
+	the Platform Custodian may&nbsp;require identity, business, or
+	ownership documentation. Failure to&nbsp;provide requested
+	documentation within 72 hours of an institutional&nbsp;request may
+	result in immediate suspension of services, withholding of&nbsp;funds,
+	or account termination.</p></li>
 </ul>
-<p><strong>SECTION 4: THE MULTI-TIER GLOBAL ENGAGEMENT
-ARCHITECTURE</strong></p>
-<p><strong>4.1 Individual Reader and Family Patronage (The Subscription
-Engine)</strong></p>
-<p>The platform features an active reader-patron interface designed to
-bypass predatory corporate publishers.</p>
+<h2 class="western">SECTION 4: THE MULTI-TIER GLOBAL ENGAGEMENT
+ARCHITECTURE</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">4.1 Individual Reader and Family Patronage (The
+Subscription Engine)</h3>
+<p>The platform features an active reader-patron interface designed
+to&nbsp;bypass predatory corporate publishers.</p>
 <ul>
-<li><p><strong>Voluntary Tiered Subscriptions:</strong> Users may
-voluntarily subscribe to the platform on a recurring monthly, quarterly,
-or annual cycle. This includes supporting the platform via the
-integrated "Buy Me a Coffee" sustainability portal.</p></li>
-<li><p><strong>Patron Rights:</strong> Subscription fees are classified
-as unconditional financial contributions toward field research.
-Subscribing grants the patron personal, non-commercial access to select
-behind-the-scenes field notes, draft transcriptions, and early audio
-previews. It does not grant the subscriber ownership over the core
-master copyrights or intellectual properties of the platform.</p></li>
-<li><p><strong>Family Portals:</strong> Family subscriptions allow up to
-five household members to access research assets for domestic
-educational study under a single patronage pool.</p></li>
+	<li><p><b>Voluntary Tiered Subscriptions:</b> Users may voluntarily
+	subscribe to&nbsp;the platform on a recurring monthly, quarterly, or
+	annual cycle. This&nbsp;includes supporting the platform via the
+	integrated &quot;Buy Me a Coffee&quot;&nbsp;sustainability portal.</p></li>
+	<li><p><b>Patron Rights:</b> Subscription fees are classified as
+	unconditional&nbsp;financial contributions toward field research.
+	Subscribing grants the&nbsp;patron personal, non-commercial access
+	to select behind-the-scenes&nbsp;field notes, draft transcriptions,
+	and early audio previews. It does&nbsp;not grant the subscriber
+	ownership over the core master copyrights or&nbsp;intellectual
+	properties of the platform.</p></li>
+	<li><p><b>Family Portals:</b> Family subscriptions allow up to five
+	household&nbsp;members to access research assets for domestic
+	educational study under&nbsp;a single patronage pool.</p></li>
 </ul>
-<p><strong>4.2 Technical Pro-Bono Collaborators (The Open-Source
-Squad)</strong></p>
-<p>To maintain an ironclad digital perimeter, the platform welcomes
-collaborative technical support from open-source practitioners
-worldwide.</p>
+<h3 class="western">4.2 Technical Pro-Bono Collaborators (The
+Open-Source Squad)</h3>
+<p>To maintain an ironclad digital perimeter, the platform
+welcomes&nbsp;collaborative technical support from open-source
+practitioners&nbsp;worldwide.</p>
 <ul>
-<li><p><strong>Authorized Security Auditing:</strong> Registered
-pro-bono security engineers and systems architects are authorized to
-inspect our static repository architectures on Codeberg and GitHub for
-potential vulnerabilities.</p></li>
-<li><p><strong>Contribution Protocol:</strong> All code updates,
-continuous integration workflow improvements, or localized language
-translation patches contributed to the repository become the property of
-the Platform. Full credit will be assigned to the volunteer inside our
-official public documentation.</p></li>
-<li><p><strong>Strict Pro-Bono Indemnification:</strong> Technical
-volunteers explicitly perform their actions on a voluntary, non-salaried
-basis. They retain zero rights to claim financial wages, employment
-status, or intellectual property shares from the Platform
-Custodian.</p></li>
+	<li><p><b>Authorized Security Auditing:</b> Registered pro-bono
+	security&nbsp;engineers and systems architects are authorized to
+	inspect our static&nbsp;repository architectures on Codeberg and
+	GitHub for potential&nbsp;vulnerabilities.</p></li>
+	<li><p><b>Contribution Protocol:</b> All code updates, continuous
+	integration&nbsp;workflow improvements, or localized language
+	translation patches&nbsp;contributed to the repository become the
+	property of the Platform.&nbsp;Full credit will be assigned to the
+	volunteer inside our official&nbsp;public documentation.</p></li>
+	<li><p><b>Strict Pro-Bono Indemnification:</b> Technical volunteers
+	explicitly&nbsp;perform their actions on a voluntary, non-salaried
+	basis. They retain&nbsp;zero rights to claim financial wages,
+	employment status, or&nbsp;intellectual property shares from the
+	Platform Custodian.</p></li>
 </ul>
-<p><strong>4.3 Partner Organizations and Institutional
-Collaborators</strong></p>
-<p>The platform functions as a formal clearinghouse for international,
-regional, and national institutions, including universities, NGOs, and
-human-rights agencies.</p>
+<h3 class="western">4.3 Partner Organizations and Institutional
+Collaborators</h3>
+<p>The platform functions as a formal clearinghouse for
+international,&nbsp;regional, and national institutions, including
+universities, NGOs, and&nbsp;human-rights agencies.</p>
 <ul>
-<li><p><strong>Collaborative Institutional Licensing:</strong> Academic
-bodies or non-profit organizations seeking to use Quadrant 1 texts or
-Quadrant 4 media for educational modules must execute a formal
-<strong>Institutional Collaboration Accord</strong> via
-legal@nicksonogwal.org.</p></li>
-<li><p><strong>Joint Field Research Operations:</strong> When an
-external body collaborates on localized field ethnographies or language
-transcriptions, data rights must be split via explicit, pre-signed
-memoranda of understanding. This ensures that the raw data remains
-permanently protected inside the Sovereign Database Shield of Quadrant 2
-to prevent neo-colonial data extraction.</p></li>
+	<li><p><b>Collaborative Institutional Licensing:</b> Academic bodies
+	or&nbsp;non-profit organizations seeking to use Quadrant 1 texts or
+	Quadrant 4&nbsp;media for educational modules must execute a formal
+	<b>Institutional</b>&nbsp;<b>Collaboration Accord</b> via
+	<a href="mailto:legal@nicksonogwal.org">legal@nicksonogwal.org</a>.</p></li>
+	<li><p><b>Joint Field Research Operations:</b> When an external
+	body&nbsp;collaborates on localized field ethnographies or
+	language&nbsp;transcriptions, data rights must be split via
+	explicit, pre-signed&nbsp;memoranda of understanding. This ensures
+	that the raw data remains&nbsp;permanently protected inside the
+	Sovereign Database Shield of Quadrant&nbsp;2 to prevent neo-colonial
+	data extraction.</p></li>
 </ul>
-<p><strong>SECTION 5: UNAUTHORISED USE, MACHINE LEARNING, AND BOT
-RESTRICTIONS</strong></p>
-<p><strong>5.1 Unauthorized Use and Proportionate Enforcement
-Remedies</strong></p>
-<p>Unauthorized scraping, copying, mirroring, or use of Platform content
-to train machine learning models or for commercial exploitation is
-strictly prohibited.</p>
+<h2 class="western">SECTION 5: UNAUTHORISED USE, MACHINE LEARNING,
+AND BOT RESTRICTIONS</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">5.1 Unauthorized Use and Proportionate
+Enforcement Remedies</h3>
+<p>Unauthorized scraping, copying, mirroring, or use of Platform
+content to&nbsp;train machine learning models or for commercial
+exploitation is strictly&nbsp;prohibited.</p>
 <ul>
-<li><p><strong>The Technical Block:</strong> If the Platform detects
-automated harvesting, scraping, or other unauthorized extraction that
-bypasses our technical protections, the Platform Custodian may
-immediately block the offending traffic and seek injunctive
-relief.</p></li>
-<li><p><strong>Notice and Cure:</strong> Prior to seeking monetary
-relief, the Platform Custodian will, where practicable, provide written
-notice to the suspected infringer describing the conduct, the assets
-affected, and proposed remedial steps. The recipient will have 14
-calendar days to respond and, if appropriate, cure the conduct or
-negotiate a commercial license. This requirement does not limit or waive
-the Platform Custodian's right to seek immediate injunctive relief where
-irreparable harm is likely.</p></li>
-<li><p><strong>Sovereign Enforcement Scale:</strong> The Platform
-Custodian's remedies are cumulative and include injunctive relief,
-recovery of actual damages, reasonable attorneys’ fees, and contractual
-licensing fees computed on a proportionate, per-asset basis as set out
-in the Platform’s separate Licensing Schedule.</p></li>
+	<li><p><b>The Technical Block:</b> If the Platform detects automated
+	harvesting,&nbsp;scraping, or other unauthorized extraction that
+	bypasses our technical&nbsp;protections, the Platform Custodian may
+	immediately block the&nbsp;offending traffic and seek injunctive
+	relief.</p></li>
+	<li><p><b>Notice and Cure:</b> Prior to seeking monetary relief, the
+	Platform&nbsp;Custodian will, where practicable, provide written
+	notice to the&nbsp;suspected infringer describing the conduct, the
+	assets affected, and&nbsp;proposed remedial steps. The recipient
+	will have 14 calendar days to&nbsp;respond and, if appropriate, cure
+	the conduct or negotiate a&nbsp;commercial license. This requirement
+	does not limit or waive the&nbsp;Platform Custodian's right to seek
+	immediate injunctive relief where&nbsp;irreparable harm is likely.</p></li>
+	<li><p><b>Sovereign Enforcement Scale:</b> The Platform Custodian's
+	remedies are&nbsp;cumulative and include injunctive relief, recovery
+	of actual damages,&nbsp;reasonable attorneys’ fees, and
+	contractual licensing fees computed on&nbsp;a proportionate,
+	per-asset basis as set out in the Platform’s separate&nbsp;Licensing
+	Schedule.</p></li>
 </ul>
-<p><strong>SECTION 6: LIABILITY PROVISIONS AND ACCESSIBILITY
-COMPLIANCE</strong></p>
-<p><strong>6.1 Balanced Limitation of Liability and Warranty
-Disclaimer</strong></p>
+<h2 class="western">SECTION 6: LIABILITY PROVISIONS AND ACCESSIBILITY
+COMPLIANCE</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">6.1 Balanced Limitation of Liability and Warranty
+Disclaimer</h3>
 <ul>
-<li><p><strong>The "As-Is" Baseline:</strong> The Platform and all its
-constituent Research Assets are provided strictly on an "As-Is" and
-"As-Available" basis. While the Platform Custodian implements deep
-empirical validation and elite static edge security, no warranty is made
-that the operational infrastructure will be completely uninterrupted,
-permanently online, error-free, or entirely secure from sophisticated
-state or non-state malicious actors.</p></li>
-<li><p><strong>Limitation of Liability:</strong> Except for liability
-arising from gross negligence, willful misconduct, or breaches of data
-protection obligations, the Platform Custodian's aggregate liability for
-any claim arising from or related to these Terms shall not exceed the
-total fees paid by the user to the Platform Custodian in the 12 months
-preceding the claim.</p></li>
-<li><p><strong>Consumer Rights:</strong> If you are a consumer under
-applicable law, nothing in these Terms shall limit your statutory
-rights. Where local consumer protection laws apply, those laws will
-govern to the extent they cannot be waived.</p></li>
+	<li><p><b>The &quot;As-Is&quot; Baseline:</b> The Platform and all
+	its constituent&nbsp;Research Assets are provided strictly on an
+	&quot;As-Is&quot; and &quot;As-Available&quot;&nbsp;basis. While the
+	Platform Custodian implements deep empirical&nbsp;validation and
+	elite static edge security, no warranty is made that&nbsp;the
+	operational infrastructure will be completely
+	uninterrupted,&nbsp;permanently online, error-free, or entirely
+	secure from sophisticated&nbsp;state or non-state malicious actors.</p></li>
+	<li><p><b>Limitation of Liability:</b> Except for liability arising
+	from gross&nbsp;negligence, willful misconduct, or breaches of data
+	protection&nbsp;obligations, the Platform Custodian's aggregate
+	liability for any&nbsp;claim arising from or related to these Terms
+	shall not exceed the&nbsp;total fees paid by the user to the
+	Platform Custodian in the 12 months&nbsp;preceding the claim.</p></li>
+	<li><p><b>Consumer Rights:</b> If you are a consumer under
+	applicable law,&nbsp;nothing in these Terms shall limit your
+	statutory rights. Where local&nbsp;consumer protection laws apply,
+	those laws will govern to the extent&nbsp;they cannot be waived.</p></li>
 </ul>
-<p><strong>6.2 User Content Standards and Community
-Moderation</strong></p>
+<h3 class="western">6.2 User Content Standards and Community
+Moderation</h3>
 <ul>
-<li><p><strong>User-Generated Content Policy:</strong> If the platform
-enables public comments, collaborative forums, or community-led language
-translations, users retain sole responsibility for their submissions.
-All content must remain free of defamatory, abusive, hateful, or legally
-infringing material.</p></li>
-<li><p><strong>Moderation Rights:</strong> The Platform Custodian
-reserves the absolute right to audit, moderate, hide, or permanently
-erase any user-generated submission without prior warning.</p></li>
-<li><p><strong>Accessibility Commitment:</strong> The platform targets
-compliance benchmarks under the <strong>Web Content Accessibility
-Guidelines (WCAG) 2.1 Level AA</strong> standards to ensure clean
-compatibility with screen readers and accessibility software.</p></li>
+	<li><p><b>User-Generated Content Policy:</b> If the platform enables
+	public&nbsp;comments, collaborative forums, or community-led
+	language&nbsp;translations, users retain sole responsibility for
+	their submissions.&nbsp;All content must remain free of defamatory,
+	abusive, hateful, or&nbsp;legally infringing material.</p></li>
+	<li><p><b>Moderation Rights:</b> The Platform Custodian reserves the
+	absolute&nbsp;right to audit, moderate, hide, or permanently erase
+	any&nbsp;user-generated submission without prior warning.</p></li>
+	<li><p><b>Accessibility Commitment:</b> The platform targets
+	compliance&nbsp;benchmarks under the <b>Web Content Accessibility
+	Guidelines (WCAG) 2.1</b>&nbsp;<b>Level AA</b> standards to ensure
+	clean compatibility with screen readers&nbsp;and accessibility
+	software.</p></li>
 </ul>
-<p><strong>SECTION 7: COPYRIGHT INFRINGEMENT AND TAKEDOWN PROCEDURES
-(DMCA OPERATIONAL POLICY)</strong></p>
-<p><strong>7.1 Copyright Infringement and Takedown
-Procedure</strong></p>
+<h2 class="western"><b>SECTION 7: COPYRIGHT INFRINGEMENT AND TAKEDOWN
+PROCEDURES (DMCA</b>&nbsp;<b>OPERATIONAL POLICY)</b></h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">7.1 Copyright Infringement and Takedown Procedure</h3>
 <p>If you believe content hosted on or distributed through
-nicksonogwal.org infringes your copyright, send a written notice to our
-designated agent at legal@nicksonogwal.org with:</p>
-<ol type="1">
-<li><p>Clear identification of the copyrighted work claimed to have been
-infringed.</p></li>
-<li><p>The explicit URL(s) or precise static file paths of the allegedly
-infringing material.</p></li>
-<li><p>A signed statement under penalty of perjury that the information
-in your notification is completely accurate.</p></li>
-<li><p>Your complete contact information, including physical address,
-telephone number, and active email address.</p></li>
-<li><p>A statement of good faith that use of the material is not
-authorized by the copyright owner, its agent, or the law.<br />
-We will respond in accordance with applicable law and provide a
-comprehensive counter notice procedure.</p></li>
+nicksonogwal.org&nbsp;infringes your copyright, send a written notice
+to our designated agent&nbsp;at <a href="mailto:legal@nicksonogwal.org">legal@nicksonogwal.org</a>
+with:</p>
+<ol>
+	<li><p>Clear identification of the copyrighted work claimed to have
+	been&nbsp;infringed.</p></li>
+	<li><p>The explicit URL(s) or precise static file paths of the
+	allegedly&nbsp;infringing material.</p></li>
+	<li><p>A signed statement under penalty of perjury that the
+	information in&nbsp;your notification is completely accurate.</p></li>
+	<li><p>Your complete contact information, including physical
+	address,&nbsp;telephone number, and active email address.</p></li>
+	<li><p>A statement of good faith that use of the material is not
+	authorized&nbsp;by the copyright owner, its agent, or the law.<br/>
+We
+	will respond in accordance with applicable law and provide
+	a&nbsp;comprehensive counter notice procedure.</p></li>
 </ol>
-<p><strong>SECTION 8: JURISDICTION, ENFORCEMENT, AND COMPLIANCE CONTACT
-MATRIX</strong></p>
-<p><strong>8.1 Choice of Law and Consumer Carve-Outs</strong></p>
+<h2 class="western">SECTION 8: JURISDICTION, ENFORCEMENT, AND
+COMPLIANCE CONTACT MATRIX</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">8.1 Choice of Law and Consumer Carve-Outs</h3>
 <p>These Terms and Conditions shall be governed by, construed, and
-enforced in accordance with the substantive laws of the <strong>Republic
-of Uganda</strong>. For individual retail subscribers, these terms
-explicitly preserve non-waivable, localized statutory consumer
-protection rights that mandate direct court access within the consumer's
-home country, overriding standard arbitration lines where strictly
-required by local constitutional law.</p>
-<p><strong>8.2 International Arbitration Protocol</strong></p>
+enforced&nbsp;in accordance with the substantive laws of the <b>Republic
+of Uganda</b>.&nbsp;For individual retail subscribers, these terms
+explicitly preserve&nbsp;non-waivable, localized statutory consumer
+protection rights that&nbsp;mandate direct court access within the
+consumer's home country,&nbsp;overriding standard arbitration lines
+where strictly required by local&nbsp;constitutional law.</p>
+<p><b>8.2 International Arbitration Protocol</b></p>
 <p>For all commercial disputes, technological conflicts, or
-institutional breaches arising out of or relating to these
-Terms—including their validity, invalidity, or termination—the parties
-agree to submit the matter to final, binding arbitration.</p>
+institutional&nbsp;breaches arising out of or relating to these
+Terms—including their&nbsp;validity, invalidity, or termination—the
+parties agree to submit the&nbsp;matter to final, binding
+arbitration.</p>
 <ul>
-<li><p><strong>Statutory Authority:</strong> The arbitration shall be
-conducted in strict accordance with the <strong>Arbitration and
-Conciliation Act (Cap. 4) of the Laws of Uganda</strong>.</p></li>
-<li><p><strong>Alternative Forum:</strong> Parties may alternatively
-utilize the <strong>International Chamber of Commerce (ICC) Rules of
-Arbitration</strong>.</p></li>
-<li><p><strong>Physical Seat &amp; Language:</strong> The physical seat
-and place of all arbitration hearings shall be <strong>Kampala,
-Uganda</strong>. The entire proceeding shall be conducted exclusively in
-the <strong>English language</strong>.</p></li>
+	<li><p><b>Statutory Authority:</b> The arbitration shall be
+	conducted in strict&nbsp;accordance with the <b>Arbitration and
+	Conciliation Act (Cap. 4) of the</b>&nbsp;<b>Laws of Uganda</b>.</p></li>
+	<li><p><b>Alternative Forum:</b> Parties may alternatively utilize
+	the&nbsp;<b>International Chamber of Commerce (ICC) Rules of
+	Arbitration</b>.</p></li>
+	<li><p><b>Physical Seat &amp; Language:</b> The physical seat and
+	place of all&nbsp;arbitration hearings shall be <b>Kampala, Uganda</b>.
+	The entire&nbsp;proceeding shall be conducted exclusively in the
+	<b>English language</b>.</p></li>
 </ul>
-<p><strong>8.3 Severability, Integration, and Sovereign
-Amendments</strong></p>
+<h3 class="western">8.3 Severability, Integration, and Sovereign
+Amendments</h3>
 <ul>
-<li><p><strong>Severability:</strong> If any provision of these Terms is
-found to be unenforceable or invalid under any applicable law, such
-unenforceability or invalidity shall not render these Terms
-unenforceable or invalid as a whole. Such provisions shall be deleted or
-modified without affecting the remaining provisions herein.</p></li>
-<li><p><strong>Integration:</strong> These Terms constitute the entire
-legal agreement between the User and the Platform Custodian regarding
-the governance of nicksonogwal.org.</p></li>
-<li><p><strong>Sovereign Amendments:</strong> The Platform Custodian
-reserves the absolute, sovereign right to amend these terms at any
-moment without prior warning by updating this static page. Continued use
-of the platform following modifications constitutes binding acceptance
-of the revised terms.</p></li>
+	<li><p><b>Severability:</b> If any provision of these Terms is found
+	to be&nbsp;unenforceable or invalid under any applicable law,
+	such&nbsp;unenforceability or invalidity shall not render these
+	Terms&nbsp;unenforceable or invalid as a whole. Such provisions
+	shall be deleted&nbsp;or modified without affecting the remaining
+	provisions herein.</p></li>
+	<li><p><b>Integration:</b> These Terms constitute the entire legal
+	agreement&nbsp;between the User and the Platform Custodian regarding
+	the governance&nbsp;of nicksonogwal.org.</p></li>
+	<li><p><b>Sovereign Amendments:</b> The Platform Custodian reserves
+	the&nbsp;absolute, sovereign right to amend these terms at any
+	moment without&nbsp;prior warning by updating this static page.
+	Continued use of the&nbsp;platform following modifications
+	constitutes binding acceptance of the&nbsp;revised terms.</p></li>
 </ul>
-<p><strong>8.4 Dedicated Operational Compliance Contacts</strong></p>
-<p>For immediate escalation, users, tech teams, and financial networks
-must route inquiries through these dedicated, decoupled triage
-channels:</p>
+<h3 class="western">8.4 Dedicated Operational Compliance Contacts</h3>
+<p>For immediate escalation, users, tech teams, and financial
+networks must&nbsp;route inquiries through these dedicated, decoupled
+triage channels:</p>
 <ul>
-<li><p><strong>Legal &amp; Copyright Clearance:</strong>
-legal@nicksonogwal.org</p></li>
-<li><p><strong>FinTech, Receipts, &amp; Patrons:</strong>
-payments@nicksonogwal.org</p></li>
-<li><p><strong>Security Vulnerabilities &amp; Bug Reports:</strong>
-security@nicksonogwal.org</p></li>
+	<li><p><b>Legal &amp; Copyright Clearance:</b>
+	<a href="mailto:legal@nicksonogwal.org">legal@nicksonogwal.org</a></p></li>
+	<li><p><b>FinTech, Receipts, &amp; Patrons:</b>
+	<a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a></p></li>
+	<li><p><b>Security Vulnerabilities &amp; Bug Reports:</b>
+	<a href="mailto:security@nicksonogwal.org">security@nicksonogwal.org</a></p></li>
 </ul>
-<p><strong>OFFICIAL REFERENCE DIRECTORY</strong></p>
-<p>[1] Creative Commons Corporation. (2014).
-Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND
-4.0) Legal Code. Mountain View, CA.</p>
-<p>[2] Parliament of the Republic of Uganda. (2006). The Copyright and
-Neighbouring Rights Act, 2006 (Act No. 19 of 2006). Uganda Legal
-Information Institute (ULII).</p>
+<h2 class="western">OFFICIAL REFERENCE DIRECTORY</h2>
+<p><br/>
+<br/>
+
+</p>
+<p>[1] Creative Commons Corporation.
+(2014).&nbsp;Attribution-NonCommercial-NoDerivatives 4.0
+International (CC BY-NC-ND&nbsp;4.0) Legal Code. Mountain View, CA.</p>
+<p>[2] Parliament of the Republic of Uganda. (2006). The Copyright
+and&nbsp;Neighbouring Rights Act, 2006 (Act No. 19 of 2006). Uganda
+Legal&nbsp;Information Institute (ULII).</p>
 <p>[3] World Intellectual Property Organization. (1979). Berne
-Convention for the Protection of Literary and Artistic Works (Amended
-text). WIPO Lex Registry.</p>
-<p>[4] Parliament of the Republic of Uganda. (2019). The Data Protection
-and Privacy Act,</p>
+Convention&nbsp;for the Protection of Literary and Artistic Works
+(Amended text). WIPO&nbsp;Lex Registry.</p>
+<p>[4] Parliament of the Republic of Uganda. (2019). The Data
+Protection&nbsp;and Privacy Act,</p>
 <p>2019 (Act No. 2 of 2019). National Gazette Authority.</p>
-<p>[5] European Parliament and Council. (1996). Directive 96/9/EC on the
-Legal Protection</p>
+<p>[5] European Parliament and Council. (1996). Directive 96/9/EC on
+the&nbsp;Legal Protection</p>
 <p>of Databases. Official Journal of the European Communities, L 77,
 20-28.</p>
-<p>[6] World Intellectual Property Organization. (1996). WIPO Copyright
-Treaty (WCT). Geneva: WIPO Lex.</p>
-<p>[7] United States Congress. (1998). The Digital Millennium Copyright
-Act of 1998 (DMCA). Public Law 105-304, 112 Stat. 2860.</p>
-<p>[8] International ISRC Agency. (2021). International Standard
-Recording Code (ISRC) Handbook (4th ed.). London: International
-Federation of the Phonographic Industry (IFPI).</p>
+<p>[6] World Intellectual Property Organization. (1996). WIPO
+Copyright&nbsp;Treaty (WCT). Geneva: WIPO Lex.</p>
+<p>[7] United States Congress. (1998). The Digital Millennium
+Copyright&nbsp;Act of 1998 (DMCA). Public Law 105-304, 112 Stat.
+2860.</p>
+<p>[8] International ISRC Agency. (2021). International
+Standard&nbsp;Recording Code (ISRC) Handbook (4th ed.). London:
+International&nbsp;Federation of the Phonographic Industry (IFPI).</p>
 <p>[9] International Labour Organization, UNESCO, &amp; WIPO. (1961).
-Rome Convention for the Protection of Performers, Producers of
-Phonograms and Broadcasting Organisations. Rome.</p>
-<p>[10] World Intellectual Property Organization. (1996). WIPO
-Performances and Phonograms Treaty (WPPT). Geneva: WIPO Lex.</p>
-<p>[11] Bank of Uganda. (2019). National FinTech Regulatory Frameworks
-and Mobile Money Settlement Guidelines. Entebbe: Statutory Instruments
-Authority.</p>
-<p>[12] PCI Security Standards Council. (2025). Payment Card Industry
-(PCI) Data Security Standard: Requirements and Security Assessment
-Procedures Version 4.0.1. Wakefield, MA.</p>
+Rome&nbsp;Convention for the Protection of Performers, Producers of
+Phonograms and&nbsp;Broadcasting Organisations. Rome.</p>
+<p>[10] World Intellectual Property Organization. (1996).
+WIPO&nbsp;Performances and Phonograms Treaty (WPPT). Geneva: WIPO
+Lex.</p>
+<p>[11] Bank of Uganda. (2019). National FinTech Regulatory
+Frameworks&nbsp;and Mobile Money Settlement Guidelines. Entebbe:
+Statutory Instruments&nbsp;Authority.</p>
+<p>[12] PCI Security Standards Council. (2025). Payment Card
+Industry&nbsp;(PCI) Data Security Standard: Requirements and Security
+Assessment&nbsp;Procedures Version 4.0.1. Wakefield, MA.</p>
 <p>[13] Parliament of the Republic of Uganda. (2000). The Arbitration
-and Conciliation Act, 2000 (Chapter 4). Uganda Legal Information
-Institute (ULII).</p>
-<p>[14] International Chamber of Commerce. (2021). ICC Rules of
-Arbitration. Paris: ICC Services.</p>
-<p><strong>OFFICIAL LEGAL ENDORSEMENT</strong></p>
-<p><strong>Signed and Custodied by:</strong><br />
-Henry Nickson Ogwal (HnO)<br />
-Primary Registrant and Sovereign Archivist<br />
-nicksonogwal.org<br />
-<br />
-──────────────────────────────────────────────</p>
-<p>© 2026 Henry Nickson Ogwal — <em>Sovereign Digital Architecture and
-Repository</em></p>
-<p>All Rights Reserved — Terms of Use Version 2.2</p>
-<p>──────────────────────────────────────────────</p>
+and&nbsp;Conciliation Act, 2000 (Chapter 4). Uganda Legal Information
+Institute&nbsp;(ULII).</p>
+<p>[14] International Chamber of Commerce. (2021). ICC Rules
+of&nbsp;Arbitration. Paris: ICC Services.</p>
+<h2 class="western"><br/>
+OFFICIAL LEGAL ENDORSEMENT</h2>
+<p><br/>
+<br/>
+
+</p>
+<p><b>Signed and Custodied by:</b><br/>
+Henry Nickson Ogwal
+(HnO)<br/>
+Primary Registrant and Sovereign
+Archivist<br/>
+nicksonogwal.org</p>
 </body>
 </html>
+
+        </div>
+
+        <!-- Closing Statement Area -->
+        <p class="closing-statement">
+            SMS — Story. Memory. Sovereignty. This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.
+        </p>
+
+        <!-- Restored Footer Component Structure -->
+        <footer class="sovereign-footer">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#licensing">Commercial Licensing Schedule</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Native JavaScript Engine -->
+    <script>
+        let synth = window.speechSynthesis;
+        let utterance = null;
+
+        function toggleSpeech() {
+            const playBtn = document.getElementById('playBtn');
+            const stopBtn = document.getElementById('stopBtn');
+
+            if (!synth) {
+                alert("Audio text-to-speech reading is not supported by your browser engine.");
+                return;
+            }
+            if (synth.speaking && synth.paused) {
+                synth.resume();
+                playBtn.innerHTML = "⏸ Pause Reader";
+                return;
+            }
