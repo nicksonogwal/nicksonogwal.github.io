@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sovereign Repository Archive</title>
     <style>
-        /* Exact Medium-Identity Responsive Typography System Framework */
+        /* Exact Medium-Identity Responsive Typography System */
         :root {
             --base-font-size: 21px; 
             --base-line-height: 1.82; 
@@ -35,6 +35,7 @@
             -webkit-text-size-adjust: 100%;
         }
 
+        /* Premium Centered Reading Column Layout Configuration */
         main {
             display: block; 
             width: 100%; 
@@ -52,7 +53,7 @@
         #sovereign-text p { margin: 0 0 2rem 0 !important; word-wrap: break-word; }
         #sovereign-text li { margin-bottom: 1rem; text-align: left; }
 
-        /* Clean Contrast Headers */
+        /* Clean Sans-Serif Contrast Headers */
         h1, h2, h3, h4 { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             color: var(--header-color) !important;
@@ -134,7 +135,7 @@
         .sovereign-footer * { color: var(--text-color) !important; font-size: inherit !important; line-height: inherit !important; }
         .footer-links { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 32px; }
         
-        /* RESTORED ACTIVE LINK PRESENTATION FOR THE FOOTER */
+        /* ACTIVE LINK PRESENTATION FOR THE FOOTER */
         .footer-links a { 
             color: var(--text-color) !important;
             text-decoration: underline !important; 
@@ -169,23 +170,23 @@
         <!-- Standalone Audio Reader Line -->
         <div class="control-row">
             <span class="control-label">Audio Reader</span>
-            <button id="playBtn" class="action-btn">▶ Read Page</button>
-            <button id="stopBtn" class="action-btn" style="background-color: #666666 !important; border-color: #666666 !important;" disabled>Stop</button>
+            <button id="playBtn" class="action-btn" onclick="toggleSpeech()">▶ Read Page</button>
+            <button id="stopBtn" class="action-btn" onclick="stopSpeech()" style="background-color: #666666 !important; border-color: #666666 !important;" disabled>Stop</button>
         </div>
 
         <!-- Standalone Text Scaler Line -->
         <div class="control-row">
             <span class="control-label">Text Scale</span>
-            <button id="sizeA" class="option-btn active">A (Standard)</button>
-            <button id="sizePlus" class="option-btn">A+ (Large)</button>
-            <button id="sizePlusPlus" class="option-btn">A++ (Elder)</button>
+            <button id="sizeA" class="option-btn active" onclick="applySovereignTextSize('standard', 'sizeA')">A (Standard)</button>
+            <button id="sizePlus" class="option-btn" onclick="applySovereignTextSize('large', 'sizePlus')">A+ (Large)</button>
+            <button id="sizePlusPlus" class="option-btn" onclick="applySovereignTextSize('extra', 'sizePlusPlus')">A++ (Elder)</button>
         </div>
 
         <!-- Standalone Visual Theme Line -->
         <div class="control-row">
             <span class="control-label">Visual Theme</span>
-            <button id="themeDefault" class="option-btn active">Crisp Light</button>
-            <button id="themeWarm" class="option-btn">Warm Sepia</button>
+            <button id="themeDefault" class="option-btn active" onclick="setTheme('default')">Crisp Light</button>
+            <button id="themeWarm" class="option-btn" onclick="setTheme('warm')">Warm Sepia</button>
         </div>
 
         <!-- Bottom Spacer Divider Line -->
@@ -809,12 +810,12 @@ nicksonogwal.org</p>
             SMS — Story. Memory. Sovereignty. This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.
         </p>
 
-        <!-- Restored Footer Layout Structure with production estate endpoints -->
+        <!-- Restored Footer Layout Structure with active production address references -->
         <footer class="sovereign-footer">
             <div class="footer-links">
-                <a href="https://nicksonogwal.org/privacy">Privacy Policy</a>
-                <a href="https://nicksonogwal.org/terms">Terms of Service</a>
-                <a href="https://nicksonogwal.org/licensing">Commercial Licensing Schedule</a>
+                <a href="https://nicksonogwal.org">Privacy Policy</a>
+                <a href="https://nicksonogwal.org">Terms of Service</a>
+                <a href="https://nicksonogwal.org">Commercial Licensing Schedule</a>
             </div>
             <div class="copyright">
                 &copy; 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository
@@ -823,33 +824,28 @@ nicksonogwal.org</p>
 
     </main>
 
-    <!-- Native JavaScript Control Engine (Root-Level DOM Event Binding) -->
+    <!-- Native JavaScript Control Engine -->
     <script>
-        // System Audio Controller
         let synth = window.speechSynthesis;
         let utterance = null;
 
-        const playBtn = document.getElementById('playBtn');
-        const stopBtn = document.getElementById('stopBtn');
+        function toggleSpeech() {
+            const playBtn = document.getElementById('playBtn');
+            const stopBtn = document.getElementById('stopBtn');
 
-        if (playBtn) {
-            playBtn.addEventListener('click', function() {
-                if (!synth) {
-                    alert("Audio text-to-speech reading is not supported by your browser engine.");
-                    return;
-                }
-                if (synth.speaking && synth.paused) {
-                    synth.resume();
-                    playBtn.innerHTML = "⏸ Pause Reader";
-                    return;
-                }
-                if (synth.speaking && !synth.paused) {
-                    synth.pause();
-                    playBtn.innerHTML = "▶ Resume Reader";
-                    return;
-                }
+            if (!synth) {
+                alert("Audio text-to-speech reading is not supported by your browser engine.");
+                return;
+            }
+            if (synth.speaking && synth.paused) {
+                synth.resume();
+                playBtn.innerHTML = "⏸ Pause Reader";
+                return;
+            }
+            if (synth.speaking && !synth.paused) {
+                synth.pause();
+                playBtn.innerHTML = "▶ Resume Reader";
+                return;
+            }
 
-                const plainText = document.getElementById('sovereign-text').innerText;
-                utterance = new SpeechSynthesisUtterance(plainText);
-                
-                utterance.onend = function() {
+            const plainText = document.getElementById('sovereign-text').innerText;
