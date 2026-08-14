@@ -5,197 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sovereign Repository Archive</title>
     <style>
-        /* Exact Medium-Identity Responsive Typography System */
-        :root {
-            --base-font-size: 21px; 
-            --base-line-height: 1.82; 
-            --bg-color: #ffffff;
-            --text-color: #292929; 
-            --header-color: #1a1a1a;
-            --border-color: #efefef;
-        }
-
-        /* Policy-Compliant Warm Sepia Mode Theme Override */
-        body.warm-mode {
-            --bg-color: #f7f2e8; 
-            --text-color: #2b261f;
-            --header-color: #1a1510;
-            --border-color: #e3dac9;
-        }
-
+        /* Hardened Responsive CSS Typography Rules */
         html, body {
             margin: 0; padding: 0; width: 100%; overflow-x: hidden;
-            font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-            font-size: var(--base-font-size);
-            line-height: var(--base-line-height);
-            color: var(--text-color) !important;
-            background-color: var(--bg-color) !important;
-            letter-spacing: -0.003em; 
-            transition: background-color 0.15s ease, color 0.15s ease;
-            -webkit-text-size-adjust: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.65; color: #1a1a1a; background-color: #ffffff;
         }
-
-        /* Premium Centered Reading Column Layout Configuration */
         main {
-            display: block; 
-            width: 100%; 
-            max-width: 680px; 
-            margin: 0 auto; 
-            padding: 56px 24px; 
-            box-sizing: border-box;
+            display: block; width: 100%; max-width: 720px;
+            margin: 0 auto; padding: 24px; box-sizing: border-box;
         }
+        h1, h2, h3 { color: #111111; line-height: 1.25; margin-top: 1.6em; margin-bottom: 0.6em; }
+        p { margin-bottom: 1.3em; word-wrap: break-word; text-align: justify; }
+        blockquote { margin: 1.5em 0; padding-left: 1.5em; border-left: 4px solid #111111; font-style: italic; color: #444444; }
         
-        /* Direct LibreOffice Paragraph Layout Baseline Rules */
-        #sovereign-text p, #sovereign-text span, #sovereign-text div {
-            text-align: left !important;
-            max-width: 100% !important;
-        }
-        #sovereign-text p { margin: 0 0 2rem 0 !important; word-wrap: break-word; }
-        #sovereign-text li { margin-bottom: 1rem; text-align: left; }
-
-        /* Clean Sans-Serif Contrast Headers */
-        h1, h2, h3, h4 { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--header-color) !important;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-        }
-        h1 { font-size: 2.2em; line-height: 1.18; margin: 1.8em 0 0.6em; }
-        h2 { font-size: 1.55em; line-height: 1.22; margin: 1.8em 0 0.6em; }
-        h3 { font-size: 1.25em; line-height: 1.28; margin: 1.8em 0 0.6em; }
-
-        /* Standalone Button Grouping Controls (No Outer Containment Boxes) */
-        .control-row {
+        /* Minimalist Text-Style Audio Controller */
+        .audio-trigger {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            margin-bottom: 1.5rem;
-            display: block;
-            width: 100%;
-            clear: both;
-        }
-        .control-label {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--text-color);
-            display: inline-block;
-            min-width: 120px;
-            opacity: 0.7;
-        }
-
-        /* Universal Action Button System matching your preferred layout profile */
-        .action-btn {
-            background-color: var(--text-color) !important; 
-            color: var(--bg-color) !important; 
-            border: 1px solid var(--text-color) !important;
-            padding: 8px 16px; 
-            font-size: 15px; 
-            font-weight: 500; 
-            border-radius: 20px; 
+            font-size: 16px;
+            color: #111111;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-bottom: 2rem;
             cursor: pointer;
-            margin-right: 8px;
+            text-decoration: underline;
             display: inline-block;
         }
-        .action-btn:disabled { 
-            background-color: #cccccc !important; 
-            border-color: #cccccc !important; 
-            color: #666666 !important; 
-            cursor: not-allowed; 
-        }
+        .audio-trigger:hover { color: #666666; }
 
-        .option-btn {
-            background-color: transparent !important; 
-            color: var(--text-color) !important; 
-            border: 1px solid var(--text-color) !important;
-            padding: 6px 14px; 
-            font-size: 14px; 
-            font-weight: 500; 
-            border-radius: 6px; 
-            cursor: pointer;
-            margin-right: 8px;
-            display: inline-block;
-        }
-        .option-btn.active { 
-            background-color: var(--text-color) !important; 
-            color: var(--bg-color) !important; 
-        }
-        
         /* Closing Statement Styling */
         .closing-statement {
-            font-style: italic !important; margin-top: 4.5em; margin-bottom: 2.5em; padding-top: 2.5em;
-            border-top: 1px solid var(--border-color) !important; color: var(--text-color) !important; opacity: 0.8; text-align: left !important; font-size: 0.95em !important;
+            font-style: italic; margin-top: 3em; margin-bottom: 2em; padding-top: 1.5em;
+            border-top: 1px solid #e0e0e0; color: #444444; text-align: justify;
         }
 
-        /* Layout Footer Component Layout Configuration */
+        /* Restored Layout Footer Component with Active Links */
         .sovereign-footer {
-            margin-top: 5em; padding-top: 2.5em; border-top: 1px solid var(--text-color) !important;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-            font-size: 0.85em !important; color: var(--text-color) !important; opacity: 0.8; line-height: 1.8 !important;
-            clear: both; display: block; width: 100%;
+            margin-top: 4em; padding-top: 1.5em; border-top: 1px solid #111111;
+            font-size: 0.9em; color: #555555; line-height: 1.8;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         }
-        .sovereign-footer * { color: var(--text-color) !important; font-size: inherit !important; line-height: inherit !important; }
-        .footer-links { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 32px; }
-        
-        /* ACTIVE LINK PRESENTATION FOR THE FOOTER */
-        .footer-links a { 
-            color: var(--text-color) !important;
-            text-decoration: underline !important; 
-            display: inline-block; 
-            cursor: pointer !important;
-        }
-        .footer-links a:hover { color: var(--header-color) !important; opacity: 1; }
-        
-        /* Spacing divider separating tools from text content */
-        .divider-spacer {
-            margin-bottom: 3.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-            width: 100%;
-        }
+        .footer-links { margin-bottom: 1em; display: flex; flex-wrap: wrap; gap: 24px; }
+        .footer-links a { color: #555555; text-decoration: underline; cursor: pointer !important; }
+        .footer-links a:hover { color: #111111; }
+        .copyright { font-weight: normal; }
 
+        /* Automatic Mobile Screen Responsiveness */
         @media screen and (max-width: 600px) {
-            main { padding: 36px 20px; }
-            h1 { font-size: 1.85em; }
-            h2 { font-size: 1.35em; }
-            .footer-links { flex-direction: column; gap: 12px; }
-            .control-row { margin-bottom: 1.2rem; }
-            .control-label { display: block; margin-bottom: 6px; }
+            main { padding: 16px; }
+            p { text-align: left; } 
+            .closing-statement { text-align: left; }
+            .footer-links { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Main Container Column -->
     <main>
         
-        <!-- Standalone Audio Reader Line -->
-        <div class="control-row">
-            <span class="control-label">Audio Reader</span>
-            <button id="playBtn" class="action-btn" onclick="toggleSpeech()">▶ Read Page</button>
-            <button id="stopBtn" class="action-btn" onclick="stopSpeech()" style="background-color: #666666 !important; border-color: #666666 !important;" disabled>Stop</button>
-        </div>
+        <!-- Seamless Minimalist Audio Trigger -->
+        <button id="audioBtn" class="audio-trigger" onclick="runSovereignVoice()">▶ Listen to this document</button>
 
-        <!-- Standalone Text Scaler Line -->
-        <div class="control-row">
-            <span class="control-label">Text Scale</span>
-            <button id="sizeA" class="option-btn active" onclick="applySovereignTextSize('standard', 'sizeA')">A (Standard)</button>
-            <button id="sizePlus" class="option-btn" onclick="applySovereignTextSize('large', 'sizePlus')">A+ (Large)</button>
-            <button id="sizePlusPlus" class="option-btn" onclick="applySovereignTextSize('extra', 'sizePlusPlus')">A++ (Elder)</button>
-        </div>
-
-        <!-- Standalone Visual Theme Line -->
-        <div class="control-row">
-            <span class="control-label">Visual Theme</span>
-            <button id="themeDefault" class="option-btn active" onclick="setTheme('default')">Crisp Light</button>
-            <button id="themeWarm" class="option-btn" onclick="setTheme('warm')">Warm Sepia</button>
-        </div>
-
-        <!-- Bottom Spacer Divider Line -->
-        <div class="divider-spacer"></div>
-
-        <!-- Converted LibreOffice Text Content Container Box -->
-        <div id="sovereign-text">
-            
-            <!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -224,6 +95,822 @@
 <body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p><span id="Frame1" dir="ltr" style="width: 0.02in; border: none; padding: 0in; background: #ffffff"><h1 class="western" style="display:inline;" style="margin-top: 0in; margin-bottom: 0in">
 	SOVEREIGN PLATFORM LEGAL REGISTRY COMPLIANCE FILE<br/>
 <br/>
+
+	</h1>
+</span><br/>
+PLATFORM DOMAIN NODE: nicksonogwal.org</p>
+<p>PLATFORM CUSTODIAN: Henry Nickson Ogwal (HnO)</p>
+<p>DOCUMENT VERSION: v2.2 (Hardened Master Version)</p>
+<p>EFFECTIVE DATE: 4 August 2026</p>
+<p>SUBSTANTIVE LAW: Republic of Uganda</p>
+<p>ARBITRATION SEAT: Kampala, Uganda</p>
+<p>ENFORCEMENT STATUS: Active Monograph</p>
+<h2 class="western"><b>SOVEREIGN REPOSITORY TERMS OF USE (VERSION
+2.2)</b></h2>
+<h2 class="western"><b>INTRODUCTION</b></h2>
+<p><br/>
+<br/>
+
+</p>
+<p>Welcome to the Sovereign Repository of nicksonogwal.org.</p>
+<p>This space is a living archive of Story, Memory, and Sovereignty —
+a&nbsp;protected digital hearth where research assets, ancestral
+knowledge,&nbsp;strategic portfolios, and phonographic masters are
+preserved with care&nbsp;and custodial discipline. These Terms of Use
+form the formal covenant&nbsp;that governs entry into this sanctuary.
+They define the boundaries&nbsp;through which readers, patrons,
+collaborators, and institutions may&nbsp;engage with the Platform and
+its four intellectual property quadrants.</p>
+<p>By stepping into this domain, you honour the custodial protocols
+that&nbsp;safeguard its integrity. You acknowledge the cultural
+labour invested in&nbsp;its creation, and you accept the
+responsibilities that accompany access&nbsp;to its decolonial
+histories, structured metadata, advisory frameworks,&nbsp;and audio
+ethnographic recordings.</p>
+<p>Through these shared commitments, we uphold a dignified,
+uncompromised&nbsp;environment — one that protects the work,
+honours the ancestors, and&nbsp;sustains a global community dedicated
+to intellectual liberation and the&nbsp;restoration of African
+knowledge sovereignty.</p>
+<h2 class="western">PREAMBLE: INTRODUCTORY DECLARATION AND EPISTEMIC
+MISSION</h2>
+<p><br/>
+This document establishes the sovereign contractual
+governance framework&nbsp;for nicksonogwal.org. The Platform operates
+as a secure, decentralized&nbsp;digital repository, clearinghouse,
+and advisory suite dedicated to the&nbsp;advancement of African
+intellectual sovereignty. Its core epistemic&nbsp;mission is to
+advance absolute intellectual liberation, execute systemic&nbsp;epistemic
+restitution, and dismantle colonial structural&nbsp;pathologization.</p>
+<p>The Platform provides direct access to the multidisciplinary
+initiatives&nbsp;of Henry Nickson Ogwal (HnO), encompassing
+decolonial humanities&nbsp;research, audio ethnographic performance,
+and applied strategic&nbsp;consultancy. By entering, parsing, or
+interacting with any file pathway&nbsp;on this Platform, the User
+explicitly enters into a binding legal&nbsp;covenant with the
+Platform Custodian and agrees to be governed by the&nbsp;terms,
+conditions, and statutory mandates detailed herein.</p>
+<h2 class="western">SECTION 1: SYSTEMIC PARADIGM AND LEGAL
+DEFINITIONS</h2>
+<h3 class="western">1.1 Definitions and Interpretive Boundaries</h3>
+<ul>
+	<li><p><span style="font-weight: normal">Platform </span><span style="font-weight: normal">r</span>efers
+	to the entirely static website architecture, raw&nbsp;file
+	directories, sub-directories, and cryptographic asset
+	paths&nbsp;associated with nicksonogwal.org. This includes all
+	public-facing&nbsp;elements mirrored across decentralized, read-only
+	hosting environments&nbsp;like GitHub Pages and Codeberg Pages, and
+	shielded by Layer-7&nbsp;Cloudflare edge firewalls.</p></li>
+	<li><p><b>Platform Custodian</b> refers strictly to Henry Nickson
+	Ogwal (HnO),&nbsp;his legal representatives, and designated cultural
+	successions. The&nbsp;title of formal institutional authority
+	remains silent across all&nbsp;sections to embed the active value of
+	personal and professional&nbsp;humility directly into the platform’s
+	governing mechanics.</p></li>
+	<li><p><b>User</b> refers to any human researcher, academic viewer,
+	digital&nbsp;consumer, or verified entity accessing the Platform
+	from any global&nbsp;network location. This definition explicitly
+	excludes un-vetted,&nbsp;automated bots, scrapers, and large
+	language model (LLM) training&nbsp;crawlers, whose access is
+	governed under Section 5.</p></li>
+	<li><p><b>Research Assets</b> refers to all text files, structured
+	metadata,&nbsp;code repositories, audio recordings, spoken-word
+	captures,&nbsp;genealogical registries, and digital designs
+	contained within the&nbsp;boundaries of the Platform.</p></li>
+	<li><p><b>Epistemocide</b> refers to the systematic, historical, and
+	ongoing&nbsp;destruction, marginalisation, and external commercial
+	extraction of&nbsp;indigenous African knowledge structures by
+	Eurocentric colonial and&nbsp;neo-colonial state apparatuses.</p></li>
+</ul>
+<h3 class="western">1.2 Interrelation of the Four-Quadrant
+Intellectual Property Matrix</h3>
+<p>The Platform integrates four structural legal quadrants into a
+single,&nbsp;cohesive user experience to demonstrate the
+indivisibility of African&nbsp;public intellect, creative expression,
+and strategic wisdom.</p>
+<ul>
+	<li><p><b>Infrastructural Integrity:</b> The technical operation of
+	the Platform&nbsp;mandates that Quadrants 1 through 4 share a fast,
+	un-hackable, static&nbsp;file architecture.</p></li>
+	<li><p><b>Legal Disconnection:</b> Notwithstanding this structural
+	integration,&nbsp;each Quadrant operates under a separate
+	intellectual property tier. A&nbsp;user's right to download or share
+	an asset from Quadrant 1 does not&nbsp;grant any implicit or
+	explicit right to modify, copy, or redistribute&nbsp;assets
+	contained within Quadrants 2, 3, or 4.</p>
+	<p></p></li>
+</ul>
+<h2 class="western">SECTION 2: STATUTORY GOVERNANCE OF THE
+FOUR-QUADRANT MATRIX</h2>
+<h3 class="western"></h3>
+<h3 class="western"><b>2.1 Quadrant 1: Indigenous Sciences and Oral
+Literature (The</b>&nbsp;<b>Open-Access Hub)</b></h3>
+<ul>
+	<li><p><b>Scope:</b> Contains all open-access decolonial humanities
+	texts,&nbsp;historical critiques, translations of oral poetry,
+	and&nbsp;community-facing ethnographic documentation.</p></li>
+	<li><p><b>Licensing and Permissions:</b> All assets within this
+	quadrant are&nbsp;licensed under the <b>Creative
+	Commons</b>&nbsp;<b>Attribution-NonCommercial-NoDerivatives 4.0
+	International (CC BY-NC-ND</b>&nbsp;<b>4.0)</b> license.</p></li>
+	<li><p><b>User Obligations:</b></p>
+	<ul>
+		<li><p><i>Attribution (BY):</i> The user must provide a prominent,
+		explicit&nbsp;citation back to the original URL link on
+		nicksonogwal.org. The user&nbsp;must attribute authorship directly
+		to Henry Nickson Ogwal (HnO).</p></li>
+		<li><p><i>Non-Commercial (NC):</i> The user cannot use any material
+		from this&nbsp;quadrant for commercial purposes, corporate
+		monetization, university&nbsp;paywalled coursepacks, or promotional
+		revenues without a separate,&nbsp;written commercial contract.</p></li>
+		<li><p><i>No Derivatives (ND):</i> If the user remixes, transforms,
+		or builds&nbsp;upon the material, they may not distribute the
+		modified material&nbsp;publicly.</p></li>
+	</ul>
+	<li><p><b>Statutory Backing:</b> This quadrant is protected by the
+	<b>Copyright</b>&nbsp;<b>and Neighbouring Rights Act, 2006 (Act No.
+	19 of 2006)</b> of Uganda,&nbsp;and the international <b>Berne
+	Convention for the Protection of</b>&nbsp;<b>Literary and Artistic
+	Works</b>.</p></li>
+</ul>
+<h3 class="western"><b>2.2 Quadrant 2: Endogenous Metadata and
+Lineage Registries (The</b>&nbsp;<b>Defensive Vault)</b></h3>
+<ul>
+	<li><p><b>Scope:</b> Comprises highly structured cultural databases,
+	ancestral&nbsp;lineage mappings, royal Lango praise-song registries,
+	family&nbsp;genealogical charts, and historical meta-records.</p></li>
+	<li><p><b>Licensing and Permissions:</b> This quadrant is locked
+	under an&nbsp;absolute <b>Sui Generis Database Right</b> combined
+	with customary&nbsp;African protection protocols.</p></li>
+	<li><p><b>Territorial Database Scope &amp; Notice:</b> The Platform
+	Custodian&nbsp;asserts international database protection over these
+	historical&nbsp;registries. In accordance with the provisions of the
+	<b>Data Protection</b>&nbsp;<b>and Privacy Act, 2019 (Act No. 2 of
+	2019)</b> of Uganda [4] and the&nbsp;territorial frameworks of the
+	international <b>European Union Directive</b>&nbsp;<b>96/9/EC on the
+	Legal Protection of Databases</b> [5]—enforced via&nbsp;global
+	edge-network server nodes—any systematic extraction,&nbsp;downloading,
+	or compilation of this data constitutes a breach of&nbsp;cross-border
+	data protection rules.</p></li>
+	<li><p><b>User Obligations:</b> Users are granted a limited,
+	personal,&nbsp;non-transferable license to view these registries for
+	individual&nbsp;historical research. Any systematic extraction, mass
+	downloading,&nbsp;scraping, mirroring, or creation of derivative
+	databases is strictly&nbsp;prohibited. Unauthorized extraction will
+	trigger immediate&nbsp;infrastructure-level IP dropping and legal
+	claims under Section 5 and&nbsp;Section 8.</p></li>
+</ul>
+<h3 class="western"><b>2.3 Quadrant 3: Applied Strategy and Advisory
+Portfolios (The</b>&nbsp;<b>Commercial Engine)</b></h3>
+<ul>
+	<li><p><b>Scope:</b> Contains all proprietary business consulting
+	models,&nbsp;organizational case studies, advisory white papers,
+	policy frameworks,&nbsp;and full-length published books.</p></li>
+	<li><p><b>Licensing and Permissions:</b> All materials are protected
+	by <b>Strict</b>&nbsp;<b>Traditional Copyright (All Rights
+	Reserved)</b>.</p></li>
+	<li><p><b>User Obligations:</b> Access to assets within this
+	quadrant is subject&nbsp;to single-user digital transactions,
+	subscription authentication, or&nbsp;formal client retainers. No
+	part of these books or strategic&nbsp;frameworks may be duplicated,
+	screenshot, uploaded to shared server&nbsp;clouds, or transmitted in
+	any form without prior written authorization&nbsp;from the Platform
+	Custodian.</p></li>
+	<li><p><b>Client Obligations:</b> Consulting clients who receive
+	specialized&nbsp;advisory materials are bound by perpetual
+	non-disclosure agreements&nbsp;embedded into their service
+	contracts.</p></li>
+	<li><p><b>Statutory Backing:</b> This quadrant is backed by the
+	international&nbsp;<b>World Intellectual Property Organization
+	(WIPO) Copyright Treaty</b>&nbsp;[6] and the <b>United States
+	Digital Millennium Copyright Act</b>&nbsp;<b>(DMCA)</b>.</p></li>
+</ul>
+<h3 class="western"><b>2.4 Quadrant 4: Audio-Ethnography and
+Phonographic Masters (The Studio</b>&nbsp;<b>Node)</b></h3>
+<ul>
+	<li><p><b>Scope:</b> Houses all studio master sound recordings,
+	vocal captures,&nbsp;musical arrangements, and spoken-word digital
+	media assets.</p></li>
+	<li><p><b>Licensing and Permissions:</b> Governed by <b>Phonographic
+	Copyright</b>&nbsp;<b>(℗)</b> and <b>Performance Rights (©)</b>.
+	The Platform Custodian retains&nbsp;absolute ownership over the
+	masters and underlying compositions.</p></li>
+	<li><p><b>The ISRC Structural Mandate:</b> Every audio asset is
+	watermarked and&nbsp;registered globally under the Platform
+	Custodian’s official&nbsp;<b>International Standard Recording Code
+	(ISRC)</b> registrant prefix:&nbsp;<b>UG-A6A</b>.</p></li>
+	<li><p><b>User Obligations:</b></p>
+	<ul>
+		<li><p>Streaming low-resolution previews on the website is
+		permitted for&nbsp;personal, non-commercial education.</p></li>
+		<li><p>Purchasing full-quality tracks constitutes a retail license
+		for&nbsp;personal, private playback only.</p></li>
+		<li><p>Any public broadcasting, radio play, background sync in
+		video or&nbsp;digital media, commercial sampling, or digital
+		distribution requires&nbsp;a formal synchronization and mechanical
+		license issued directly by&nbsp;the ISRC registrant clearinghouse
+		at <a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a>.</p></li>
+	</ul>
+	<li><p><b>Statutory Backing:</b> Protected by the <b>Rome Convention
+	for the</b>&nbsp;<b>Protection of Performers, Producers of
+	Phonograms and Broadcasting</b>&nbsp;<b>Organisations</b>, and the
+	international <b>WIPO Performances and</b>&nbsp;<b>Phonograms
+	Treaty</b>.</p></li>
+</ul>
+<h2 class="western">SECTION 3: FINTECH OPERATIONS, SUSTAINABILITY,
+AND RISK MANAGEMENT</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">3.1 Monetization Principles</h3>
+<p>The Platform operates as a self-sustaining intellectual ecosystem.
+In&nbsp;accordance with the principles of decolonial economic
+justice, the&nbsp;income generated from premium books, downloads,
+subscriptions, and&nbsp;consulting contracts serves as a modest
+payback for the long-term,&nbsp;multi-decade upfront personal
+capital, intellectual labor, and field&nbsp;risk invested by the
+Platform Custodian.</p>
+<h3 class="western">3.2 Payments, Refunds, and Chargeback Allocation</h3>
+<ul>
+	<li><p><b>Electronic Payment Processing Framework:</b> Payments are
+	processed&nbsp;entirely by certified third-party processors
+	(including&nbsp;<a href="https://flutterwave.com/ug/terms"><b>Flutterwave</b></a>
+	and <b>DPO Group</b>)&nbsp;acting as authorized financial
+	aggregators in strict compliance with&nbsp;the merchant frameworks
+	documented by the Bank of Uganda. All payments&nbsp;are subject to
+	the processor’s terms, fees, and settlement schedules.&nbsp;Refunds
+	are issued only under the Platform’s Refund Policy. Where
+	a&nbsp;chargeback is upheld by the card network, the Platform
+	Custodian may&nbsp;recover funds from the user and may suspend
+	services. The Platform&nbsp;Custodian may withhold funds pending
+	investigation of suspected fraud.&nbsp;Users are responsible for all
+	associated taxes and currency conversion&nbsp;fees.</p></li>
+	<li><p><b>Zero-Retention Financial Data Policy:</b> To maintain an
+	absolute&nbsp;zero-trust financial environment, this Platform
+	implements compliance&nbsp;standards based on <b>PCI-DSS Level 1
+	Cryptographic Tokenization</b>&nbsp;<b>Frameworks</b>. At no point
+	does this Platform’s code, host server, file&nbsp;repository, or
+	operational staff see, capture, process, parse, or&nbsp;retain any
+	raw financial credentials, card numbers, CVV codes, or&nbsp;mobile
+	money personal identification numbers (PINs). All
+	cryptographic&nbsp;payment processing is executed via isolated
+	tokenization on the&nbsp;PCI-DSS Level 1 certified servers of our
+	gateway partners.</p></li>
+	<li><p><b>Refund Eligibility and Process:</b> Digital assets are
+	delivered&nbsp;instantly upon purchase. Therefore, all sales are
+	structurally final.&nbsp;Refunds are issued only under exceptional
+	circumstances, such as a&nbsp;proven duplicate transaction error.
+	All refund requests must be&nbsp;submitted within 14 days to
+	<a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a>.</p></li>
+	<li><p><b>Chargeback Management &amp; Liability:</b> The user agrees
+	that initiating&nbsp;a false or bad-faith chargeback dispute with
+	their bank constitutes a&nbsp;breach of this contract. The Platform
+	Custodian reserves the absolute&nbsp;right to withhold or reverse
+	payment allocations to satisfy gateway&nbsp;chargeback
+	investigations. The user bears ultimate responsibility for&nbsp;any
+	associated processing fees, currency conversion variances,
+	or&nbsp;regional tax liabilities arising from their purchase.</p></li>
+</ul>
+<h3 class="western">3.3 Account Verification, KYC, and AML Compliance</h3>
+<ul>
+	<li><p><b>Account Verification and KYC:</b> To comply with
+	anti-money laundering&nbsp;(AML) and payment processor requirements,
+	the Platform Custodian may&nbsp;require identity, business, or
+	ownership documentation. Failure to&nbsp;provide requested
+	documentation within 72 hours of an institutional&nbsp;request may
+	result in immediate suspension of services, withholding of&nbsp;funds,
+	or account termination.</p></li>
+</ul>
+<h2 class="western">SECTION 4: THE MULTI-TIER GLOBAL ENGAGEMENT
+ARCHITECTURE</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">4.1 Individual Reader and Family Patronage (The
+Subscription Engine)</h3>
+<p>The platform features an active reader-patron interface designed
+to&nbsp;bypass predatory corporate publishers.</p>
+<ul>
+	<li><p><b>Voluntary Tiered Subscriptions:</b> Users may voluntarily
+	subscribe to&nbsp;the platform on a recurring monthly, quarterly, or
+	annual cycle. This&nbsp;includes supporting the platform via the
+	integrated &quot;Buy Me a Coffee&quot;&nbsp;sustainability portal.</p></li>
+	<li><p><b>Patron Rights:</b> Subscription fees are classified as
+	unconditional&nbsp;financial contributions toward field research.
+	Subscribing grants the&nbsp;patron personal, non-commercial access
+	to select behind-the-scenes&nbsp;field notes, draft transcriptions,
+	and early audio previews. It does&nbsp;not grant the subscriber
+	ownership over the core master copyrights or&nbsp;intellectual
+	properties of the platform.</p></li>
+	<li><p><b>Family Portals:</b> Family subscriptions allow up to five
+	household&nbsp;members to access research assets for domestic
+	educational study under&nbsp;a single patronage pool.</p></li>
+</ul>
+<h3 class="western">4.2 Technical Pro-Bono Collaborators (The
+Open-Source Squad)</h3>
+<p>To maintain an ironclad digital perimeter, the platform
+welcomes&nbsp;collaborative technical support from open-source
+practitioners&nbsp;worldwide.</p>
+<ul>
+	<li><p><b>Authorized Security Auditing:</b> Registered pro-bono
+	security&nbsp;engineers and systems architects are authorized to
+	inspect our static&nbsp;repository architectures on Codeberg and
+	GitHub for potential&nbsp;vulnerabilities.</p></li>
+	<li><p><b>Contribution Protocol:</b> All code updates, continuous
+	integration&nbsp;workflow improvements, or localized language
+	translation patches&nbsp;contributed to the repository become the
+	property of the Platform.&nbsp;Full credit will be assigned to the
+	volunteer inside our official&nbsp;public documentation.</p></li>
+	<li><p><b>Strict Pro-Bono Indemnification:</b> Technical volunteers
+	explicitly&nbsp;perform their actions on a voluntary, non-salaried
+	basis. They retain&nbsp;zero rights to claim financial wages,
+	employment status, or&nbsp;intellectual property shares from the
+	Platform Custodian.</p></li>
+</ul>
+<h3 class="western">4.3 Partner Organizations and Institutional
+Collaborators</h3>
+<p>The platform functions as a formal clearinghouse for
+international,&nbsp;regional, and national institutions, including
+universities, NGOs, and&nbsp;human-rights agencies.</p>
+<ul>
+	<li><p><b>Collaborative Institutional Licensing:</b> Academic bodies
+	or&nbsp;non-profit organizations seeking to use Quadrant 1 texts or
+	Quadrant 4&nbsp;media for educational modules must execute a formal
+	<b>Institutional</b>&nbsp;<b>Collaboration Accord</b> via
+	<a href="mailto:legal@nicksonogwal.org">legal@nicksonogwal.org</a>.</p></li>
+	<li><p><b>Joint Field Research Operations:</b> When an external
+	body&nbsp;collaborates on localized field ethnographies or
+	language&nbsp;transcriptions, data rights must be split via
+	explicit, pre-signed&nbsp;memoranda of understanding. This ensures
+	that the raw data remains&nbsp;permanently protected inside the
+	Sovereign Database Shield of Quadrant&nbsp;2 to prevent neo-colonial
+	data extraction.</p></li>
+</ul>
+<h2 class="western">SECTION 5: UNAUTHORISED USE, MACHINE LEARNING,
+AND BOT RESTRICTIONS</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">5.1 Unauthorized Use and Proportionate
+Enforcement Remedies</h3>
+<p>Unauthorized scraping, copying, mirroring, or use of Platform
+content to&nbsp;train machine learning models or for commercial
+exploitation is strictly&nbsp;prohibited.</p>
+<ul>
+	<li><p><b>The Technical Block:</b> If the Platform detects automated
+	harvesting,&nbsp;scraping, or other unauthorized extraction that
+	bypasses our technical&nbsp;protections, the Platform Custodian may
+	immediately block the&nbsp;offending traffic and seek injunctive
+	relief.</p></li>
+	<li><p><b>Notice and Cure:</b> Prior to seeking monetary relief, the
+	Platform&nbsp;Custodian will, where practicable, provide written
+	notice to the&nbsp;suspected infringer describing the conduct, the
+	assets affected, and&nbsp;proposed remedial steps. The recipient
+	will have 14 calendar days to&nbsp;respond and, if appropriate, cure
+	the conduct or negotiate a&nbsp;commercial license. This requirement
+	does not limit or waive the&nbsp;Platform Custodian's right to seek
+	immediate injunctive relief where&nbsp;irreparable harm is likely.</p></li>
+	<li><p><b>Sovereign Enforcement Scale:</b> The Platform Custodian's
+	remedies are&nbsp;cumulative and include injunctive relief, recovery
+	of actual damages,&nbsp;reasonable attorneys’ fees, and
+	contractual licensing fees computed on&nbsp;a proportionate,
+	per-asset basis as set out in the Platform’s separate&nbsp;Licensing
+	Schedule.</p></li>
+</ul>
+<h2 class="western">SECTION 6: LIABILITY PROVISIONS AND ACCESSIBILITY
+COMPLIANCE</h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">6.1 Balanced Limitation of Liability and Warranty
+Disclaimer</h3>
+<ul>
+	<li><p><b>The &quot;As-Is&quot; Baseline:</b> The Platform and all
+	its constituent&nbsp;Research Assets are provided strictly on an
+	&quot;As-Is&quot; and &quot;As-Available&quot;&nbsp;basis. While the
+	Platform Custodian implements deep empirical&nbsp;validation and
+	elite static edge security, no warranty is made that&nbsp;the
+	operational infrastructure will be completely
+	uninterrupted,&nbsp;permanently online, error-free, or entirely
+	secure from sophisticated&nbsp;state or non-state malicious actors.</p></li>
+	<li><p><b>Limitation of Liability:</b> Except for liability arising
+	from gross&nbsp;negligence, willful misconduct, or breaches of data
+	protection&nbsp;obligations, the Platform Custodian's aggregate
+	liability for any&nbsp;claim arising from or related to these Terms
+	shall not exceed the&nbsp;total fees paid by the user to the
+	Platform Custodian in the 12 months&nbsp;preceding the claim.</p></li>
+	<li><p><b>Consumer Rights:</b> If you are a consumer under
+	applicable law,&nbsp;nothing in these Terms shall limit your
+	statutory rights. Where local&nbsp;consumer protection laws apply,
+	those laws will govern to the extent&nbsp;they cannot be waived.</p></li>
+</ul>
+<h3 class="western">6.2 User Content Standards and Community
+Moderation</h3>
+<ul>
+	<li><p><b>User-Generated Content Policy:</b> If the platform enables
+	public&nbsp;comments, collaborative forums, or community-led
+	language&nbsp;translations, users retain sole responsibility for
+	their submissions.&nbsp;All content must remain free of defamatory,
+	abusive, hateful, or&nbsp;legally infringing material.</p></li>
+	<li><p><b>Moderation Rights:</b> The Platform Custodian reserves the
+	absolute&nbsp;right to audit, moderate, hide, or permanently erase
+	any&nbsp;user-generated submission without prior warning.</p></li>
+	<li><p><b>Accessibility Commitment:</b> The platform targets
+	compliance&nbsp;benchmarks under the <b>Web Content Accessibility
+	Guidelines (WCAG) 2.1</b>&nbsp;<b>Level AA</b> standards to ensure
+	clean compatibility with screen readers&nbsp;and accessibility
+	software.</p></li>
+</ul>
+<h2 class="western"><b>SECTION 7: COPYRIGHT INFRINGEMENT AND TAKEDOWN
+PROCEDURES (DMCA</b>&nbsp;<b>OPERATIONAL POLICY)</b></h2>
+<p><br/>
+<br/>
+
+</p>
+<h3 class="western">7.1 Copyright Infringement and Takedown Procedure</h3>
+<p>If you believe content hosted on or distributed through
+nicksonogwal.org&nbsp;infringes your copyright, send a written notice
+to our designated agent&nbsp;at <a href="mailto:legal@nicksonogwal.org">legal@nicksonogwal.org</a>
+with:</p>
+<ol>
+	<li><p>Clear identification of the copyrighted work claimed to have
+	been&nbsp;infringed.</p></li>
+	<li><p>The explicit URL(s) or precise static file paths of the
+	allegedly&nbsp;infringing material.</p></li>
+	<li><p>A signed statement under penalty of perjury that the
+	information in&nbsp;your notification is completely accurate.</p></li>
+	<li><p>Your complete contact information, including physical
+	address,&nbsp;telephone number, and active email address.</p></li>
+	<li><p>A statement of good faith that use of the material is not
+	authorized&nbsp;by the copyright owner, its agent, or the law.<br/>
+We
+	will respond in accordance with applicable law and provide
+	a&nbsp;comprehensive counter notice procedure.</p></li>
+</ol>
+<h2 class="western">SECTION 8: JURISDICTION, ENFORCEMENT, AND
+COMPLIANCE CONTACT MATRIX</h2>
+<p><br/>
+<br/>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Repository Archive</title>
+
+    <style>
+        /* Exact Medium-Identity Responsive Typography System Framework */
+        :root {
+            --base-font-size: 21px; 
+            --base-line-height: 1.95;
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --header-color: #1a1a1a;
+            --border-color: #efefef;
+            --canvas-width: 720px;
+        }
+
+        html[data-size="large"] { --base-font-size: 23px; --canvas-width: 740px; }
+        html[data-size="elder"] { --base-font-size: 25px; --canvas-width: 760px; }
+
+        body.warm-mode {
+            --bg-color: #f7f2e8; 
+            --text-color: #2b261f;
+            --header-color: #1a1510;
+            --border-color: #e3dac9;
+        }
+
+        html, body {
+            margin: 0; padding: 0; width: 100%; overflow-x: hidden;
+            font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+            font-size: var(--base-font-size);
+            line-height: var(--base-line-height) !important; 
+            color: var(--text-color) !important;
+            background-color: var(--bg-color) !important;
+            letter-spacing: -0.003em; 
+            transition: background-color 0.15s ease, color 0.15s ease, font-size 0.1s ease;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        main {
+            display: block; 
+            width: 100%; 
+            max-width: var(--canvas-width); 
+            margin: 0 auto 0 12%; 
+            padding: 56px 24px; 
+            box-sizing: border-box;
+            transition: max-width 0.1s ease;
+        }
+
+        /* DESKTOP TYPOGRAPHY ENHANCEMENT */
+        @media screen and (min-width: 900px) {
+            main {
+                max-width: calc(var(--canvas-width) - 40px);
+            }
+
+            #sovereign-text p {
+                line-height: 1.72 !important;
+                margin-bottom: 2.1rem !important;
+                letter-spacing: -0.002em !important;
+            }
+
+            h1, h2, h3 {
+                margin-top: 2.2em !important;
+                margin-bottom: 0.75em !important;
+                line-height: 1.22 !important;
+            }
+        }
+
+        /* MEDIUM-GRADE MOBILE WIDTH + PADDING */
+        @media screen and (max-width: 900px) {
+            main {
+                margin-left: 4% !important;
+                margin-right: 4% !important;
+                max-width: 92% !important;
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
+        }
+
+        #sovereign-text p {
+            margin: 0 0 2.4rem 0 !important;
+            word-wrap: break-word;
+        }
+
+        #sovereign-text li { margin-bottom: 1rem; text-align: left; }
+
+        h1, h2, h3, h4 { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--header-color) !important;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+
+        h1, h2, h3 {
+            margin-top: 2.4em !important;
+            margin-bottom: 0.8em !important;
+        }
+
+        .control-row {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin-bottom: 1.5rem;
+            display: block;
+            width: 100%;
+            clear: both;
+        }
+
+        .control-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-color);
+            display: inline-block;
+            min-width: 120px;
+            opacity: 0.7;
+        }
+
+        .action-btn {
+            background-color: var(--text-color) !important; 
+            color: var(--bg-color) !important; 
+            border: 1px solid var(--text-color) !important;
+            padding: 8px 16px; 
+            font-size: 15px; 
+            font-weight: 500; 
+            border-radius: 20px; 
+            cursor: pointer;
+            margin-right: 8px;
+            display: inline-block;
+        }
+
+        .action-btn:disabled { 
+            background-color: #cccccc !important; 
+            border-color: #cccccc !important; 
+            color: #666666 !important; 
+            cursor: not-allowed; 
+        }
+
+        .option-btn {
+            background-color: transparent !important; 
+            color: var(--text-color) !important; 
+            border: 1px solid var(--text-color) !important;
+            padding: 6px 14px; 
+            font-size: 14px; 
+            font-weight: 500; 
+            border-radius: 6px; 
+            cursor: pointer;
+            margin-right: 8px;
+            display: inline-block;
+        }
+
+        .option-btn.active { 
+            background-color: var(--text-color) !important; 
+            color: var(--bg-color) !important;
+        }
+
+        .closing-statement {
+            font-style: italic !important; margin-top: 4.5em; margin-bottom: 2.5em; padding-top: 2.5em;
+            border-top: 1px solid var(--border-color) !important; color: var(--text-color) !important; opacity: 0.8; text-align: left !important; font-size: 0.95em !important;
+        }
+
+        .sovereign-footer {
+            margin-top: 5em; padding-top: 2.5em; border-top: 1px solid var(--text-color) !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            font-size: 0.85em !important; color: var(--text-color) !important; opacity: 0.8; line-height: 1.8 !important;
+            clear: both; display: block; width: 100%;
+        }
+
+        .footer-links { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 32px; }
+        .footer-links a { 
+            color: var(--text-color) !important;
+            text-decoration: underline !important; 
+            display: inline-block; 
+            cursor: pointer !important;
+        }
+
+        .divider-spacer {
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            width: 100%;
+        }
+
+        /* RIGHT-SIDE TOC (A2 + R2) */
+
+        #toc-bar {
+            position: fixed;
+            top: 120px;
+            right: 0;
+            width: 14px;
+            height: 60%;
+            background-color: var(--text-color);
+            opacity: 0.35;
+            cursor: pointer;
+            border-radius: 8px 0 0 8px;
+            transition: opacity 0.2s ease;
+            z-index: 999;
+        }
+
+        #toc-bar:hover {
+            opacity: 0.55;
+        }
+
+        #toc-panel {
+            position: fixed;
+            top: 120px;
+            right: -340px;
+            width: 320px;
+            height: 60%;
+            background-color: var(--bg-color);
+            border-left: 1px solid var(--border-color);
+            box-shadow: -4px 0 12px rgba(0,0,0,0.08);
+            overflow-y: auto;
+            padding: 20px;
+            transition: right 0.25s ease;
+            z-index: 1000;
+        }
+
+        #toc-panel.open {
+            right: 0;
+        }
+
+        #toc-panel h3 {
+            margin-top: 0;
+            font-size: 1em;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #toc-panel ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #toc-panel li {
+            margin-bottom: 0.8rem;
+        }
+
+        #toc-panel a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+
+        #toc-panel a:hover {
+            text-decoration: underline;
+        }
+
+        /* REMOVE TOC SHADOW ON MOBILE */
+        @media screen and (max-width: 900px) {
+            #toc-bar, #toc-panel {
+                display: none;
+            }
+            #toc-panel {
+                box-shadow: none !important;
+                border-left: none !important;
+            }
+        }
+
+        /* Clapping Animation */
+        @keyframes clap {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .clap-effect {
+            animation: clap 0.4s ease-in-out;
+        }
+
+        #feedbackBox {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        /* ⭐ FINAL MOBILE OVERRIDES — MUST BE LAST ⭐ */
+        @media screen and (max-width: 900px) {
+
+            html, body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+            }
+
+            #sovereign-text p {
+                line-height: 1.75 !important;
+                margin-bottom: 2.4rem !important;
+                letter-spacing: 0.01em !important;
+                text-align: left !important;
+                font-weight: 450 !important;
+            }
+
+            h1, h2, h3 {
+                margin-top: 1.8em !important;
+                margin-bottom: 0.85em !important;
+                line-height: 1.26 !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <!-- RIGHT-SIDE TOC -->
+        <div id="toc-bar"></div>
+        <div id="toc-panel">
+            <h3>Contents</h3>
+            <ul id="toc-list"></ul>
+        </div>
+
+        <!-- Audio Reader -->
+        <div class="control-row">
+            <span class="control-label">Audio Reader</span>
+            <button id="playBtn" class="action-btn">▶ Read Page</button>
+            <button id="stopBtn" class="action-btn" disabled>Stop</button>
+        </div>
+
+        <!-- Text Scale -->
+        <div class="control-row">
+            <span class="control-label">Text Scale</span>
+            <button id="sizeA" class="option-btn active">A (Standard)</button>
+            <button id="sizePlus" class="option-btn">A+ (Large)</button>
+            <button id="sizePlusPlus" class="option-btn">A++ (Elder)</button>
+        </div>
+
+        <!-- Visual Theme -->
+        <div class="control-row">
+            <span class="control-label">Visual Theme</span>
+            <button id="themeDefault" class="option-btn active">Crisp Light</button>
+            <button id="themeWarm" class="option-btn">Warm Sepia</button>
+        </div>
+
+        <!-- Extras -->
+        <div class="control-row">
+            <span class="control-label">Extras</span>
+            <button id="darkModeBtn" class="option-btn">Dark Mode</button>
+            <button id="clapBtn" class="option-btn">👏 Clap</button>
+            <button id="feedbackBtn" class="option-btn">Feedback</button>
+        </div>
+
+        <div id="feedbackBox">
+            <textarea style="width:100%; height:80px;"></textarea>
+            <button class="action-btn" style="margin-top:10px;">Submit</button>
+        </div>
+
+        <div class="divider-spacer"></div>
+
+        <div id="sovereign-text">
+            <!-- START OF CONVERTED HTML CONTENT BLOCK -->
+
 
 	</h1>
 </span><br/>
@@ -800,22 +1487,20 @@ Henry Nickson Ogwal
 Primary Registrant and Sovereign
 Archivist<br/>
 nicksonogwal.org</p>
-</body>
-</html>
 
+            <!-- END OF CONVERTED HTML CONTENT BLOCK -->
         </div>
 
-        <!-- Closing Statement Area -->
         <p class="closing-statement">
             SMS — Story. Memory. Sovereignty. This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.
         </p>
 
-        <!-- Restored Footer Layout Structure with active production address references -->
+        <!-- UPDATED FOOTER -->
         <footer class="sovereign-footer">
             <div class="footer-links">
-                <a href="https://nicksonogwal.org">Privacy Policy</a>
-                <a href="https://nicksonogwal.org">Terms of Service</a>
-                <a href="https://nicksonogwal.org">Commercial Licensing Schedule</a>
+                <a href="https://nicksonogwal.org/privacy">Privacy Policy</a>
+                <a href="https://nicksonogwal.org/terms">Terms of Service</a>
+                <a href="https://nicksonogwal.org/licensing">Commercial Licensing Schedule</a>
             </div>
             <div class="copyright">
                 &copy; 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository
@@ -823,29 +1508,86 @@ nicksonogwal.org</p>
         </footer>
 
     </main>
-
-    <!-- Native JavaScript Control Engine -->
     <script>
+        /* Audio Reader */
         let synth = window.speechSynthesis;
         let utterance = null;
 
-        function toggleSpeech() {
-            const playBtn = document.getElementById('playBtn');
-            const stopBtn = document.getElementById('stopBtn');
+        document.getElementById('playBtn').onclick = () => {
+            const text = document.getElementById('sovereign-text').innerText;
+            utterance = new SpeechSynthesisUtterance(text);
+            synth.speak(utterance);
+            document.getElementById('stopBtn').disabled = false;
+        };
 
-            if (!synth) {
-                alert("Audio text-to-speech reading is not supported by your browser engine.");
-                return;
-            }
-            if (synth.speaking && synth.paused) {
-                synth.resume();
-                playBtn.innerHTML = "⏸ Pause Reader";
-                return;
-            }
-            if (synth.speaking && !synth.paused) {
-                synth.pause();
-                playBtn.innerHTML = "▶ Resume Reader";
-                return;
-            }
+        document.getElementById('stopBtn').onclick = () => {
+            synth.cancel();
+            document.getElementById('stopBtn').disabled = true;
+        };
 
-            const plainText = document.getElementById('sovereign-text').innerText;
+        /* Text Scale */
+        document.getElementById('sizeA').onclick = () => document.documentElement.removeAttribute('data-size');
+        document.getElementById('sizePlus').onclick = () => document.documentElement.setAttribute('data-size', 'large');
+        document.getElementById('sizePlusPlus').onclick = () => document.documentElement.setAttribute('data-size', 'elder');
+
+        /* Visual Theme */
+        document.getElementById('themeDefault').onclick = () => document.body.classList.remove('warm-mode');
+        document.getElementById('themeWarm').onclick = () => document.body.classList.add('warm-mode');
+
+        /* Dark Mode */
+        document.getElementById('darkModeBtn').onclick = () => {
+            document.body.classList.toggle('dark-mode');
+            document.body.style.backgroundColor = document.body.classList.contains('dark-mode') ? "#111" : "";
+            document.body.style.color = document.body.classList.contains('dark-mode') ? "#eee" : "";
+        };
+
+        /* Clap */
+        document.getElementById('clapBtn').onclick = () => {
+            document.getElementById('clapBtn').classList.add('clap-effect');
+            setTimeout(() => {
+                document.getElementById('clapBtn').classList.remove('clap-effect');
+            }, 400);
+        };
+
+        /* Feedback */
+        document.getElementById('feedbackBtn').onclick = () => {
+            const box = document.getElementById('feedbackBox');
+            box.style.display = box.style.display === "none" ? "block" : "none";
+        };
+
+        /* AUTO-GENERATED TOC (A2 + R2) */
+
+        function generateTOC() {
+            const tocList = document.getElementById("toc-list");
+            const content = document.getElementById("sovereign-text");
+            const headers = content.querySelectorAll("h1, h2, h3");
+
+            headers.forEach((header, index) => {
+                const id = "section-" + index;
+                header.id = id;
+
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+
+                a.href = "#" + id;
+                a.textContent = header.textContent;
+
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        }
+
+        generateTOC();
+
+        /* TOC toggle */
+        const tocBar = document.getElementById("toc-bar");
+        const tocPanel = document.getElementById("toc-panel");
+
+        tocBar.addEventListener("click", () => {
+            tocPanel.classList.toggle("open");
+        });
+
+    </script>
+
+</body>
+</html>
