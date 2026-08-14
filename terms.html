@@ -1,358 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Repository Archive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        /* Exact Medium-Identity Responsive Typography System Framework */
-        :root {
-            --base-font-size: 21px; 
-            --base-line-height: 1.95;
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --header-color: #1a1a1a;
-            --border-color: #efefef;
-            --canvas-width: 720px;
-        }
+<title>Sovereign Reading Environment — V4.2.1</title>
 
-        html[data-size="large"] { --base-font-size: 23px; --canvas-width: 740px; }
-        html[data-size="elder"] { --base-font-size: 25px; --canvas-width: 760px; }
+<style>
+/* ==========================================================
+   UNIFIED SOVEREIGN TEMPLATE V4.2.1 — STABLE EDITION
+   ========================================================== */
 
-        body.warm-mode {
-            --bg-color: #f7f2e8; 
-            --text-color: #2b261f;
-            --header-color: #1a1510;
-            --border-color: #e3dac9;
-        }
+:root{
+  --bg: #fdf8f2;
+  --text: #2b2b2b;
+  --link: #2b6cb0;
+  --accent: #c05621;
+  --measure: 75ch;
+  --font-size: 19px;
+  --line-height: 1.7;
+  --padding: 2rem;
+  --ui-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --body-font: "Georgia", "Times New Roman", serif;
+}
 
-        html, body {
-            margin: 0; padding: 0; width: 100%; overflow-x: hidden;
-            font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-            font-size: var(--base-font-size);
-            line-height: var(--base-line-height) !important; 
-            color: var(--text-color) !important;
-            background-color: var(--bg-color) !important;
-            letter-spacing: -0.003em; 
-            transition: background-color 0.15s ease, color 0.15s ease, font-size 0.1s ease;
-            -webkit-text-size-adjust: 100%;
-        }
+/* Dark mode */
+.dark{
+  --bg: #0b0b0b;
+  --text: #e6e6e6;
+  --link: #7fb4ff;
+  --accent: #f6ad55;
+}
 
-        main {
-            display: block; 
-            width: 100%; 
-            max-width: var(--canvas-width); 
-            margin: 0 auto 0 12%; 
-            padding: 56px 24px; 
-            box-sizing: border-box;
-            transition: max-width 0.1s ease;
-        }
+/* Text size modes */
+.size-base{ --font-size: 19px; }
+.size-plus{ --font-size: 21px; }
+.size-max{ --font-size: 23px; }
 
-        /* DESKTOP TYPOGRAPHY ENHANCEMENT */
-        @media screen and (min-width: 900px) {
-            main {
-                max-width: calc(var(--canvas-width) - 40px);
-            }
+/* Global layout */
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
 
-            #sovereign-text p {
-                line-height: 1.72 !important;
-                margin-bottom: 2.1rem !important;
-                letter-spacing: -0.002em !important;
-            }
+/* Shell */
+#shell{
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--padding);
+}
 
-            h1, h2, h3 {
-                margin-top: 2.2em !important;
-                margin-bottom: 0.75em !important;
-                line-height: 1.22 !important;
-            }
-        }
+/* ==========================================================
+   FLOATING BUBBLES (TOP)
+   ========================================================== */
 
-        /* MEDIUM-GRADE MOBILE WIDTH + PADDING */
-        @media screen and (max-width: 900px) {
-            main {
-                margin-left: 4% !important;
-                margin-right: 4% !important;
-                max-width: 92% !important;
-                padding-left: 24px !important;
-                padding-right: 24px !important;
-            }
-        }
+/* Readability + Voice bubble (top center) */
+#readability-bubble{
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff7ed;
+  border: 1px solid #d0c4b5;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-family: var(--ui-font);
+  z-index: 999;
+  opacity: 0.9;
+}
+#readability-bubble:hover{
+  opacity: 1;
+}
 
-        #sovereign-text p {
-            margin: 0 0 2.4rem 0 !important;
-            word-wrap: break-word;
-        }
+/* Clap bubble (top right) */
+#clap-bubble{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #fff7ed;
+  border: 1px solid #d0c4b5;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-family: var(--ui-font);
+  z-index: 999;
+  opacity: 0.9;
+  text-align: center;
+}
+#clap-bubble:hover{
+  opacity: 1;
+}
 
-        #sovereign-text li { margin-bottom: 1rem; text-align: left; }
+/* TOC bubble (right side) */
+#toc-bubble{
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: #fff7ed;
+  border: 1px solid #d0c4b5;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-family: var(--ui-font);
+  z-index: 999;
+  opacity: 0.9;
+}
+#toc-bubble:hover{
+  opacity: 1;
+}
 
-        h1, h2, h3, h4 { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            color: var(--header-color) !important;
-            font-weight: 700;
-            letter-spacing: -0.015em;
-        }
+/* TOC panel */
+#toc-panel{
+  display: none;
+  position: fixed;
+  top: 50%;
+  right: 70px;
+  transform: translateY(-50%);
+  width: 260px;
+  background: #fffaf3;
+  border: 1px solid #e2d3c2;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  z-index: 999;
+}
 
-        h1, h2, h3 {
-            margin-top: 2.4em !important;
-            margin-bottom: 0.8em !important;
-        }
+/* Section divider — circular HnO emblem */
+.hno-divider{
+  width: 80px;
+  height: 80px;
+  margin: 2.5rem auto;
+  background-image: url('hno-circle.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-        .control-row {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            margin-bottom: 1.5rem;
-            display: block;
-            width: 100%;
-            clear: both;
-        }
+/* Footer brand */
+#footer-brand{
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1rem;
+  background-image: url('hno-circle.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-        .control-label {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--text-color);
-            display: inline-block;
-            min-width: 120px;
-            opacity: 0.7;
-        }
+/* Footer */
+footer{
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+  font-family: var(--ui-font);
+  font-size: 15px;
+}
 
-        .action-btn {
-            background-color: var(--text-color) !important; 
-            color: var(--bg-color) !important; 
-            border: 1px solid var(--text-color) !important;
-            padding: 8px 16px; 
-            font-size: 15px; 
-            font-weight: 500; 
-            border-radius: 20px; 
-            cursor: pointer;
-            margin-right: 8px;
-            display: inline-block;
-        }
+/* Footer links row */
+#footer-links{
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
 
-        .action-btn:disabled { 
-            background-color: #cccccc !important; 
-            border-color: #cccccc !important; 
-            color: #666666 !important; 
-            cursor: not-allowed; 
-        }
+/* Mobile adjustments */
+@media (max-width: 720px){
+  :root{
+    --font-size: 20px;
+    --line-height: 1.85;
+    --measure: 48ch;
+    --padding: 1.2rem;
+  }
 
-        .option-btn {
-            background-color: transparent !important; 
-            color: var(--text-color) !important; 
-            border: 1px solid var(--text-color) !important;
-            padding: 6px 14px; 
-            font-size: 14px; 
-            font-weight: 500; 
-            border-radius: 6px; 
-            cursor: pointer;
-            margin-right: 8px;
-            display: inline-block;
-        }
-
-        .option-btn.active { 
-            background-color: var(--text-color) !important; 
-            color: var(--bg-color) !important;
-        }
-
-        .closing-statement {
-            font-style: italic !important; margin-top: 4.5em; margin-bottom: 2.5em; padding-top: 2.5em;
-            border-top: 1px solid var(--border-color) !important; color: var(--text-color) !important; opacity: 0.8; text-align: left !important; font-size: 0.95em !important;
-        }
-
-        .sovereign-footer {
-            margin-top: 5em; padding-top: 2.5em; border-top: 1px solid var(--text-color) !important;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-            font-size: 0.85em !important; color: var(--text-color) !important; opacity: 0.8; line-height: 1.8 !important;
-            clear: both; display: block; width: 100%;
-        }
-
-        .footer-links { margin-bottom: 1.5em; display: flex; flex-wrap: wrap; gap: 32px; }
-        .footer-links a { 
-            color: var(--text-color) !important;
-            text-decoration: underline !important; 
-            display: inline-block; 
-            cursor: pointer !important;
-        }
-
-        .divider-spacer {
-            margin-bottom: 3.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1rem;
-            width: 100%;
-        }
-
-        /* RIGHT-SIDE TOC (A2 + R2) */
-
-        #toc-bar {
-            position: fixed;
-            top: 120px;
-            right: 0;
-            width: 14px;
-            height: 60%;
-            background-color: var(--text-color);
-            opacity: 0.35;
-            cursor: pointer;
-            border-radius: 8px 0 0 8px;
-            transition: opacity 0.2s ease;
-            z-index: 999;
-        }
-
-        #toc-bar:hover {
-            opacity: 0.55;
-        }
-
-        #toc-panel {
-            position: fixed;
-            top: 120px;
-            right: -340px;
-            width: 320px;
-            height: 60%;
-            background-color: var(--bg-color);
-            border-left: 1px solid var(--border-color);
-            box-shadow: -4px 0 12px rgba(0,0,0,0.08);
-            overflow-y: auto;
-            padding: 20px;
-            transition: right 0.25s ease;
-            z-index: 1000;
-        }
-
-        #toc-panel.open {
-            right: 0;
-        }
-
-        #toc-panel h3 {
-            margin-top: 0;
-            font-size: 1em;
-            opacity: 0.7;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        #toc-panel ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        #toc-panel li {
-            margin-bottom: 0.8rem;
-        }
-
-        #toc-panel a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.95em;
-        }
-
-        #toc-panel a:hover {
-            text-decoration: underline;
-        }
-
-        /* REMOVE TOC SHADOW ON MOBILE */
-        @media screen and (max-width: 900px) {
-            #toc-bar, #toc-panel {
-                display: none;
-            }
-            #toc-panel {
-                box-shadow: none !important;
-                border-left: none !important;
-            }
-        }
-
-        /* Clapping Animation */
-        @keyframes clap {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .clap-effect {
-            animation: clap 0.4s ease-in-out;
-        }
-
-        #feedbackBox {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: #fafafa;
-        }
-
-        /* ⭐ FINAL MOBILE OVERRIDES — MUST BE LAST ⭐ */
-        @media screen and (max-width: 900px) {
-
-            html, body {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
-            }
-
-            #sovereign-text p {
-                line-height: 1.75 !important;
-                margin-bottom: 2.4rem !important;
-                letter-spacing: 0.01em !important;
-                text-align: left !important;
-                font-weight: 450 !important;
-            }
-
-            h1, h2, h3 {
-                margin-top: 1.8em !important;
-                margin-bottom: 0.85em !important;
-                line-height: 1.26 !important;
-            }
-        }
-
-    </style>
+  /* Remove TOC bubble entirely */
+  #toc-bubble{ display: none; }
+  #toc-panel{ display: none !important; }
+}
+</style>
 </head>
-<body>
 
-    <main>
+<body class="size-base">
 
-        <!-- RIGHT-SIDE TOC -->
-        <div id="toc-bar"></div>
-        <div id="toc-panel">
-            <h3>Contents</h3>
-            <ul id="toc-list"></ul>
-        </div>
+<!-- Readability + Voice bubble -->
+<div id="readability-bubble">
+  <button data-size="base">A</button>
+  <button data-size="plus">A+</button>
+  <button data-size="max">A++</button>
+  <button id="theme-toggle">Dark / Light</button>
+  <button id="tts-play">Read</button>
+  <button id="tts-pause">Pause</button>
+  <button id="tts-stop">Stop</button>
+</div>
 
-        <!-- Audio Reader -->
-        <div class="control-row">
-            <span class="control-label">Audio Reader</span>
-            <button id="playBtn" class="action-btn">▶ Read Page</button>
-            <button id="stopBtn" class="action-btn" disabled>Stop</button>
-        </div>
+<!-- Clap bubble -->
+<div id="clap-bubble">
+  <button id="clap-button" style="font-size:20px;">👏</button>
+  <div id="clap-count" style="font-size:16px;">0</div>
+</div>
 
-        <!-- Text Scale -->
-        <div class="control-row">
-            <span class="control-label">Text Scale</span>
-            <button id="sizeA" class="option-btn active">A (Standard)</button>
-            <button id="sizePlus" class="option-btn">A+ (Large)</button>
-            <button id="sizePlusPlus" class="option-btn">A++ (Elder)</button>
-        </div>
+<!-- TOC bubble -->
+<div id="toc-bubble">
+  <button id="toc-toggle">Contents ▾</button>
+</div>
 
-        <!-- Visual Theme -->
-        <div class="control-row">
-            <span class="control-label">Visual Theme</span>
-            <button id="themeDefault" class="option-btn active">Crisp Light</button>
-            <button id="themeWarm" class="option-btn">Warm Sepia</button>
-        </div>
+<!-- TOC panel -->
+<div id="toc-panel">
+  <h3>Table of Contents</h3>
+  <ul></ul>
+</div>
 
-        <!-- Extras -->
-        <div class="control-row">
-            <span class="control-label">Extras</span>
-            <button id="darkModeBtn" class="option-btn">Dark Mode</button>
-            <button id="clapBtn" class="option-btn">👏 Clap</button>
-            <button id="feedbackBtn" class="option-btn">Feedback</button>
-        </div>
+<div id="shell">
 
-        <div id="feedbackBox">
-            <textarea style="width:100%; height:80px;"></textarea>
-            <button class="action-btn" style="margin-top:10px;">Submit</button>
-        </div>
+  <!-- ==========================================================
+       SOVEREIGN CONTENT INSERTION ZONE — DO NOT ALTER
+       BEGIN USER CONTENT
+       ========================================================== -->
 
-        <div class="divider-spacer"></div>
-
-        <div id="sovereign-text">
-            <!-- START OF CONVERTED HTML CONTENT BLOCK -->
-
+  
 
 	</h1>
 </span><br/>
@@ -930,106 +796,120 @@ Primary Registrant and Sovereign
 Archivist<br/>
 nicksonogwal.org</p>
 
-            <!-- END OF CONVERTED HTML CONTENT BLOCK -->
-        </div>
 
-        <p class="closing-statement">
-            SMS — Story. Memory. Sovereignty. This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.
-        </p>
+  <!-- ==========================================================
+       END USER CONTENT
+       ========================================================== -->
 
-        <!-- UPDATED FOOTER -->
-        <footer class="sovereign-footer">
-            <div class="footer-links">
-                <a href="https://nicksonogwal.org/privacy">Privacy Policy</a>
-                <a href="https://nicksonogwal.org/terms">Terms of Service</a>
-                <a href="https://nicksonogwal.org/licensing">Commercial Licensing Schedule</a>
-            </div>
-            <div class="copyright">
-                &copy; 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository
-            </div>
-        </footer>
+  <!-- FOOTER -->
+  <footer>
 
-    </main>
-    <script>
-        /* Audio Reader */
-        let synth = window.speechSynthesis;
-        let utterance = null;
+    <div id="footer-brand"></div>
 
-        document.getElementById('playBtn').onclick = () => {
-            const text = document.getElementById('sovereign-text').innerText;
-            utterance = new SpeechSynthesisUtterance(text);
-            synth.speak(utterance);
-            document.getElementById('stopBtn').disabled = false;
-        };
+    <p style="font-style:italic;">
+      <strong>SMS — Story. Memory. Sovereignty.</strong>
+      This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.
+    </p>
 
-        document.getElementById('stopBtn').onclick = () => {
-            synth.cancel();
-            document.getElementById('stopBtn').disabled = true;
-        };
+    <div id="footer-links">
+      <a href="https://nicksonogwal.org/privacy">Privacy</a>
+      <a href="https://nicksonogwal.org/terms">Terms</a>
+      <a href="https://nicksonogwal.org/licensing">Licensing</a>
+    </div>
 
-        /* Text Scale */
-        document.getElementById('sizeA').onclick = () => document.documentElement.removeAttribute('data-size');
-        document.getElementById('sizePlus').onclick = () => document.documentElement.setAttribute('data-size', 'large');
-        document.getElementById('sizePlusPlus').onclick = () => document.documentElement.setAttribute('data-size', 'elder');
+    <p style="margin-top:1rem;">All Rights Reserved.</p>
+    <p style="margin-top:1rem;">© 2026 Henry Nickson Ogwal — Sovereign Digital Architecture</p>
 
-        /* Visual Theme */
-        document.getElementById('themeDefault').onclick = () => document.body.classList.remove('warm-mode');
-        document.getElementById('themeWarm').onclick = () => document.body.classList.add('warm-mode');
+  </footer>
 
-        /* Dark Mode */
-        document.getElementById('darkModeBtn').onclick = () => {
-            document.body.classList.toggle('dark-mode');
-            document.body.style.backgroundColor = document.body.classList.contains('dark-mode') ? "#111" : "";
-            document.body.style.color = document.body.classList.contains('dark-mode') ? "#eee" : "";
-        };
+</div>
 
-        /* Clap */
-        document.getElementById('clapBtn').onclick = () => {
-            document.getElementById('clapBtn').classList.add('clap-effect');
-            setTimeout(() => {
-                document.getElementById('clapBtn').classList.remove('clap-effect');
-            }, 400);
-        };
+<!-- FEEDBACK BELOW FOOTER -->
+<section id="feedback-section" style="margin-top:3rem;padding:0 var(--padding);max-width:var(--measure);margin-left:auto;margin-right:auto;">
+  <h3>Share Feedback</h3>
+  <textarea id="feedback-input" rows="5" style="width:100%;"></textarea>
+  <button id="feedback-submit">Submit Feedback</button>
+  <p style="font-size:14px;color:var(--accent);">
+    Your feedback will be reviewed by the Custodian before publication.
+  </p>
+</section>
 
-        /* Feedback */
-        document.getElementById('feedbackBtn').onclick = () => {
-            const box = document.getElementById('feedbackBox');
-            box.style.display = box.style.display === "none" ? "block" : "none";
-        };
+<script>
+/* ==========================================================
+   UNIFIED SCRIPT BLOCK — V4.2.1
+   ========================================================== */
 
-        /* AUTO-GENERATED TOC (A2 + R2) */
+(function(){
 
-        function generateTOC() {
-            const tocList = document.getElementById("toc-list");
-            const content = document.getElementById("sovereign-text");
-            const headers = content.querySelectorAll("h1, h2, h3");
+  /* Dark mode */
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn.addEventListener('click', ()=> root.classList.toggle('dark'));
 
-            headers.forEach((header, index) => {
-                const id = "section-" + index;
-                header.id = id;
+  /* Text size */
+  const sizeButtons = document.querySelectorAll('[data-size]');
+  sizeButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.body.className = 'size-' + btn.dataset.size;
+    });
+  });
 
-                const li = document.createElement("li");
-                const a = document.createElement("a");
+  /* TOC toggle */
+  const tocToggle = document.getElementById('toc-toggle');
+  const tocPanel = document.getElementById('toc-panel');
+  tocToggle.addEventListener('click', ()=>{
+    tocPanel.style.display = tocPanel.style.display === 'block' ? 'none' : 'block';
+  });
 
-                a.href = "#" + id;
-                a.textContent = header.textContent;
+  /* Auto-generate TOC */
+  const tocList = tocPanel.querySelector('ul');
+  const headings = document.querySelectorAll('#content h1, #content h2, #content h3');
+  headings.forEach(h=>{
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.textContent = h.textContent;
+    if(!h.id){
+      h.id = 'h-' + Math.random().toString(36).substr(2,9);
+    }
+    a.href = '#' + h.id;
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
 
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
-        }
+  /* Clap system */
+  const clapBtn = document.getElementById('clap-button');
+  const clapCount = document.getElementById('clap-count');
+  let claps = 0;
+  clapBtn.addEventListener('click', ()=>{
+    if(claps < 50){
+      claps++;
+      clapCount.textContent = claps;
+    }
+  });
 
-        generateTOC();
+  /* Feedback system */
+  const feedbackBtn = document.getElementById('feedback-submit');
+  feedbackBtn.addEventListener('click', ()=>{
+    alert("Your feedback has been submitted for custodial review.");
+  });
 
-        /* TOC toggle */
-        const tocBar = document.getElementById("toc-bar");
-        const tocPanel = document.getElementById("toc-panel");
+  /* Voice controls */
+  const playBtn = document.getElementById('tts-play');
+  const pauseBtn = document.getElementById('tts-pause');
+  const stopBtn = document.getElementById('tts-stop');
+  let utterance;
 
-        tocBar.addEventListener("click", () => {
-            tocPanel.classList.toggle("open");
-        });
+  playBtn.addEventListener('click', ()=>{
+    const text = document.getElementById('content').innerText;
+    utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+  });
 
-    </script>
+  pauseBtn.addEventListener('click', ()=> speechSynthesis.pause());
+  stopBtn.addEventListener('click', ()=> speechSynthesis.cancel());
+
+})();
+</script>
 
 </body>
 </html>
