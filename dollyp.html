@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" data-hn-theme="light" data-hn-text-size="normal">
+<head>
+  <meta charset="UTF-8">
+  <title>Universal Template v1.3 — NICKSONOGWAL.ORG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- BASE TYPOGRAPHY & LAYOUT -->
+  <style>
+    :root {
+      --hn-font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --hn-font-title: "Georgia", "Times New Roman", serif;
+
+      /* Light */
+      --hn-bg-light: #f7f7f8;
+      --hn-text-light: #222222;
+      --hn-shell-light: #ffffff;
+
+      /* Dark */
+      --hn-bg-dark: #0f1115;
+      --hn-text-dark: #e5e5e7;
+      --hn-shell-dark: #181a1f;
+
+      /* Warm */
+      --hn-bg-warm: #f4eee3;
+      --hn-text-warm: #3b2a1a;
+      --hn-shell-warm: #fff8ec;
+
+      /* Comfort */
+      --hn-bg-comfort: #f3f5f7;
+      --hn-text-comfort: #22252a;
+      --hn-shell-comfort: #ffffff;
+
+      --hn-accent: #b46b2c;
+      --hn-border-soft: rgba(0,0,0,0.08);
+      --hn-radius: 10px;
+      --hn-radius-pill: 999px;
+      --hn-shadow-soft: 0 12px 30px rgba(0,0,0,0.06);
+    }
+
+    html[data-hn-theme="light"] {
+      background: var(--hn-bg-light);
+      color: var(--hn-text-light);
+    }
+    html[data-hn-theme="dark"] {
+      background: var(--hn-bg-dark);
+      color: var(--hn-text-dark);
+    }
+    html[data-hn-theme="warm"] {
+      background: var(--hn-bg-warm);
+      color: var(--hn-text-warm);
+    }
+    html[data-hn-theme="comfort"] {
+      background: var(--hn-bg-comfort);
+      color: var(--hn-text-comfort);
+    }
+
+    html[data-hn-text-size="normal"] {
+      font-size: 16px;
+    }
+    html[data-hn-text-size="large"] {
+      font-size: 18px;
+    }
+
+    body.sovereign-body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--hn-font-body);
+    }
+
+    .hn-shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* HEADER */
+    .hn-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .hn-brand-title {
+      font-family: var(--hn-font-title);
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hn-brand-sub {
+      margin-top: 4px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .hn-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .hn-pill {
+      border: 1px solid var(--hn-border-soft);
+      border-radius: var(--hn-radius-pill);
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      backdrop-filter: blur(6px);
+    }
+
+    html[data-hn-theme="dark"] .hn-pill {
+      background: rgba(24,26,31,0.9);
+      color: var(--hn-text-dark);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    html[data-hn-theme="warm"] .hn-pill {
+      background: rgba(255,248,236,0.9);
+      color: var(--hn-text-warm);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    html[data-hn-theme="comfort"] .hn-pill {
+      background: rgba(255,255,255,0.95);
+      color: var(--hn-text-comfort);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    .hn-pill-icon {
+      font-size: 0.95rem;
+    }
+
+    /* META BLOCK */
+    .hn-main {
+      display: block;
+    }
+
+    .hn-meta-block {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .hn-title {
+      font-family: var(--hn-font-title);
+      font-size: 2rem;
+      margin: 0 0 6px;
+    }
+
+    .hn-subtitle {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    .hn-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    .hn-meta-chip {
+      padding: 4px 10px;
+      border-radius: var(--hn-radius-pill);
+      border: 1px solid var(--hn-border-soft);
+      background: rgba(255,255,255,0.7);
+    }
+
+    html[data-hn-theme="dark"] .hn-meta-chip {
+      background: rgba(24,26,31,0.9);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    html[data-hn-theme="warm"] .hn-meta-chip {
+      background: rgba(255,248,236,0.9);
+    }
+
+    html[data-hn-theme="comfort"] .hn-meta-chip {
+      background: rgba(255,255,255,0.95);
+    }
+
+    /* HERO */
+    .hn-hero {
+      margin: 0 0 20px;
+      border-radius: var(--hn-radius);
+      overflow: hidden;
+      box-shadow: var(--hn-shadow-soft);
+      background: #000;
+    }
+
+    .hn-hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hn-hero-caption {
+      margin: 0;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.7);
+    }
+
+    /* LAYOUT */
+    .hn-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .hn-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #content {
+      background: var(--hn-shell-light);
+      border-radius: var(--hn-radius);
+      padding: 18px 18px 24px;
+      box-shadow: var(--hn-shadow-soft);
+    }
+
+    html[data-hn-theme="dark"] #content {
+      background: var(--hn-shell-dark);
+    }
+
+    html[data-hn-theme="warm"] #content {
+      background: var(--hn-shell-warm);
+    }
+
+    html[data-hn-theme="comfort"] #content {
+      background: var(--hn-shell-comfort);
+    }
+
+    #hn-article {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    html[data-hn-theme="comfort"] #hn-article {
+      line-height: 1.7;
+    }
+
+    #hn-article h2,
+    #hn-article h3 {
+      font-family: var(--hn-font-title);
+      margin-top: 1.4em;
+      margin-bottom: 0.6em;
+    }
+
+    #hn-article p {
+      margin: 0 0 1em;
+    }
+
+    /* RIGHT RAIL */
+    .hn-rail {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hn-card {
+      border-radius: var(--hn-radius);
+      padding: 12px 12px 14px;
+      background: var(--hn-shell-light);
+      box-shadow: var(--hn-shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    html[data-hn-theme="dark"] .hn-card {
+      background: var(--hn-shell-dark);
+    }
+
+    html[data-hn-theme="warm"] .hn-card {
+      background: var(--hn-shell-warm);
+    }
+
+    html[data-hn-theme="comfort"] .hn-card {
+      background: var(--hn-shell-comfort);
+    }
+
+    .hn-card-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* READING TIME */
+    .hn-reading-meter {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hn-reading-bar {
+      width: 100%;
+      height: 6px;
+      border-radius: var(--hn-radius-pill);
+      background: rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .hn-reading-bar-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: var(--hn-radius-pill);
+      background: linear-gradient(90deg, #b46b2c, #d89b4a);
+      transition: width 0.4s ease;
+    }
+
+    .hn-reading-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* TOC */
+    .hn-toc-card {
+      position: sticky;
+      top: 12px;
+    }
+
+    #toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #toc li {
+      margin-bottom: 4px;
+    }
+
+    #toc a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    #toc a:hover {
+      text-decoration: underline;
+    }
+
+    /* REFLECTION BLOCK */
+    .hn-reflection-block {
+      margin-top: 24px;
+      padding: 14px 14px 16px;
+      border-radius: var(--hn-radius);
+      background: var(--hn-shell-light);
+      box-shadow: var(--hn-shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    html[data-hn-theme="dark"] .hn-reflection-block {
+      background: var(--hn-shell-dark);
+    }
+
+    html[data-hn-theme="warm"] .hn-reflection-block {
+      background: var(--hn-shell-warm);
+    }
+
+    html[data-hn-theme="comfort"] .hn-reflection-block {
+      background: var(--hn-shell-comfort);
+    }
+
+    .hn-reflection-open-btn {
+      border-radius: var(--hn-radius-pill);
+      border: 1px solid var(--hn-border-soft);
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.9);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    html[data-hn-theme="dark"] .hn-reflection-open-btn {
+      background: rgba(24,26,31,0.9);
+      color: var(--hn-text-dark);
+    }
+
+    html[data-hn-theme="warm"] .hn-reflection-open-btn {
+      background: rgba(255,248,236,0.95);
+      color: var(--hn-text-warm);
+    }
+
+    html[data-hn-theme="comfort"] .hn-reflection-open-btn {
+      background: rgba(255,255,255,0.95);
+      color: var(--hn-text-comfort);
+    }
+
+    .hn-reflection-panel {
+      margin-top: 10px;
+    }
+
+    .hn-reflection-intro {
+      margin: 0 0 8px;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .hn-reflection-textarea {
+      width: 100%;
+      min-height: 90px;
+      border-radius: 8px;
+      border: 1px solid var(--hn-border-soft);
+      padding: 8px;
+      font-family: var(--hn-font-body);
+      font-size: 0.9rem;
+      resize: vertical;
+    }
+
+    .hn-reflection-submit-btn {
+      margin-top: 8px;
+      border-radius: var(--hn-radius-pill);
+      border: 1px solid var(--hn-border-soft);
+      padding: 6px 12px;
+      background: var(--hn-accent);
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    /* FOOTER */
+    .hn-footer-full {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    html[data-hn-theme="dark"] .hn-footer-full {
+      border-top-color: rgba(255,255,255,0.08);
+    }
+
+    .hn-footer-mission {
+      margin: 0 0 10px;
+    }
+
+    .hn-footer-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .hn-footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hn-footer-copy {
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+	.hn-line1 { ... }
+.hn-brand-title { ... }
+.hn-line1-right { ... }
+.hn-search { ... }
+.hn-hologram { ... }
+
+.hn-line2 { ... }
+
+.hn-line3 { ... }
+.hn-line3 .hn-pill { ... }
+
+/* Structural spacers to lock header lines */
+.hn-spacer-top,
+.hn-spacer-mid {
+  height: 18px;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+/* Responsive collapse of spacers */
+@media (max-width: 900px) {
+  .hn-spacer-top,
+  .hn-spacer-mid {
+    height: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .hn-spacer-top,
+  .hn-spacer-mid {
+    height: 0;
+  }
+}
+
+/* Ensure foundational tags stay on their own line */
+.hn-line2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Readability toolbar isolation and low visual weight */
+.hn-line3 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+}
+.hn-line3 .hn-pill {
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* Brand typography — Medium style look */
+.hn-brand-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  text-rendering: optimizeLegibility;
+}
+.hn-brand-title::first-letter { text-transform: uppercase; }
+
+/* Line 1 layout */
+.hn-line1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Right side of line 1 */
+.hn-line1-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search and hologram */
+.hn-search {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--hn-border-soft);
+  font-size: 0.9rem;
+  max-width: 320px;
+}
+.hn-hologram {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+/* Spacers */
+.hn-spacer-top,
+.hn-spacer-mid {
+  height: 18px;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+@media (max-width: 900px) { .hn-spacer-top, .hn-spacer-mid { height: 8px; } }
+@media (max-width: 600px) { .hn-spacer-top, .hn-spacer-mid { height: 0; } }
+
+/* Line 2 tags */
+.hn-line2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Line 3 toolbar */
+.hn-line3 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+}
+.hn-line3 .hn-pill {
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+
+  </style>
+
+</head>
+
+<body class="sovereign-body">
+
+  <div class="hn-shell">
+
+    <!-- HEADER -->
+    <header class="hn-header">
+
+  <div class="hn-line1">
+    <div class="hn-brand-title">Nicksonogwal.org</div>
+    <div class="hn-line1-right">
+      <input type="search" class="hn-search" placeholder="Search…" aria-label="Search">
+      <img src="hno-hologram.png" alt="HnO" class="hn-hologram">
+    </div>
+  </div>
+
+  <div class="hn-spacer-top" aria-hidden="true"></div>
+
+  <div class="hn-line2">
+    Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+  </div>
+
+  <div class="hn-spacer-mid" aria-hidden="true"></div>
+
+  <div class="hn-line3 hn-toolbar">
+    <button class="hn-pill" data-hn-theme-btn data-hn-theme="light">🌞 Light</button>
+    <button class="hn-pill" data-hn-theme-btn data-hn-theme="dark">🌙 Dark</button>
+    <button class="hn-pill" data-hn-theme-btn data-hn-theme="warm">🔥 Warm</button>
+    <button class="hn-pill" data-hn-theme-btn data-hn-theme="comfort">💮 Comfort</button>
+    <button class="hn-pill" data-text-size-toggle>🔠 Text size</button>
+    <button class="hn-pill" data-tts-toggle>🔊 Read aloud</button>
+  </div>
+
+</header>
+
+
+
+    <!-- MAIN -->
+    <main class="hn-main">
+
+      <!-- META BLOCK -->
+      <section class="hn-meta-block">
+        <h1 class="hn-title">From the Smoky Mountains to Lake Kwania</h1>
+        <h2 class="hn-subtitle">How Dolly’s Voice Became My Lifelong Companion</h2>
+
+        <div class="hn-meta-row">
+          <div class="hn-meta-chip">By Henry Nickson Ogwal</div>
+          <div class="hn-meta-chip">30 August 2026</div>
+          <div class="hn-meta-chip">Section: Quadrant 1: Indigenous Sciences and Oral Literature (The Open-Access Hub)</div>
+        </div>
+      </section>
+
+
+      <!-- HERO -->
+      <figure class="hn-hero">
+        <img src="%%HERO_IMAGE_URL%%" alt="%%HERO_IMAGE_ALT%%">
+        <figcaption class="hn-hero-caption">%%HERO_IMAGE_CAPTION%%</figcaption>
+      </figure>
+
+
+      <!-- LAYOUT -->
+      <div class="hn-layout">
+
+        <!-- LEFT: ARTICLE -->
+        <div id="content">
+          <article id="hn-article">
+            
+<figure>
+    <img src="Lango Boy and Cock.png" alt="A vibrant sunrise scene at Lake Kwania shows a proud Lango cockerel crowing from a rocky mound as a young boy listens attentively by the water’s edge. The lake glows gold beneath distant mountains, symbolizing awakening, heritage, and the rising voice of Lango culture.">
+    <figcaption>
+        From the Smoky Mountains to Lake Kwania: How Dolly’s Voice Became My Lifelong Companion — A symbolic cover illustration portraying the dawn of creative sovereignty. The Lango cockerel’s crow echoes across the lake as a boy listens, representing the awakening of indigenous voice and global dignity. Artwork inspired by Henry Nickson Ogwal’s 2026 tribute to Dolly Parton.
+    </figcaption>
+</figure>
+
+<section class="licensing">
+    <p><strong>Licensing:</strong> This tribute is published under the Creative Commons BY-NC-ND 4.0 license, allowing readers to use it with attribution, without commercial use, and without distributing modified versions. Students, researchers, cultural custodians, journalists, institutions, and general readers may engage with the text according to these rights, each contributing to a shared human history.</p>
+    <p>Readers may also offer written reflections through the feedback form below, adding their voice to the unfolding conversation.</p>
+</section>
+
+<h1>From the Smoky Mountains to Lake Kwania: How Dolly’s Voice Became My Lifelong Companion</h1>
+
+<h2>Lango Proverb</h2>
+
+<blockquote>
+    <p><strong>“Twong Gweno Pe Kok Dokoro Loka.”</strong></p>
+    <p><em>Translation:</em> A cockerel’s crow does not cross to the land beyond the waterbody.</p>
+    <p><em>Meaning:</em> Keep your power and influence within your jurisdiction. For best results, invest personal and community resources within your control.</p>
+</blockquote>
+
+<p>Dolly Parton’s voice entered my life long before I understood the full weight of music, memory, and emotional inheritance. I grew up on the generous shores of Lake Kwania, where childhood was shaped by the rhythms of Lango folklore, the pulse of Lingala, and the Luo melodies drifting across borders of Zaïre and Kenya respectively. Music was communal, ancestral, and part of how we understood ourselves.</p>
+
+<p>When I left home in 1985 to join Jinja College, I carried that world inside me. I was a village boy stepping into a new life, unsure of what lay ahead. I did not yet know that a woman born into poverty in the Smoky Mountains of Tennessee — Dolly Rebecca Parton — would become one of the most successful musicians in world history, and that her voice would open both my ears and my heart.</p>
+
+<p>Her music reached me like a revelation. A softness that carried strength. A tenderness that carried truth. A simplicity that carried sovereignty.</p>
+
+<p>For a Lango boy navigating adolescence, Dolly’s voice became a companion — a bridge between the world I came from and the world I was entering.</p>
+
+<p>Uganda trembled during the Tito Okello military coup. Streets shifted. Families whispered. The air felt heavy with uncertainty. My sister’s home at Magawa Crescent, near Gaddafi Barracks, was looted to the bone. We lost everything — schoolbooks, clothes, cutleries and the treasured music system with Dolly Parton’s LPs that my sister and her husband Charles Okello W’Dyang kept with pride. That loss cut deeper than we understood at the time. Music was not just entertainment; it was memory, identity, and emotional refuge.</p>
+
+<p>Displaced from Magawa Crescent, I found myself living at Adwong Uncle Ray’s home on Wilson Avenue. That flat became a sanctuary. Uncle Ray, with his gentle spirit and deep love for music, became part of my healing. He could whistle entire Dolly Parton and Kenny Rogers songs — every note, every breath — as he drove my sister Petrah Nywalowok and me to either Odeon, Dingos or Town Talkies Cinema Hall on Lubas Road to watch videos. As warm up, the Cinema Halls on Lubas Road – the cinema boulevard of Jinja – played music videos for about thirty minutes. This was the most important moment when our music icons were featured. The top faces and names were Dolly Parton, Kenny Rogers, Don William, Madonna, and Michael Jackson, alongside African music icons. We mainly watched American Action movies that included the James Bond 007 series.</p>
+
+<p>Those drives in Datsun 120 Y were therapy. Those whistles were medicine. Those songs were survival.</p>
+
+<p>Dolly’s voice did not erase fear. But it softened it. It did not remove uncertainty. But it made it bearable.</p>
+
+<p>In those days, Dolly was not just a singer. She was a presence — a reminder that gentleness can survive even in the midst of turmoil.</p>
+
+<p>When I joined Makerere University in the early 1990s, Dolly followed me into campus life. In Nkrumah Hall, in the room I shared with George Rochelle Omollo, her LPs sat proudly among our few possessions. Students who visited us — friends, dreamers, thinkers — all encountered Dolly’s music. Her songs played during late-night debates, during exam stress, during quiet reflection, and during celebration. We were honored to request DJ Elvis – a fellow Activist who was residing in Nkrumah Hall – to play more Dolly Parton’s music on the first FM Radio in Uganda, Sanyu FM.</p>
+
+<p>Her music touched everyone who entered that room and listened to Sanyu FM. It softened hearts. It opened conversations. It taught us that vulnerability is not weakness — it is humanity.</p>
+
+<p>For a Lango boy becoming a man, Dolly Parton became a teacher of feeling, a mentor in emotional intelligence, and a guide in the art of storytelling.</p>
+
+<p>Her life itself is a story of transformation — the kind that resonates deeply with anyone who understands the discipline of investing in one’s own sphere of influence. <strong>Twong Gweno Pe Kok Dokoro Loka.</strong> A cockerel’s crow does not cross to the land beyond the waterbody. Dolly lived this truth. She invested in her roots, her people, her mountain heritage, and her own creative jurisdiction. From that grounded place, she rose to become: One of the world’s most successful musicians, a composer of over 3,000 songs, a global icon with 100 million records sold, a winner of 11 Grammy Awards and 3 Emmy Awards, and a humanitarian whose Imagination Library has gifted millions of books to children.</p>
+
+<p>Her journey is proof that origin does not limit destiny. That poverty does not silence talent. That a voice born in the mountains can echo across the world — even into the life of a boy from Lake Kwania.</p>
+
+<p>Of all her music, one song became my spiritual anchor: <em>“Don’t Make Me Have to Come Down There.”</em> It is a song of warning, tenderness, and divine reminder — a message that the Creator watches, guides, and intervenes when humanity strays too far. For me, it is a personal covenant. A reminder that life must be lived with reverence, humility, and readiness.</p>
+
+<p>It is the song I carry into adulthood. The song I share with my family. The song that speaks to my soul.</p>
+
+<p>There is another thread in this story — one that lives not in the world of the living, but in the world of memory. My brother, Fred Armstrong Muno, left us in September 2005, but he did not leave my heart. He left his musical experiences inside me, like a sealed archive of joy, rhythm, and brotherhood. In the early 1990s, while I was at Makerere University, we built a music library for his home — a sacred collection that reflected both his taste and mine. I was honoured to contribute to that library, placing at the very top the music that shaped my soul: Dolly Parton, Kenny Rogers, Don Williams, and Alpha Blondy. I later replicated this library when I started my independent life in Apac from 1995 purely on Cassette Tapes.</p>
+
+<p>Those LPs and Music Cassettes were not just records and magnetic tapes. They were bridges between us — between brothers who loved music, storytelling, and the emotional truth that great artists carry.</p>
+
+<p>When Magawa Crescent was looted and Dolly’s LPs disappeared, it felt like losing a part of our shared identity. But memory is sovereign. Music does not die when the vinyl is stolen. It lives in the heart.</p>
+
+<p>Today, as I write this tribute, I speak directly to my brother:</p>
+
+<p><strong>Armstrong, my brother</strong>, you can now speak with Dolly herself. You can tell her how we used her music to entertain ourselves, to educate ourselves, to heal ourselves. You can tell her how her voice travelled from Tennessee to Lake Kwania, to Jinja, to Makerere, and into your homes. You can tell her how her songs shaped two Lango boys who loved music with all their hearts.</p>
+
+<p>I imagine you smiling — that quiet, knowing smile — as you meet her in the realm where stories, souls, and songs never end.</p>
+
+<p>Dolly’s creativity did more than entertain me. It inspired me to tell my own natural stories — to write poems, compose music, and produce work that promotes Indigenous Sciences, Heritage, Strategy, Voice, and Sovereignty for my people. This year, I was certified by the International Federation of the Phonographic Industry (IFPI) as a Music Registrant, empowered to assign International Standard Recording Codes (ISRC) to my own creations. These are baby steps, but they allow the Lango cockerel to begin crowing louder — with global dignity, yet firmly rooted in its own land. <strong>Twong Gweno Pe Kok Dokoro Loka.</strong> The cockerel’s crow must first strengthen its home before it echoes across the waters.</p>
+
+<p>Dolly’s passing in August 2026 touched me deeply. She shaped my emotional vocabulary. She expanded my cultural horizon. She became part of my journey from childhood to adulthood. Her voice will continue to echo in the homes of Uncle Ray, Sister Elizabeth Okello, and Armstrong Fred Muno. It will continue to live in my brother’s memory, and in my heart.</p>
+
+<p>Through this special tribute, I tell my brother that I still play and enjoy Dolly’s music — and Kenny Rogers’. I also tell our Maker that He does not have to come down here — yet. We will be transformed by His warning through Dolly’s life, so that we join her in peace at the right time.</p>
+
+<p>Dolly Parton taught me that music can cross oceans without losing its soul. That a voice can heal even when the world is breaking. That stories matter, whether from Tennessee or Lango. That gentleness is a form of strength. That art can be a companion through every season of life.</p>
+
+<p>Her music became part of my personal history — from Lake Kwania to Jinja College, from Magwa Crescent and Wilson Avenue to Makerere University, from youth to adulthood.</p>
+
+<p>Dolly Parton did not just influence my music life. She shaped my emotional identity. She expanded my imagination. She became part of my sovereign story.</p>
+
+<p>You lived with grace, Dolly. You sang with courage. You loved with generosity. You gave the world beauty, and you gave a Lango boy a lifelong companion in music.</p>
+
+<p>Your voice will continue to echo across continents, across generations, and across the quiet rooms where young people discover themselves.</p>
+
+<p><strong>Farewell, Dolly. You will always be part of my story.</strong></p>
+
+
+          </article>
+
+          <!-- CLAP -->
+          <div style="margin-top: 18px;">
+            <button id="hn-clap-btn" class="hn-pill">
+              👏 Clap
+            </button>
+            <span id="hn-clap-count" style="margin-left: 8px;">0</span>
+          </div>
+        </div>
+
+
+        <!-- RIGHT: RAIL -->
+        <aside class="hn-rail">
+
+          <!-- READING TIME -->
+          <div class="hn-card hn-reading-meter">
+            <div class="hn-card-title">READING TIME</div>
+
+            <div class="hn-reading-label">
+              <span id="hn-reading-mins">–</span>
+              <span id="hn-reading-words">–</span>
+            </div>
+
+            <div class="hn-reading-bar">
+              <div id="hn-reading-fill" class="hn-reading-bar-fill"></div>
+            </div>
+          </div>
+
+          <!-- TOC -->
+          <div class="hn-card hn-toc-card">
+            <div class="hn-card-title">SECTIONS</div>
+            <nav id="toc"></nav>
+          </div>
+
+        </aside>
+
+      </div> <!-- end layout -->
+
+
+      <!-- REFLECTION BOX -->
+      <section class="hn-reflection-block" aria-label="Reader reflections">
+
+        <button class="hn-reflection-open-btn">Share Your Reflections</button>
+
+        <div class="hn-reflection-panel" hidden>
+          <p class="hn-reflection-intro">
+            Thank you for reading. You are welcome to share your reflections, insights, or questions below.
+            All submissions are reviewed and approved before appearing publicly.
+          </p>
+
+          <textarea class="hn-reflection-textarea" placeholder="Write your reflection here…"></textarea>
+
+          <button class="hn-reflection-submit-btn">Submit Reflection</button>
+        </div>
+
+      </section>
+
+
+      <!-- SOVEREIGN FOOTER -->
+      <footer class="hn-footer-full">
+
+        <p class="hn-footer-mission">
+          <strong>SMS — Story. Memory. Sovereignty.</strong>
+          This site restores erased narratives, centers ancestral knowledge,
+          and practices decolonial authorship. Content is published with provenance,
+          consent, and accessibility at its core.
+        </p>
+
+        <nav class="hn-footer-links">
+          <a href="mailto:contact@nicksonogwal.org">Contact Us</a> |
+          <a href="https://nicksonogwal.org/privacy">Privacy Policy</a> |
+          <a href="https://nicksonogwal.org/terms.html">Terms of Service</a> |
+          <a href="https://nicksonogwal.org/licensing">Commercial Licensing Schedule</a> |
+          <a href="mailto:support@nicksonogwal.org">Support</a>
+        </nav>
+
+        <p class="hn-footer-copy">
+          © 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository.
+          All Rights Reserved (Unless Specified).
+        </p>
+
+      </footer>
+
+    </main>
+
+  </div> <!-- end hn-shell -->
+
+  <!-- END MAIN -->
+  </main>
+
+</div> <!-- end hn-shell -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ============================================================
+     THEME SWITCHING — Light / Dark / Warm / Comfort
+     ============================================================ */
+  const themeButtons = document.querySelectorAll("[data-hn-theme-btn]");
+  themeButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const theme = btn.getAttribute("data-hn-theme");
+      document.documentElement.setAttribute("data-hn-theme", theme);
+    });
+  });
+
+
+  /* ============================================================
+     TEXT SIZE TOGGLE
+     ============================================================ */
+  const textSizeBtn = document.querySelector("[data-text-size-toggle]");
+  textSizeBtn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-hn-text-size");
+    const next = current === "normal" ? "large" : "normal";
+    document.documentElement.setAttribute("data-hn-text-size", next);
+  });
+
+
+  /* ============================================================
+     TEXT-TO-SPEECH
+     ============================================================ */
+  const ttsBtn = document.querySelector("[data-tts-toggle]");
+let ttsActive = false;
+let currentUtterance = null;
+
+if (ttsBtn) {
+  ttsBtn.addEventListener("click", () => {
+    if (!("speechSynthesis" in window)) {
+      alert("Text-to-speech is not available on this device.");
+      return;
+    }
+
+    if (ttsActive) {
+      speechSynthesis.cancel();
+      ttsActive = false;
+      ttsBtn.textContent = "🔊 Read aloud";
+      currentUtterance = null;
+      return;
+    }
+
+    speechSynthesis.cancel();
+    const article = document.querySelector("#hn-article");
+    currentUtterance = new SpeechSynthesisUtterance((article && article.innerText) || "");
+    currentUtterance.onend = () => {
+      ttsActive = false;
+      ttsBtn.textContent = "🔊 Read aloud";
+      currentUtterance = null;
+    };
+
+    ttsActive = true;
+    ttsBtn.textContent = "⏹ Stop reading";
+    speechSynthesis.speak(currentUtterance);
+  });
+}
+
+
+
+  /* ============================================================
+     CLAP COUNTER
+     ============================================================ */
+  const clapBtn = document.querySelector("#hn-clap-btn");
+  const clapCount = document.querySelector("#hn-clap-count");
+  let claps = 0;
+
+  clapBtn.addEventListener("click", () => {
+    claps++;
+    clapCount.textContent = claps;
+  });
+
+
+  /* ============================================================
+     READING TIME + WORD COUNT
+     ============================================================ */
+  const article = document.querySelector("#hn-article");
+  const readingMins = document.querySelector("#hn-reading-mins");
+  const readingWords = document.querySelector("#hn-reading-words");
+  const readingFill = document.querySelector("#hn-reading-fill");
+
+  function computeReadingStats() {
+    const text = article.innerText.trim();
+    const words = text.split(/\s+/).filter(w => w.length > 0).length;
+    const mins = Math.max(1, Math.ceil(words / 200)); // 200 wpm baseline
+
+    readingWords.textContent = `${words} words`;
+    readingMins.textContent = `${mins} min read`;
+
+    const fillPercent = Math.min(100, (words / 200) * 100);
+    readingFill.style.width = `${fillPercent}%`;
+  }
+
+  computeReadingStats();
+
+
+  /* ============================================================
+     TABLE OF CONTENTS (TOC)
+     ============================================================ */
+  const toc = document.querySelector("#toc");
+  const headings = article.querySelectorAll("h2, h3");
+
+  if (headings.length > 0) {
+    const ul = document.createElement("ul");
+
+    headings.forEach(h => {
+      const id = h.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+      h.setAttribute("id", id);
+
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `#${id}`;
+      a.textContent = h.textContent;
+
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    toc.appendChild(ul);
+  } else {
+    toc.textContent = "No sections available.";
+  }
+
+
+  /* ============================================================
+     REFLECTION BOX — Hover / Touch / Click
+     ============================================================ */
+  const reflectionBlock = document.querySelector(".hn-reflection-block");
+  const reflectionBtn = document.querySelector(".hn-reflection-open-btn");
+  const reflectionPanel = document.querySelector(".hn-reflection-panel");
+
+  let panelOpen = false;
+
+  // Desktop hover
+  reflectionBlock.addEventListener("mouseenter", () => {
+    reflectionPanel.hidden = false;
+  });
+
+  reflectionBlock.addEventListener("mouseleave", () => {
+    if (!panelOpen) {
+      reflectionPanel.hidden = true;
+    }
+  });
+
+  // Click / Touch
+  reflectionBtn.addEventListener("click", () => {
+    panelOpen = !panelOpen;
+    reflectionPanel.hidden = !panelOpen;
+  });
+
+
+});
+</script>
+
+</body>
+</html>
