@@ -10,10 +10,9 @@
 <style>
 
 /* ===========================
-   UNIVERSAL READABILITY ENGINE
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
    =========================== */
 
-/* Base Typography */
 body {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 20px;
@@ -25,7 +24,6 @@ body {
     background: #fafafa;
 }
 
-/* Elder-friendly scaling */
 @media (max-width: 600px) {
     body {
         font-size: 22px;
@@ -34,7 +32,6 @@ body {
     }
 }
 
-/* Headings */
 h1, h2, h3, h4 {
     font-family: "Segoe UI", Arial, sans-serif;
     margin-top: 2.2rem;
@@ -48,12 +45,10 @@ h2 { font-size: 1.7rem; }
 h3 { font-size: 1.4rem; }
 h4 { font-size: 1.2rem; }
 
-/* Paragraphs */
 p {
     margin-bottom: 1.4rem;
 }
 
-/* Links */
 a {
     color: #0050a0;
     text-decoration: underline;
@@ -62,13 +57,11 @@ a:hover {
     color: #003366;
 }
 
-/* Lists */
 ul, ol {
     margin-bottom: 1.4rem;
     padding-left: 2rem;
 }
 
-/* Blockquotes */
 blockquote {
     margin: 1.8rem 0;
     padding: 1rem 1.5rem;
@@ -77,7 +70,6 @@ blockquote {
     font-style: italic;
 }
 
-/* Tables */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -91,7 +83,6 @@ th {
     background: #e8e8e8;
 }
 
-/* Code Blocks */
 pre, code {
     background: #f4f4f4;
     padding: 0.5rem;
@@ -99,16 +90,12 @@ pre, code {
     font-size: 0.9rem;
 }
 
-/* Horizontal Rule */
 hr {
     border: none;
     border-top: 1px solid #ccc;
     margin: 2rem 0;
 }
 
-/* ===========================
-   DARK MODE
-   =========================== */
 @media (prefers-color-scheme: dark) {
     body {
         background: #111;
@@ -134,77 +121,290 @@ hr {
         color: #99cfff;
     }
 }
-
 /* ===========================
-   TEXT-TO-SPEECH FRIENDLY
+   MANUAL DARK MODE OVERRIDE
    =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
 [role="doc-subtitle"],
 [role="doc-introduction"],
 [role="doc-note"] {
     speak: always;
 }
 
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
 </style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
 </head>
 
 <body>
 
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
 <!-- Pandoc will insert your content here -->
-<p><strong>SMS — Story. Memory. Sovereignty.</strong></p>
-<p><em><strong>The Living Archive and Sovereign Editorial Identity of
-Henry Nickson Ogwal (HnO)</strong></em></p>
-<p>For decades, my work lived in scattered fragments. Some pieces were
-erased. Others were silenced. Many were carried in memory, guarded in
-ritual spaces, or protected in silence. I carried them as a child who
-grew as a living library of my people’s cosmology, history, rhythm, and
-ancestral logic. Today, for the first time, all of my work stands
-together under one sovereign roof – protected, restored and
-dignified.</p>
-<p>This platform is the sovereign home of my lifelong work. It is a
-place where African knowledge is honoured and erased narratives rise
-again. It is a place where ancestral wisdom breathes freely. My voice —
-once interrupted — now speaks with full agency.</p>
-<p>SMS — <strong>Story. Memory. Sovereignty</strong> — is the editorial
-standard that guides every page here. It is a decolonial architecture
-shaped by African epistemologies and custodial authority. It is built
-from my lived experience as an artist, ethnomusical creator, poet,
-pan‑African storyteller, practitioner of decolonial unified science,
-cultural leader, and elder witness. SMS is not a theory but a worldview
-and a discipline. It is a covenant with those who came before.</p>
-<p><strong>Story</strong> revives narratives that refused to die. These
-are stories censored, misinterpreted, or diminished by colonial
-archives. <strong>Memory</strong> restores continuity and rebuilds
-context. It reconnects African histories across time.
-<strong>Sovereignty</strong> asserts that African people interpret their
-own world. It affirms that African knowledge is complete, continuous,
-and legitimate.</p>
-<p>Every piece published here carries provenance metadata, custodial
-consent, and editorial intent. Distortion diagnosis is applied where
-needed and community review protects sensitive material. All content
-follows accessible, low‑bandwidth, WCAG‑aligned structure.</p>
-<p>This is not simply a website. It is a sovereign declaration of
-African intellectual authority and a teaching ground for students,
-researchers, journalists, and leaders. It is a cultural sanctuary. It is
-a place where accountable, reparative scholarship is practiced with
-clarity and dignity.</p>
-<p>It is also the place where I — <strong>HnO</strong> — finally share
-my own story with the fullness it deserves. I speak not as a distant
-researcher, but as a living witness, custodian, and representative voice
-of my people’s memory.</p>
-<p>Every page carries the breath of those who came before — the
-ancestors first, then the elders, the custodians, and the storytellers
-whose wisdom shaped my path. Every page carries the rhythm of the
-African drum. Knowledge is not merely written but lived, remembered, and
-carried.</p>
-<p>Welcome to the sovereign home of my work.<br />
-Welcome to the archive that refused to die.<br />
-<br />
-<br />
-<em>SMS — Story. Memory. Sovereignty. This site restores erased
-narratives, centers ancestral knowledge, and practices decolonial
-authorship. Content is published with provenance, consent, and
-accessibility at its core.</em></p>
-<p>Terms of Service | Licensing | Privacy</p>
+<h1>The Sovereign Living Archive of Henry Nickson Ogwal (HnO)</h1>
+
+<h2>Story. Memory. Sovereignty — A Home for African Knowledge Restored, Protected, and Reborn</h2>
+
+<p>For generations, African knowledge lived in fragments — scattered across memory, ritual, land, lineage, and silence. Some pieces were erased. Others were misinterpreted. Many survived only because elders carried them in their bodies, in their breath, in their rhythm. I was raised inside that continuum. I grew as a living library of my people’s cosmology, history, and ancestral logic.</p>
+
+<p>Today, for the first time, all of my work stands together under one sovereign roof — protected, restored, and dignified. This platform is not a website. It is a <strong>living archive</strong>, a <strong>custodial declaration</strong>, and a <strong>sovereign editorial identity</strong>. It is the digital home of my lifelong work as Henry Nickson Ogwal — known in my sovereign identity as <strong>HnO</strong>.</p>
+
+<p>Here, African knowledge is honoured. Erased narratives rise again. Memory breathes freely. My voice — once interrupted — now speaks with full agency.</p>
+
+<p>This archive does not seek validation from Eurocentric institutions. African knowledge is complete in itself. It does not require translation into foreign frameworks to be legitimate. The work here is grounded in specific communities, lineages, and custodial traditions whose names are honoured where consent is given, and protected where silence is required.</p>
+
+<h2>Quadrants of the Sovereign Archive</h2>
+
+<p>This sovereign archive is organised into four Quadrants, each representing a pillar of my lifelong work:</p>
+
+<ul>
+    <li><strong>Q1 — Indigenous Sciences and Oral Literature:</strong> The cosmologies, metaphors, rhythms, and unified sciences of my people.</li>
+    <li><strong>Q2 — Ancestral and Heritage Records:</strong> Lineage, custodial memory, provenance, and the restoration of erased histories.</li>
+    <li><strong>Q3 — Consulting and Advisory Portfolios:</strong> Strategy, governance, regulatory documentation, and continental development work.</li>
+    <li><strong>Q4 — Ethnographic Audio and Master Recordings:</strong> Phonographic compositions, cultural soundscapes, and the living archive of African audio heritage.</li>
+</ul>
+
+<p>Supporting these Quadrants are sovereign channels for:</p>
+
+<ul>
+    <li>Partners and Collaborators</li>
+    <li>Governance and Custodial Protocols</li>
+    <li>Teaching and Learning</li>
+    <li>Sovereign Support and Accessibility</li>
+    <li>News and Announcements</li>
+</ul>
+
+<p>Together, the quadrants and the channels form a unified architecture — a complete ecosystem of African knowledge, restored and protected.</p>
+
+<p>This is a cultural sanctuary. A teaching ground. A research platform. A home for accountable, reparative scholarship. A place where African intellectual authority stands without compromise.</p>
+
+<p>It is also the place where I — <strong>HnO</strong> — finally speak with the fullness my story deserves. Not as a distant researcher, but as a living witness, custodian, and representative voice of my people’s memory.</p>
+
+<p>Every page carries the breath of those who came before — the ancestors first, then the elders, the custodians, and the storytellers whose wisdom shaped my path. Every page carries the rhythm of the African drum. Knowledge is not merely written. It is lived, remembered, and carried.</p>
+
+<p>Some knowledge will never be digitised or made public. Sacred, restricted, or community‑bound materials remain under custodial protection. This archive does not grant license for extraction, appropriation, or commodification of cultural knowledge. Researchers, institutions, and readers are expected to honour the boundaries set by custodians and communities.</p>
+
+<p>This work is not neutral. It challenges colonial narratives, institutional habits, and personal assumptions. Readers are invited to approach this archive with humility, to recognise their own inherited biases, and to accept discomfort as part of learning. The materials here are not to be detached from their custodial context or repurposed without consent.</p>
+
+<h2>Your Role in the Restoration</h2>
+
+<p>You are not a visitor here. You are a global citizen with a cosmological background — a bearer of memory, a carrier of rhythm, a participant in the great human continuum. Your presence here is part of the restoration.</p>
+
+<p>This platform invites you to:</p>
+
+<ul>
+    <li><strong>Learn</strong> what was hidden from you</li>
+    <li><strong>Unlearn</strong> what was distorted yet shapes your daily life</li>
+    <li><strong>Relearn</strong> what was unfairly tarnished as unworthy or wrong</li>
+    <li><strong>Empty yourself</strong> of colonial baggage — stereotypes, codes, allegories</li>
+    <li><strong>Engage</strong> with the work as a student, supporter, partner, or collaborator</li>
+    <li><strong>Contribute</strong> to the restoration of African knowledge</li>
+    <li><strong>Share feedback</strong> that strengthens custodial clarity</li>
+    <li><strong>Participate</strong> in a living archive that grows through community</li>
+</ul>
+
+<p>Engagement with this archive is a covenant, not a transaction. African communities, diaspora, and allies are welcome here under principles of respect, reciprocity, and accountability. Institutions and researchers are expected to approach this work with humility, disclose their intentions, and avoid extractive practices. Every reader is invited to become a responsible participant in the restoration of African knowledge.</p>
+
+<h2>Sovereign Access and Protection</h2>
+
+<p><strong>Readability and Elders’ Access:</strong> This archive is designed for elders and readers across generations. Text is structured for clarity, calm pacing, and visual comfort. Layouts avoid clutter. Contrast, font size, and spacing follow accessibility principles so that elders, low‑vision readers, and those new to digital spaces can engage with dignity and ease.</p>
+
+<p><strong>Low‑Bandwidth and Rural Connectivity:</strong> The site is engineered to function on weak internet connections, rural networks, and limited devices. Pages are lightweight, media is carefully optimised, and core content remains accessible even under constrained bandwidth. This is a deliberate choice to honour readers in villages, small towns, and low‑infrastructure environments.</p>
+
+<p><strong>Privacy and Custodial Protection:</strong> Readers, contributors, and communities are protected by a privacy‑conscious design. Personal data is minimised. Sensitive information is handled with care. Community identities are disclosed only with consent, and some custodial details are intentionally withheld to protect people, places, and practices from harm.</p>
+
+<p><strong>Cyber Security and Digital Safety:</strong> The architecture of this archive is configured to safeguard voices, agencies, and artifacts. Security measures protect against tampering, unauthorised access, and malicious interference. The integrity of published work is monitored, and custodial materials are guarded against digital exploitation.</p>
+
+<h2>The Closing Covenant</h2>
+
+<p><strong>Story</strong> — African stories that refused to die.</p>
+<p><strong>Memory</strong> — African history restored across time.</p>
+<p><strong>Sovereignty</strong> — Legitimacy of African Knowledge, Voice, and Agency.</p>
+
+<p>Welcome to the sovereign home of my work.</p>
+<p>Welcome to the archive that refused to die.</p>
+<p>Welcome to a place where we learn together, remember together, and restore together.</p>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+
+</div>
 
 </body>
 </html>
