@@ -1,1 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+
+/* ===========================
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
+   =========================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.4rem;
+}
+
+a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+/* ===========================
+   MANUAL DARK MODE OVERRIDE
+   =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
+}
+
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
+</style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
+<!-- Pandoc will insert your content here -->
+
+<h1>Quadrants - The Sovereign Knowledge Matrix</h1>
+
+<h2>Cultural and Epistemic Orientation - A Structured Gateway into Indigenous Sciences, Heritage Memory, Advisory Work, and Ethnographic Audio</h2>
+
+<p>
+The Quadrants form the sovereign organisational backbone of this archive. They provide
+a clear, dignified, and culturally grounded structure for presenting the full breadth of
+work across Indigenous Sciences, heritage registries, advisory portfolios, and
+ethnographic audio. Each Quadrant is governed by its own statutory and custodial
+framework, ensuring that knowledge is held, protected, and shared with integrity.
+</p>
+
+<p>
+This four-part matrix is designed to honour origin, safeguard memory, and guide readers
+responsibly through the archive. The matrix is organised into four distinct Quadrants,
+each governed by its own statutory and custodial framework.
+</p>
+
+<h3>Quadrant 1 - Indigenous Sciences and Oral Literature (The Open-Access Hub)</h3>
+
+<p>
+Scope: Open-access decolonial humanities texts, historical critiques, translations of
+oral poetry, and community-facing ethnographic documentation.
+</p>
+
+<p>
+Licensing: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+International (CC BY-NC-ND 4.0).
+</p>
+
+<p>
+User Obligations:
+</p>
+
+<p>
+1. Attribution (BY): Users must cite the original URL on
+<a href="https://nicksonogwal.org">nicksonogwal.org</a> and attribute authorship to Henry Nickson Ogwal (HnO).
+</p>
+
+<p>
+2. Non-Commercial (NC): No commercial use without a separate written contract.
+</p>
+
+<p>
+3. No Derivatives (ND): Modified versions may not be distributed publicly.
+</p>
+
+<p>
+Statutory Backing: Copyright and Neighbouring Rights Act, 2006 (Uganda) and the
+Berne Convention.
+</p>
+
+<h3>Quadrant 2 - Endogenous Metadata and Lineage Registries (The Defensive Vault)</h3>
+
+<p>
+Scope: Structured cultural databases, ancestral lineage mappings, royal Lango
+praise-song registries, genealogical charts, and historical meta-records.
+</p>
+
+<p>
+Licensing: Absolute Sui Generis Database Rights combined with customary African
+protection protocols.
+</p>
+
+<p>
+Territorial Notice: Protected under the Data Protection and Privacy Act, 2019 (Uganda)
+and the EU Directive 96/9/EC on Database Protection. Any systematic extraction,
+scraping, or derivative compilation constitutes a breach of cross-border data protection
+rules.
+</p>
+
+<p>
+User Obligations: Users are granted a personal, non-transferable viewing license.
+Unauthorized extraction triggers infrastructure-level IP dropping and legal claims under
+Section 5 and Section 8.
+</p>
+
+<h3>Quadrant 3 - Applied Strategy and Advisory Portfolios (The Commercial Engine)</h3>
+
+<p>
+Scope: Proprietary consulting models, organizational case studies, advisory white
+papers, policy frameworks, and full-length published books.
+</p>
+
+<p>
+Licensing: Strict Traditional Copyright (All Rights Reserved).
+</p>
+
+<p>
+User Obligations: Access requires digital transactions, subscriptions, or formal
+retainers. No duplication, screenshots, or transmission without prior written
+authorization.
+</p>
+
+<p>
+Client Obligations: Advisory clients are bound by perpetual non-disclosure
+agreements embedded into their service contracts.
+</p>
+
+<p>
+Statutory Backing: WIPO Copyright Treaty and the U.S. Digital Millennium Copyright Act
+(DMCA).
+</p>
+
+<h3>Quadrant 4 - Audio-Ethnography and Phonographic Masters (The Studio Node)</h3>
+
+<p>
+Scope: Master sound recordings, vocal captures, musical arrangements, and
+spoken-word digital media.
+</p>
+
+<p>
+Licensing: Phonographic Copyright (@) and Performance Rights (@). All masters and
+compositions remain under the Platform Custodian.
+</p>
+
+<p>
+ISRC Mandate: All audio assets are watermarked and registered globally under the
+Platform Custodian's official International Standard Recording Code (ISRC) registrant
+prefix: UG-A6A.
+</p>
+
+<p>
+User Obligations:
+</p>
+
+<p>
+1. Low-resolution previews may be streamed for personal, non-commercial
+education.
+</p>
+
+<p>
+2. Purchased tracks grant private playback rights only.
+</p>
+
+<p>
+3. Public broadcasting, radio play, background sync, sampling, or digital
+distribution requires a formal synchronization and mechanical license issued
+directly via <a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a>.
+</p>
+
+<p>
+Statutory Backing: Rome Convention and WIPO Performances and Phonograms Treaty.
+</p>
+
+<h3>Purpose of the Quadrants Layer</h3>
+
+<p>
+Together, these Quadrants form a sovereign matrix that protects cultural memory,
+organizes knowledge responsibly, defines clear custodial boundaries, guides readers
+through structured pathways, ensures statutory compliance, and preserves the dignity
+of origin.
+</p>
+
+<p>
+This page serves as the gateway into the Quadrants system. Readers may now proceed
+into Q1, Q2, Q3, or Q4 with clarity and respect for the custodial logic governing each
+domain. The Platform Custodian maintains full sovereign oversight over all Quadrants
+and their associated knowledge domains.
+</p>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+
+</div>
+
+</body>
+</html>
 
