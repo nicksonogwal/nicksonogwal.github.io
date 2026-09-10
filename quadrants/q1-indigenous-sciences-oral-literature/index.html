@@ -1,1 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+
+/* ===========================
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
+   =========================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.4rem;
+}
+
+a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+/* ===========================
+   MANUAL DARK MODE OVERRIDE
+   =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
+}
+
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
+</style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
+<!-- Pandoc will insert your content here -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q1 — Indigenous Sciences and Oral Literature</title>
+
+    <!-- Sovereign Level Two Metadata -->
+    <meta name="section-level" content="Level Two">
+    <meta name="custodian" content="HnO">
+    <meta name="provenance" content="Community-verified">
+    <meta name="lineage" content="Lango">
+    <meta name="access-level" content="Public">
+    <meta name="sensitivity" content="Low">
+    <meta name="sovereign-domain" content="Q1 — Indigenous Sciences and Oral Literature">
+
+    <!-- JSON-LD Metadata -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Q1 — Indigenous Sciences and Oral Literature",
+      "description": "Foundational landing page for Indigenous Sciences and Oral Literature within the Sovereign Living Archive of HnO.",
+      "creator": {
+        "@type": "Person",
+        "name": "Henry Nickson Ogwal",
+        "alternateName": "HnO"
+      },
+      "keywords": [
+        "Indigenous Knowledge",
+        "Oral Literature",
+        "African Cosmology",
+        "Custodial Memory",
+        "Sovereign Archive"
+      ],
+      "provenance": "Community-verified",
+      "accessMode": "textual",
+      "accessModeSufficient": "textual"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Keep your existing sovereign header, readability controls, and layout here -->
+
+    <main>
+        <h1>Q1 — Indigenous Sciences and Oral Literature</h1>
+
+        <h2>Foundations, Custodial Logic, and Pathways Forward</h2>
+
+        <p>This Level Two section of the Sovereign Living Archive gathers the Indigenous sciences and oral literature that shape the cosmology, logic, and rhythm of my people. It is the place where metaphors, proverbs, narratives, and unified sciences are held together as living knowledge — not as museum artifacts, but as active, breathing frameworks that continue to guide daily life, decision‑making, and community continuity.</p>
+
+        <p>The purpose of this section is to provide a sovereign, dignified entry point into the Indigenous sciences and oral literature that inform the rest of the archive. It orients readers to the epistemological foundations of the work, clarifies custodial boundaries, and prepares those who engage here to do so with humility, respect, and accountability.</p>
+
+        <h2>Purpose of This Section</h2>
+
+        <p>This section exists to:</p>
+
+        <p>(1) <strong>Introduce</strong> the cosmological and scientific logics embedded in Indigenous knowledge;<br>
+        (2) <strong>Honour</strong> oral literature as a primary vessel of theory, ethics, and memory;<br>
+        (3) <strong>Provide</strong> a structured pathway into deeper materials, recordings, and custodial narratives.</p>
+
+        <h2>What You Will Find Here</h2>
+
+        <p>(1) <strong>Foundational texts and narratives</strong> that outline key cosmological principles, metaphors, and Indigenous scientific logics.<br>
+        (2) <strong>Orientation to deeper sub‑pages</strong> where specific themes, stories, and knowledge systems are explored in greater detail.<br>
+        (3) <strong>Custodial notes and access guidance</strong> that clarify which materials are public, which are protected, and which remain within community‑bound oral transmission.</p>
+
+        <h2>Custodial Boundaries</h2>
+
+        <p>Not all Indigenous sciences and oral literature can or should be digitised. Some materials are sacred, restricted, or bound to specific custodial lineages and ceremonial contexts. This section presents only those elements that can be responsibly shared in a public archive without violating custodial obligations or exposing communities to harm.</p>
+
+        <p>Readers are asked to recognise that what is visible here is a carefully curated surface of a much deeper body of knowledge. Some stories, rituals, and scientific logics will remain in oral form, under the protection of elders and custodians. This archive does not grant license for extraction, appropriation, or reinterpretation of Indigenous knowledge outside its custodial context.</p>
+
+        <h2>Reader Responsibilities</h2>
+
+        <p>(1) Approach this section with humility, recognising that Indigenous sciences and oral literature are complete intellectual systems, not raw material for external theories.<br>
+        (2) Honour custodial boundaries by refraining from copying, repackaging, or commercialising content without explicit consent.<br>
+        (3) Cite responsibly, acknowledging the communities, custodians, and lineages where knowledge originates.<br>
+        (4) Avoid extractive research practices and engage, instead, in reparative, accountable scholarship and learning.</p>
+
+        <h2>Pathways Forward</h2>
+
+        <p>From this Level Two page, readers may:</p>
+
+        <p>(1) proceed to deeper thematic pages within Q1, where specific cosmological frameworks, metaphors, and oral narratives are explored;<br>
+        (2) return to the Quadrants Level One page to see how Indigenous sciences and oral literature relate to heritage records, consulting portfolios, and ethnographic audio;<br>
+        (3) move into Teaching and Learning sections that show how these Indigenous sciences inform pedagogy, curriculum, and sovereign learning pathways.</p>
+
+        <p>Engagement with this section is part of a larger covenant: to restore, protect, and honour Indigenous knowledge as living science, living literature, and living memory.</p>
+
+        <p><em>This page is a gateway, not a destination. It invites you to walk carefully, listen deeply, and recognise the intellectual sovereignty of Indigenous sciences and oral literature.</em></p>
+    </main>
+
+    <!-- Keep your existing sovereign footer here -->
+</body>
+</html>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+
+</div>
+
+</body>
+</html>
 
