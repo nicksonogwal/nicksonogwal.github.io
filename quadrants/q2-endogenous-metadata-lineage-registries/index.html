@@ -1,1 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+
+/* ===========================
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
+   =========================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.4rem;
+}
+
+a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+/* ===========================
+   MANUAL DARK MODE OVERRIDE
+   =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
+}
+
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
+</style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
+<!-- Pandoc will insert your content here -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q2 — Endogenous Metadata and Lineage Registries</title>
+
+<style>
+/* ================================
+   UNIVERSAL READABILITY ENGINE
+   ================================ */
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+h1, h2, h3 {
+    font-weight: normal;
+    margin-top: 2rem;
+}
+strong {
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1><strong>Q2 — Endogenous Metadata and Lineage Registries</strong></h1>
+
+<h2><strong>Endogenous Metadata and Lineage Registries — The Defensive Vault</strong></h2>
+
+<h3><strong>Cultural, Custodial, and Territorial Orientation</strong></h3>
+
+<p>
+Quadrant 2 is the protected heart of the archive — the place where memory is structured, lineage is mapped, and heritage is safeguarded with precision. Readers entering this Quadrant should understand immediately that they are stepping into a custodial environment governed by strict cultural, statutory, and territorial protocols. This is not an open-access humanities space; it is a sovereign vault designed to preserve identity and origin across generations.
+</p>
+
+<p>
+Quadrant 2 houses the metadata backbone of the platform: <strong>ancestral lineage mappings</strong>, <strong>royal praisesong registries</strong>, <strong>genealogical charts</strong>, and <strong>historical meta-records</strong>. These records anchor the epistemic infrastructure that supports cultural continuity and custodial authority.
+</p>
+
+<p>
+As Quadrant 1 honours the spoken and written humanities, Quadrant 2 protects the ancestral metadata that gives those humanities their roots. The two Quadrants operate in tandem: one expresses culture, the other preserves its structural backbone.
+</p>
+
+<h3><strong>Scope of Quadrant 2</strong></h3>
+
+<p>
+This section helps readers understand what kinds of materials live inside the Defensive Vault. Unlike Quadrant 1, which focuses on open-access humanities, Quadrant 2 contains structured cultural data that must be handled with care. The scope is intentionally narrow, precise, and protective.
+</p>
+
+<p>Quadrant 2 contains:</p>
+
+<ol>
+<li>Structured cultural databases</li>
+<li>Ancestral lineage mappings</li>
+<li>Royal Lango praise-song registries</li>
+<li>Genealogical charts</li>
+<li>Historical meta-records</li>
+<li>Custodial metadata for heritage continuity</li>
+</ol>
+
+<p>
+These materials form the backbone of cultural identity and require responsible access.
+</p>
+
+<h3><strong>Licensing and Territorial Protection</strong></h3>
+
+<p>
+Readers need a clear sense of why Quadrant 2 is protected and what legal frameworks govern its use. This section provides that grounding. It explains that metadata is not simply information — it is cultural property with statutory and territorial protections.
+</p>
+
+<p>Quadrant 2 operates under:</p>
+
+<ol>
+<li>Absolute Sui Generis Database Rights</li>
+<li>Customary African Protection Protocols</li>
+<li>Data Protection and Privacy Act, 2019 (Uganda</li>
+<li>EU Directive 96/9/EC on Database Protection</li>
+</ol>
+
+<p>
+These frameworks ensure that cultural metadata cannot be extracted, scraped, or repurposed without authorization. Any systematic extraction or derivative compilation constitutes a breach of cross-border data protection rules.
+</p>
+
+<h3><strong>User Obligations</strong></h3>
+
+<p>
+This section clarifies what readers may and may not do inside the Defensive Vault. It sets expectations early, reducing confusion and reinforcing custodial boundaries.
+</p>
+
+<p>
+Users accessing Quadrant 2 are granted a <strong>personal, non-transferable viewing license</strong>. This license allows reading but prohibits any form of extraction or redistribution.
+</p>
+
+<p>Obligations include:</p>
+
+<ol>
+<li><strong>No extraction</strong> — metadata may not be copied, downloaded, or exported.</li>
+<li><strong>No scraping</strong> — automated tools, bots, or scripts are prohibited.</li>
+<li><strong>No derivative compilations</strong> — users may not reorganize or republish metadata.</li>
+<li><strong>No redistribution</strong> — content may not be shared outside the platform.</li>
+<li><strong>Custodial respect</strong> — users must honour the cultural and territorial boundaries governing lineage knowledge.</li>
+</ol>
+
+<p>
+<strong>Unauthorized extraction triggers:</strong> (1) Infrastructure-level IP dropping, (2) Custodial intervention, (3) Legal claims under <strong>Section 5</strong> and <strong>Section 8</strong> of the <strong>Data Protection and Privacy Act, 2019 (Uganda)</strong>.
+</p>
+
+<p>
+Quadrant 2 is a protected cultural space. Access is a privilege, not a right.
+</p>
+
+<h3><strong>Custodial Logic and Purpose</strong></h3>
+
+<p>
+This section explains why Quadrant 2 exists. It helps readers understand the deeper custodial philosophy behind the metadata vault.
+</p>
+
+<p>Quadrant 2 exists to:</p>
+
+<ol>
+<li>Protect ancestral memory</li>
+<li>Preserve lineage continuity</li>
+<li>Uphold territorial sovereignty</li>
+<li>Maintain cultural integrity</li>
+<li>Ensure responsible access</li>
+<li>Prevent misuse or distortion of heritage metadata</li>
+</ol>
+
+<p>
+This Quadrant is the backbone of identity and origin within the sovereign archive. It ensures that lineage knowledge is held with dignity and transmitted responsibly across generations.
+</p>
+
+<h3><strong>Reader Pathways</strong></h3>
+
+<p>
+This section guides readers on where to go next. It provides a clear map of the subdomains within Quadrant 2 so they can navigate without confusion.
+</p>
+
+<p>From this landing page, readers may proceed to:</p>
+
+<ul>
+<li>Ancestral Lineage Maps</li>
+<li>Royal Lango Praise-Song Registries</li>
+<li>Genealogical Charts and Family Trees</li>
+<li>Historical Meta-Records</li>
+<li>Custodial Protocols and Access Guidelines</li>
+</ul>
+
+<p>
+Each pathway is governed by its own custodial boundary and statutory logic.
+</p>
+
+<h3><strong>Sovereign Orientation</strong></h3>
+
+<p>
+This final section reinforces the sovereign philosophy behind Quadrant 2. It reminds readers that metadata is not neutral — it is cultural property held in trust.
+</p>
+
+<p>
+Quadrant 2 is not merely a database. It is a territorial and cultural trust space. It protects origin, lineage, memory, custodial authority, territorial rights, and epistemic sovereignty.
+</p>
+
+<p>
+The Platform Custodian maintains full oversight over all metadata, lineage registries, and cultural records within this Quadrant. By securing lineage, origin, and custodial metadata, Quadrant 2 provides the structural integrity required for all other Quadrants to function responsibly.
+</p>
+
+<p>
+<strong>Story. Memory. Sovereignty.</strong> These principles guide the custodial logic of Quadrant 2 and ensure that heritage metadata is preserved with dignity and protected with clarity.
+</p>
+
+</body>
+</html>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+
+</div>
+
+</body>
+</html>
 
