@@ -1,1 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+
+/* ===========================
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
+   =========================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.4rem;
+}
+
+a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+/* ===========================
+   MANUAL DARK MODE OVERRIDE
+   =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
+}
+
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 8rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
+</style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
+<!-- Pandoc will insert your content here -->
+
+<section id="quadrant-4">
+  <h1>Quadrant 4 — Audio-Ethnography and Phonographic Masters</h1>
+
+  <h2>The Studio Node of Sovereign Sound</h2>
+
+  <h3>Sovereign Orientation</h3>
+
+  <p>
+    Quadrant 4 is where my voice, my creativity, my cultural memory, and my artistic sovereignty converge.
+    This Quadrant is the Studio Node — the place where my phonographic masters, vocal captures, musical
+    arrangements, and ISRC-registered assets live under full custodial authority. It is the Quadrant where
+    I stand not only as a strategist or cultural custodian, but as an artist, a creator, a producer, and a
+    sovereign owner of my sound.
+  </p>
+
+  <p>
+    Quadrant 4 is built on African audio-ethnography — not borrowed genres, not imported aesthetics, not
+    diluted identity. It is grounded in the rhythms, chants, vocal textures, and cultural expressions that
+    shaped my worldview and civilised me into what I have fruited into. This Quadrant is unapologetic: it
+    protects my masters, honours my creativity, and opens new pathways for collaboration that respect
+    sovereignty, artistry, and custodial independence.
+  </p>
+
+  <h3>Mandate and Purpose</h3>
+
+  <p>
+    The mandate of Quadrant 4 is rooted in my lived artistic journey — a journey shaped by cultural memory,
+    indigenous soundscapes, studio mastery, and sovereign ownership of my phonographic identity. This
+    Quadrant exists to protect, curate, and commercialize my audio works while preserving the cultural
+    logic that informs them.
+  </p>
+
+  <p>Quadrant 4 exists because:</p>
+  <ul>
+    <li>My sound is sovereign,</li>
+    <li>My voice is intellectual property,</li>
+    <li>My masters are cultural evidence,</li>
+    <li>My creativity is commercial capital,</li>
+    <li>My audio-ethnography is heritage,</li>
+    <li>My ISRC identity is global.</li>
+  </ul>
+
+  <p>
+    Quadrant 4 therefore exists to:
+    (1) Protect all studio masters under phonographic copyright,
+    (2) Curate vocal captures and cultural expressions with custodial dignity,
+    (3) Develop musical arrangements that reflect African epistemology,
+    (4) Register and commercialize ISRC assets globally,
+    (5) Provide sovereign pathways for collaboration, licensing, and distribution,
+    (6) Preserve the artistic worldview that informs my work across all Quadrants.
+  </p>
+
+  <p>
+    This Quadrant is commercial — but it is also cultural, archival, and sovereign.
+  </p>
+
+  <h3>Scope of Quadrant 4</h3>
+
+  <p>
+    The scope of Quadrant 4 reflects the full breadth of my artistic identity. It houses all phonographic
+    masters, vocal captures, musical arrangements, and ISRC-registered assets under my custodial authority.
+    These are not hobbyist recordings — they are sovereign audio documents shaped by lived cultural
+    experience and professional studio practice.
+  </p>
+
+  <p>Quadrant 4 contains the following pillars:</p>
+
+  <p>
+    <strong>Studio Masters:</strong> Final mixed tracks, WAV masters, high-resolution audio, mastering
+    versions, alternate masters, and archival studio outputs.
+  </p>
+
+  <p>
+    <strong>Vocal Captures:</strong> Raw vocal takes, harmonies, spoken word, chants, cultural vocal
+    expressions, isolated stems, and rehearsal captures.
+  </p>
+
+  <p>
+    <strong>Musical Arrangements:</strong> Instrumental layers, harmony structures, rhythmic design,
+    arrangement drafts, orchestration notes, and structural evolution of songs.
+  </p>
+
+  <p>
+    <strong>ISRC Catalogue (UG-A6A):</strong> Official ISRC-registered tracks, metadata sheets, registration
+    codes, release versions, compliance documentation, and distribution-ready assets.
+  </p>
+
+  <p>
+    <strong>Music Videos &amp; Visual Masters:</strong> Official music videos, lyric videos, visualizers,
+    performance recordings, cultural video captures, and high-resolution masters.
+  </p>
+
+  <h3>Licensing and Permissions</h3>
+
+  <p>
+    Quadrant 4 is governed by strict phonographic and performance rights. My masters, my compositions, and
+    my vocal captures are protected under international copyright frameworks. I retain absolute ownership
+    of all underlying compositions and studio outputs.
+  </p>
+
+  <p>All materials in Quadrant 4 are protected under:</p>
+  <ul>
+    <li>Phonographic Copyright (℗)</li>
+    <li>Performance Rights (©)</li>
+    <li>International Standard Recording Code (ISRC) Global Registration (UG-A6A)</li>
+    <li>The Rome Convention for the Protection of Performers, Producers of Phonograms and Broadcasting Organisations (1961)</li>
+    <li>World Intellectual Property Organization (WIPO) Performances and Phonograms Treaty</li>
+  </ul>
+
+  <p>Users may:</p>
+  <ul>
+    <li>Stream low-resolution previews for personal, non-commercial education,</li>
+    <li>Purchase full-quality tracks for private playback only.</li>
+  </ul>
+
+  <p>
+    Users may not broadcast, redistribute, sample, sync, or commercialize any asset without formal licensing.
+  </p>
+
+  <p>
+    All commercial use requires a synchronization and mechanical license issued directly through:
+    <a href="mailto:payments@nicksonogwal.org">payments@nicksonogwal.org</a>
+  </p>
+
+  <p>
+    Quadrant 4 is a sovereign studio environment.
+  </p>
+
+  <h3>User Obligations</h3>
+
+  <p>
+    Users entering Quadrant 4 must understand that they are engaging with sovereign audio property. This
+    Quadrant is not open-access; it is a protected commercial and cultural engine designed to preserve
+    artistic integrity and custodial authority.
+  </p>
+
+  <p>Users must:</p>
+  <ul>
+    <li>Respect phonographic and performance rights,</li>
+    <li>Avoid unauthorized duplication or redistribution,</li>
+    <li>Request commercial licenses formally,</li>
+    <li>Comply with ISRC and copyright protocols,</li>
+    <li>Engage ethically with sovereign audio heritage.</li>
+  </ul>
+
+  <h3>Custodial Logic and Territorial Authority</h3>
+
+  <p>
+    Quadrant 4 is curated under my custodial authority as an ISRC registrant, audio-ethnographer, cultural
+    creator, and sovereign owner of my phonographic masters. My studio work is grounded in lived cultural
+    experience, indigenous sound logic, and professional production practice.
+  </p>
+
+  <p>This Quadrant reflects:</p>
+  <ul>
+    <li>Cultural vocal traditions,</li>
+    <li>Indigenous soundscapes,</li>
+    <li>Studio mastery,</li>
+    <li>Global distribution logic,</li>
+    <li>Sovereign ownership,</li>
+    <li>Artistic identity.</li>
+  </ul>
+
+  <p>
+    Quadrant 4 protects my creative capital while enabling partners to collaborate respectfully and
+    responsibly.
+  </p>
+
+  <h3>Why Quadrant 4 Matters</h3>
+
+  <p>
+    Quadrant 4 matters because sound is memory, voice is agency, and music is sovereignty. My audio works
+    are not entertainment — they are cultural documents, intellectual property, and sovereign assets.
+    Institutions, collaborators, and partners need access to African audio-ethnography that is owned,
+    protected, and curated by its creator.
+  </p>
+
+  <p>
+    Quadrant 4 is where my artistic life becomes structured, commercial, and globally accessible.
+  </p>
+
+  <p>
+    It is the bridge between:
+  </p>
+  <ul>
+    <li>Heritage and creativity,</li>
+    <li>Culture and commerce,</li>
+    <li>Voice and sovereignty,</li>
+    <li>Sound and identity.</li>
+  </ul>
+
+  <h3>SMS — Story. Memory. Sovereignty.</h3>
+
+  <p>
+    Quadrant 4 is guided by the SMS ethos. Every master, vocal capture, arrangement, and ISRC asset is
+    rooted in Story, Memory, and Sovereignty — the lived cultural realities that shape my artistic identity.
+  </p>
+
+  <p>
+    Quadrant 4 is not just music. It is sovereign sound.
+  </p>
+
+  <h3>For Collaborations, Licensing, and Creative Partnerships</h3>
+
+  <p>
+    Institutions, studios, producers, filmmakers, cultural organizations, and partners seeking sovereign
+    audio-ethnographic collaboration may reach out directly. My terms are flexible — designed to respect
+    my commitments across all Quadrants and allow me to continue promoting the worldview that shaped my
+    life and my work.
+  </p>
+
+  <p>
+    <strong>Email:</strong> <a href="mailto:hno@nicksonogwal.org">hno@nicksonogwal.org</a>
+  </p>
+</section>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+	
+<p class="copyright">
+    © 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository.
+    All Rights Reserved (Unless Specified).
+</p>
+
+</div>
+
+</body>
+</html>
 
