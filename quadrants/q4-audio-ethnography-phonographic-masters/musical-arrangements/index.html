@@ -1,1 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+
+/* ===========================
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
+   =========================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.4rem;
+}
+
+a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+/* ===========================
+   MANUAL DARK MODE OVERRIDE
+   =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
+}
+
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 8rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
+</style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
+<!-- Pandoc will insert your content here -->
+
+<section id="level-three">
+
+  <h1>Musical Arrangements</h1>
+
+  <h3>Orientation</h3>
+  <p>
+    This Level Three category preserves all sovereign musical arrangements created by the author,
+    including structured composition layers, instrumental arrangements, harmony architecture, and
+    production-ready arrangement maps. Musical arrangements define the internal logic, movement,
+    and emotional architecture of each track. This page serves as the entry point for all arrangement
+    documentation under Quadrant 4.
+  </p>
+
+  <h3>Mandate and Purpose</h3>
+  <ol>
+    <li>To document structured musical arrangements for all compositions.</li>
+    <li>To preserve arrangement maps, instrumental layers, and harmonic structures.</li>
+    <li>To safeguard arrangement intellectual property from distortion or unauthorized extraction.</li>
+    <li>To provide sovereign pathways for licensing, production use, and professional access.</li>
+    <li>To strengthen artistic continuity through curated arrangement archives.</li>
+  </ol>
+
+  <h3>Scope of Materials</h3>
+  <ol>
+    <li>Instrumental arrangement maps and composition layers.</li>
+    <li>Harmony structures, chord progressions, and melodic architecture.</li>
+    <li>Rhythmic frameworks, percussion maps, and tempo guides.</li>
+    <li>Arrangement notes used in studio production or live performance.</li>
+    <li>Structured diagrams, notation sheets, and arrangement metadata.</li>
+  </ol>
+
+  <h3>Access Level</h3>
+  <p>
+    This page is <strong>Commercial Access</strong>. Musical arrangements are protected assets and may
+    require licensing, purchase, or authorized institutional use. Public visitors may access summaries
+    and metadata, while full arrangement documents remain available through controlled commercial
+    channels under the Sovereign Repository Terms of Use v2.2.
+  </p>
+
+  <h3>Custodial Logic</h3>
+  <p>
+    Musical arrangements are custodially held under Quadrant 4 — Music, Audio Ethnography & Performance
+    Works. Their preservation follows the principles of Story, Memory, and Sovereignty (SMS), ensuring
+    that arrangement intellectual property remains protected, dignified, and contextually grounded.
+    Custodial authority remains with the author as the ISRC registrant and creator of the works.
+  </p>
+
+  <h3>Next Steps</h3>
+  <ul>
+    <li><a href="/quadrants/q4-music-audio-ethnography-performance-works/">Return to Quadrant 4</a></li>
+    <li><a href="/quadrants/q4-music-audio-ethnography-performance-works/studio-masters/">Studio Masters</a></li>
+    <li><a href="/quadrants/q4-music-audio-ethnography-performance-works/vocal-captures/">Vocal Captures</a></li>
+    <li><a href="/quadrants/q4-music-audio-ethnography-performance-works/isrc-registered-assets-ug-a6a/">ISRC Registered Assets (UG-A6A)</a></li>
+    <li><a href="/governance/terms-of-use-v2-2/">Sovereign Repository Terms of Use v2.2</a></li>
+    <li><a href="/contact/">Contact for licensing inquiries</a></li>
+  </ul>
+
+</section>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+	
+<p class="copyright">
+    © 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository.
+    All Rights Reserved (Unless Specified).
+</p>
+
+</div>
+
+</body>
+</html>
 
