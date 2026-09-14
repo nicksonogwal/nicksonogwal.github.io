@@ -1,1 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Mobile & Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+
+<style>
+
+/* ===========================
+   UNIVERSAL READABILITY ENGINE (UNCHANGED)
+   =========================== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    color: #222;
+    background: #fafafa;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22px;
+        line-height: 1.8;
+        padding: 1.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    color: #111;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1.4rem;
+}
+
+a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+a:hover {
+    color: #003366;
+}
+
+ul, ol {
+    margin-bottom: 1.4rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    margin: 1.8rem 0;
+    padding: 1rem 1.5rem;
+    background: #f0f0f0;
+    border-left: 4px solid #999;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.6rem;
+}
+th {
+    background: #e8e8e8;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 2rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: #e6e6e6;
+    }
+    blockquote {
+        background: #222;
+        border-left-color: #555;
+    }
+    table, th, td {
+        border-color: #555;
+    }
+    th {
+        background: #333;
+    }
+    pre, code {
+        background: #222;
+    }
+    a {
+        color: #66aaff;
+    }
+    a:hover {
+        color: #99cfff;
+    }
+}
+/* ===========================
+   MANUAL DARK MODE OVERRIDE
+   =========================== */
+body.manual-dark {
+    background: #111 !important;
+    color: #e6e6e6 !important;
+}
+
+body.manual-dark blockquote {
+    background: #222 !important;
+    border-left-color: #555 !important;
+}
+
+body.manual-dark table,
+body.manual-dark th,
+body.manual-dark td {
+    border-color: #555 !important;
+}
+
+body.manual-dark th {
+    background: #333 !important;
+}
+
+body.manual-dark pre,
+body.manual-dark code {
+    background: #222 !important;
+}
+
+body.manual-dark a {
+    color: #66aaff !important;
+}
+
+body.manual-dark a:hover {
+    color: #99cfff !important;
+}
+
+[role="doc-subtitle"],
+[role="doc-introduction"],
+[role="doc-note"] {
+    speak: always;
+}
+
+/* ===========================
+   TOP BLOCK
+   =========================== */
+
+#top-block {
+    margin-bottom: 1.5rem;
+}
+
+#site-name {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#hno-logo {
+    float: right;
+    height: 48px;
+    opacity: 0.95;
+}
+
+#foundational-tags {
+    clear: both;
+    margin-top: 1.2rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ===========================
+   READABILITY FEATURES
+   =========================== */
+
+#readability-controls {
+    margin-top: 1rem;
+    margin-bottom: 8rem;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: #e0e0e0;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #d0d0d0;
+}
+
+/* ===========================
+   FOOTER BLOCK
+   =========================== */
+
+#footer-block {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+}
+
+#footer-block p {
+    margin-bottom: 1rem;
+}
+
+#footer-links a {
+    margin-right: 1.4rem;
+}
+
+</style>
+
+<script>
+
+/* ===========================
+   DARK/LIGHT TOGGLE
+   =========================== */
+function toggleDarkMode() {
+    document.body.classList.toggle('manual-dark');
+}
+
+/* ===========================
+   TEXT-TO-SPEECH
+   =========================== */
+function speakPage() {
+    const text = document.body.innerText;
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+    speechSynthesis.cancel();
+}
+
+/* ===========================
+   TEXT SIZE
+   =========================== */
+function setTextSize(size) {
+    document.body.style.fontSize = size;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- ===========================
+     TOP BLOCK
+     =========================== -->
+<div id="top-block">
+    <div id="site-name">NICKSONOGWAL.ORG</div>
+
+    <!-- HnO emblem -->
+    <img id="hno-logo" src="assets/brand/hno-logo.png" alt="HnO">
+
+    <div id="foundational-tags">
+        Indigenous Sciences · Heritage · Strategy · Voice · Sovereignty
+    </div>
+</div>
+
+<!-- ===========================
+     READABILITY FEATURES
+     =========================== -->
+<div id="readability-controls">
+    <button onclick="toggleDarkMode()">Dark/Light</button>
+    <button onclick="speakPage()">🔊 Start</button>
+    <button onclick="stopSpeech()">⏹ Stop</button>
+    <button onclick="setTextSize('20px')">A</button>
+    <button onclick="setTextSize('22px')">A+</button>
+    <button onclick="setTextSize('24px')">A++</button>
+</div>
+
+<!-- ===========================
+     CONTENT AREA
+     =========================== -->
+<!-- Pandoc will insert your content here -->
+
+<section id="cultural-organisations">
+
+  <h1>Cultural Organisations</h1>
+
+  <h2>Custodial Institutions of Heritage, Identity, and Cultural Continuity</h2>
+
+  <h3>Sovereign Orientation</h3>
+  <p>
+    Cultural Organisations are custodial institutions that preserve, transmit, and strengthen cultural 
+    identity, heritage, and lineage-based knowledge. Their collaboration with HnO is grounded in Story, 
+    Memory, and Sovereignty, ensuring that cultural work remains protected, contextual, and aligned with 
+    territorial authority. These organisations are not merely partners; they are custodians of identity 
+    and continuity.
+  </p>
+
+  <h3>Mandate and Purpose</h3>
+  <ol>
+    <li>To honour cultural organisations that preserve heritage, identity, and lineage-based knowledge.</li>
+    <li>To provide sovereign pathways for cultural collaboration that respect custodial authority.</li>
+    <li>To strengthen cultural continuity through responsible, reciprocal partnerships.</li>
+    <li>To ensure that cultural engagements uphold territorial boundaries and non-extractive principles.</li>
+    <li>To document cultural organisations whose work aligns with the sovereign mission of HnO.</li>
+  </ol>
+
+  <h3>Scope of the Section</h3>
+  <p>
+    This section includes cultural troupes, heritage organisations, lineage-based custodial bodies, 
+    cultural councils, artistic collectives, and institutions that preserve or transmit cultural knowledge. 
+    Each organisation listed here contributes to cultural continuity and strengthens sovereign identity.
+  </p>
+
+  <h3>Forms of Collaboration with Cultural Organisations</h3>
+  <ol>
+    <li><strong>Cultural Preservation</strong> — Joint work to protect, archive, and transmit cultural 
+        heritage, rituals, and lineage-based knowledge.</li>
+
+    <li><strong>Performance and Artistic Collaboration</strong> — Engagements with cultural troupes, 
+        musicians, dancers, storytellers, and artistic collectives.</li>
+
+    <li><strong>Custodial Advisory</strong> — Guidance from cultural elders, custodians, and heritage 
+        authorities on cultural matters.</li>
+
+    <li><strong>Documentation and Archival Support</strong> — Collaborative recording, digitisation, and 
+        preservation of cultural materials.</li>
+
+    <li><strong>Training and Cultural Education</strong> — Workshops, learning sessions, and cultural 
+        immersion activities aligned with wal-based learning traditions.</li>
+
+    <li><strong>Cultural Exchange</strong> — Responsible sharing of cultural experiences across regions, 
+        communities, and institutions.</li>
+
+    <li><strong>Institutional Cultural Support</strong> — Partnerships with cultural councils, heritage 
+        boards, and lineage-based custodial bodies.</li>
+  </ol>
+
+  <h3>Licensing and Permission</h3>
+  <p>
+    Cultural collaborations involving protected materials, rituals, or lineage-based knowledge require 
+    explicit custodial permission. Cultural organisations may not republish or commercialise sovereign 
+    content without written consent. All engagements must comply with the Sovereign Repository Terms of 
+    Use v2.2.
+  </p>
+
+  <h3>User Obligations (Reader Responsibilities)</h3>
+  <p>
+    Readers must approach cultural organisations with humility, respect, and awareness of lineage-based 
+    responsibilities. They must honour custodial authority and avoid any form of cultural extraction or 
+    distortion.
+  </p>
+
+  <h3>Custodial Logic and Territorial Authority</h3>
+  <p>
+    Cultural organisations operate within territorial and lineage-based custodial logic. Their 
+    collaboration with HnO is grounded in cultural sovereignty, ensuring that cultural work remains 
+    protected and contextual.
+  </p>
+
+  <h3>Why It Matters</h3>
+  <p>
+    Cultural organisations are the backbone of identity, continuity, and heritage. Their collaboration 
+    strengthens cultural sovereignty, preserves memory, and ensures that cultural knowledge remains alive 
+    across generations.
+  </p>
+
+  <h3>SMS — Story. Memory. Sovereignty.</h3>
+  <p>
+    These three pillars guide all cultural collaboration. Story anchors identity, Memory sustains 
+    lineage, and Sovereignty protects cultural authority. Nothing comes after SMS in the content 
+    hierarchy.
+  </p>
+
+  <h3>Navigation</h3>
+  <ul>
+    <!-- Parent -->
+    <li><a href="/partnerships-collaborations/categories-partners-collaborators/">
+        Back to Categories of Partners and Collaborators</a></li>
+
+    <!-- Level Two siblings -->
+    <li><a href="/partnerships-collaborations/principles-of-partnership-support/">
+        Principles of Partnership and Support</a></li>
+    <li><a href="/partnerships-collaborations/forms-collaborative-support/">
+        Forms of Collaborative Support</a></li>
+    <li><a href="/partnerships-collaborations/list-partners-collaborators/">
+        List of Partners and Collaborators</a></li>
+
+    <!-- Level Three siblings -->
+    <li><a href="/partnerships-collaborations/categories-partners-collaborators/diaspora-organisations/">
+        Diaspora Organisations</a></li>
+    <li><a href="/partnerships-collaborations/categories-partners-collaborators/ngos/">
+        NGOs</a></li>
+    <li><a href="/partnerships-collaborations/categories-partners-collaborators/pan-african-institutions/">
+        Pan-African Institutions</a></li>
+    <li><a href="/partnerships-collaborations/categories-partners-collaborators/universities-research-organisations/">
+        Universities and Research Organisations</a></li>
+    <li><a href="/partnerships-collaborations/categories-partners-collaborators/governments/">
+        Governments</a></li>
+
+    <!-- Main branch siblings -->
+    <li><a href="/about/">About HnO</a></li>
+    <li><a href="/governance/">Governance and Policies</a></li>
+    <li><a href="/quadrants/">Quadrants</a></li>
+    <li><a href="/teaching-learning/">Teaching and Learning</a></li>
+    <li><a href="/news-announcements/">News and Announcements</a></li>
+
+    <!-- Contact and Support -->
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/support.html">Support</a></li>
+  </ul>
+
+</section>
+
+
+<!-- ===========================
+     FOOTER BLOCK
+     =========================== -->
+<div id="footer-block">
+
+    <p><em><strong>SMS — Story. Memory. Sovereignty.</strong> This site restores erased narratives, centers ancestral knowledge, and practices decolonial authorship. Content is published with provenance, consent, and accessibility at its core.</em></p>
+
+    <p id="footer-links">
+        <a href="#">Contact Us</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Commercial Licensing Schedule</a> |
+        <a href="#">Support</a>
+    </p>
+	
+<p class="copyright">
+    © 2026 Henry Nickson Ogwal — Sovereign Digital Architecture and Repository.
+    All Rights Reserved (Unless Specified).
+</p>
+
+</div>
+
+</body>
+</html>
 
