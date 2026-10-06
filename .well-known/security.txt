@@ -4,3 +4,4 @@ Policy: https://nicksonogwal.org/security-policy
 Preferred-Languages: en
 Canonical: https://nicksonogwal.org/.well-known/security.txt
 Encryption: https://nicksonogwal.org/pgp-key.txt
+Expires: 2029-10-06T00:00:00Z
