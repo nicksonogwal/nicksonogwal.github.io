@@ -3,3 +3,4 @@ Contact: mailto:security@nicksonogwal.org
 Policy: https://nicksonogwal.org/security-policy
 Preferred-Languages: en
 Canonical: https://nicksonogwal.org/.well-known/security.txt
+Encryption: https://nicksonogwal.org/pgp-key.txt
